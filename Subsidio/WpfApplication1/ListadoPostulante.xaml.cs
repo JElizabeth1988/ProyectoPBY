@@ -11,13 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Lógica de interacción para ListadoPostulante.xaml
     /// </summary>
-    public partial class ListadoPostulante : Window
+    public partial class ListadoPostulante : MetroWindow
     {
         public ListadoPostulante()
         {

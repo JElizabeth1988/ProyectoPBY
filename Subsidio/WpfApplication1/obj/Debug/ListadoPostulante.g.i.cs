@@ -9,6 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using MahApps.Metro.Behaviours;
+using MahApps.Metro.Controls;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -19,6 +21,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Ink;
 using System.Windows.Input;
+using System.Windows.Interactivity;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -38,7 +41,7 @@ namespace WpfApplication1 {
     /// <summary>
     /// ListadoPostulante
     /// </summary>
-    public partial class ListadoPostulante : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class ListadoPostulante : MahApps.Metro.Controls.MetroWindow, System.Windows.Markup.IComponentConnector {
         
         private bool _contentLoaded;
         
