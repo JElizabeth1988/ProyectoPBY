@@ -26,3 +26,4 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Deb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Vista.csproj.GenerateResource.Cache
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.exe
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\App.baml
