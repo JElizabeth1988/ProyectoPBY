@@ -144,6 +144,18 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="imagenes\8-86780_house-clipart-with-no-background-transparent-background-house.png" />
+    <Resource Include="imagenes\8a98b4f5e52a98d95af3bc202d51341f_cute-house-set-svg-cutting-files-home-svg-cut-file-free-svgs-free-_432-432.png" />
+    <Resource Include="imagenes\house-png-5a3865001f4ba4.5774694715136453121282.jpg" />
+    <Resource Include="imagenes\kisspng-house-cartoon-building-5af567a2d5bc08.4956188615260322908755.jpg" />
+    <Resource Include="imagenes\maison-cartoon-png-2.png" />
+    <Resource Include="imagenes\Minvu %281%29.png" />
+    <Resource Include="imagenes\Minvu.png" />
+    <Resource Include="imagenes\WhatsApp Image 2019-06-03 at 19.38.03 %281%29.jpeg" />
+    <Resource Include="imagenes\WhatsApp Image 2019-06-03 at 19.38.03.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

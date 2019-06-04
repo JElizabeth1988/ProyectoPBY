@@ -27,5 +27,12 @@ namespace WpfApplication1
         {
             InitializeComponent();
         }
+
+        private void Tile_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroPostulante postulante = new RegistroPostulante();
+            postulante.Show();
+
+        }
     }
 }
