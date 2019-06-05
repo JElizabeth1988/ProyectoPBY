@@ -27,3 +27,32 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Deb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.exe
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.pdb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\App.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\WpfApplication1.exe
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\WpfApplication1.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\ControlzEx.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\MahApps.Metro.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\ControlzEx.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\MahApps.Metro.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\MahApps.Metro.xml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Resources\Icons.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\ListadoPostulante.g.cs
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\RegistroPostulante.g.cs
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\RevisionPostulante.g.cs
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.lref
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\App.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\ListadoPostulante.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\RegistroPostulante.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\RevisionPostulante.baml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Vista.csproj.GenerateResource.Cache
