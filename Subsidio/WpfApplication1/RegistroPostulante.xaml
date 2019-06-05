@@ -24,12 +24,12 @@
         <Label x:Name="lblApMaterno" Content="Apellido Materno" HorizontalAlignment="Left" Margin="49,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.123,0.285" FontWeight="Bold"/>
         <Label x:Name="lblFecha" Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblGenero" Content="Género" HorizontalAlignment="Left" Margin="49,267,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblEstado" Content="Estado Civil" HorizontalAlignment="Left" Margin="49,315,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblNacionalidad" Content="Nacionalidad" HorizontalAlignment="Left" Margin="49,363,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.146,0.36" FontWeight="Bold"/>
-        <Label x:Name="lblProfesion" Content="Profesión" HorizontalAlignment="Left" Margin="49,409,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblEstado" Content="Estado Civil" HorizontalAlignment="Left" Margin="49,314,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblNacionalidad" Content="Nacionalidad" HorizontalAlignment="Left" Margin="49,362,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.146,0.36" FontWeight="Bold"/>
+        <Label x:Name="lblProfesion" Content="Profesión" HorizontalAlignment="Left" Margin="49,408,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblPueblo" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="49,450,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.421,1.365" FontWeight="Bold"/>
-        <Label x:Name="lblRegion" Content="Región" HorizontalAlignment="Left" Margin="49,493,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.183,0.291" FontWeight="Bold"/>
-        <Label x:Name="lblReceptor" Content="Receptor" HorizontalAlignment="Left" Margin="49,536,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblRegion" Content="Región" HorizontalAlignment="Left" Margin="49,496,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.183,0.291" FontWeight="Bold"/>
+        <Label x:Name="lblReceptor" Content="Receptor" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="193,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="193,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
         <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Height="23" Margin="193,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
