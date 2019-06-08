@@ -10,26 +10,30 @@
 
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Subsidio"  Height="600" Width="900"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/Minvu (1).png" WindowStartupLocation="CenterScreen">
+        Title="Subsidio"  Height="600" Width="900"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen">
     <Controls:MetroWindow.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF0E61D1" Offset="0"/>
             <GradientStop Color="#FF7CB9E7" Offset="0.56"/>
         </LinearGradientBrush>
     </Controls:MetroWindow.Background>
-    <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="714,24,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="247" Margin="324,289,0,0" VerticalAlignment="Top" Width="272" Source="imagenes/maison-cartoon-png-2.png"/>
+    <Grid Background="#FF4ED0F4">
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="453" Margin="0,125,-0.333,-6" VerticalAlignment="Top" Width="895" Source="imagenes/1127.jpg"/>
 
-        <Controls:Tile Click="Tile_Click" Margin="355,162,322.667,309" Height="Auto" Width="Auto" Background="{x:Null}" >
+        <Controls:Tile Click="Tile_Click" Margin="341,71,336.667,400" Height="Auto" Width="Auto" Background="{x:Null}" >
             <Grid Height="100" Width="206">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="163*"/>
+                    <ColumnDefinition Width="43*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.Background>
                     <ImageBrush/>
                 </Grid.Background>
-                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,0,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="186"/>
-                <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667"/>
+                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,0,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
             </Grid>
         </Controls:Tile>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="727,36,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png"/>
 
 
 

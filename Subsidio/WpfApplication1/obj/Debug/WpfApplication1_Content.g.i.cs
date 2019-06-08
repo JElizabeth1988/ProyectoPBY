@@ -8,17 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/8-86780_house-clipart-with-no-background-transparent-background-house.pn" +
-    "g")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/8a98b4f5e52a98d95af3bc202d51341f_cute-house-set-svg-cutting-files-home-s" +
-    "vg-cut-file-free-svgs-free-_432-432.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/house-png-5a3865001f4ba4.5774694715136453121282.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/kisspng-house-cartoon-building-5af567a2d5bc08.4956188615260322908755.jpg" +
-    "")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/maison-cartoon-png-2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/minvu%20(1).png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/minvu.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/whatsapp%20image%202019-06-03%20at%2019.38.03%20(1).jpeg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/whatsapp%20image%202019-06-03%20at%2019.38.03.jpeg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/wummjulj.jpg")]
 
 
