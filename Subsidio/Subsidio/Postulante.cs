@@ -16,21 +16,14 @@ namespace Subsidio
             set { _run_postulante = value; }
         }
 
-        private string _primer_nombre;
+        private string _nombre;
 
-        public string Primer_Nombre
+        public string Nombre
         {
-            get { return _primer_nombre; }
-            set { _primer_nombre = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
-        private string _segundo_nombre;
-
-        public string Segundo_Nombre
-        {
-            get { return _segundo_nombre; }
-            set { _segundo_nombre = value; }
-        }
 
         private string _apellido_paterno;
 
@@ -48,7 +41,45 @@ namespace Subsidio
             set { _apellido_materno = value; }
         }
 
-       //telefono y direccion?
+        private DateTime _fecha_Nacimiento;
+
+        public DateTime Fecha_Nacimiento
+        {
+            get { return _fecha_Nacimiento; }
+            set { _fecha_Nacimiento = value; }
+        }
+
+        private int _monto_ahorro;
+
+        public int Monto_Ahorro
+        {
+            get { return _monto_ahorro; }
+            set { _monto_ahorro = value; }
+        }
+
+        private char _pueblo_originario;
+
+        public char Pueblo_Originario
+        {
+            get { return _pueblo_originario; }
+            set { _pueblo_originario = value; }
+        }
+
+        private int _cargas_familiares;
+
+        public int Cargas_Familiares
+        {
+            get { return _cargas_familiares; }
+            set { _cargas_familiares = value; }
+        }
+
+        //Foraneas
+        public int Id_Nacionalidad { get; set; }
+        public int Id_Estado_Civil { get; set; }
+        public int Id_Genero { get; set; }
+        public int Id_Region { get; set; }
+        public int Id_Receptor { get; set; }
+        public int Id_Titulo { get; set; }
 
 
 

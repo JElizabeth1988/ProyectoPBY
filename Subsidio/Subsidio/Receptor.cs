@@ -16,37 +16,23 @@ namespace Subsidio
             set { _id_receptor = value; }
         }
 
-        private string _primer_nombre;
+        private string _nombre;
 
-        public string Primer_Nombre
+        public string Nombre
         {
-            get { return _primer_nombre; }
-            set { _primer_nombre = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
         
-        private string _segundo_nombre;
 
-        public string Segundo_Nombre
+        private string _apellido;
+
+        public string Apellido
         {
-            get { return _segundo_nombre; }
-            set { _segundo_nombre = value; }
+            get { return _apellido; }
+            set { _apellido = value; }
         }
 
-        private string _apellido_paterno;
-
-        public string Apellido_Paterno
-        {
-            get { return _apellido_paterno; }
-            set { _apellido_paterno = value; }
-        }
-
-        private string _apellido_materno;
-
-        public string Apellido_Materno
-        {
-            get { return _apellido_materno; }
-            set { _apellido_materno = value; }
-        }
 
         public Receptor()
         {
