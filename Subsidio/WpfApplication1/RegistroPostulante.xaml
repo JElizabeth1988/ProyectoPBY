@@ -42,13 +42,13 @@
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="193,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
         <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Height="23" Margin="193,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
         <TextBox x:Name="txtApMaterno" HorizontalAlignment="Left" Height="23" Margin="193,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
-        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="193,224,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="193,267,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Margin="193,314,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbNacionalidad" HorizontalAlignment="Left" Margin="193,362,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbProfesion" HorizontalAlignment="Left" Margin="193,407,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Margin="193,496,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left" Margin="193,539,0,0" VerticalAlignment="Top" Width="156"/>
+        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="193,224,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="193,267,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Margin="193,314,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbNacionalidad" HorizontalAlignment="Left" Margin="193,362,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left" Margin="193,407,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Margin="193,496,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left" Margin="193,539,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="120,605,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="257,605,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="#FF4ED0F4" Click="btnBuscar_Click" BorderThickness="2" BorderBrush="Black"/>
         <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="392,605,0,0" VerticalAlignment="Top" Width="128" FontWeight="Bold" Background="#FF4ED0F4" Click="btnPuntaje_Click" BorderThickness="2" BorderBrush="Black"/>
@@ -56,7 +56,7 @@
         <Label x:Name="lblmonto" Content="Monto Ahorro" HorizontalAlignment="Left" Margin="410,363,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtMontoAhorro" HorizontalAlignment="Left" Height="23" Margin="511,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblCargas" Content="N° Cargas" HorizontalAlignment="Left" Margin="410,315,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cbNumCargas" HorizontalAlignment="Left" Margin="511,315,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="cbNumCargas" HorizontalAlignment="Left" Margin="511,315,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold"/>
         <RadioButton x:Name="rbSi" Content="Sí" HorizontalAlignment="Left" Margin="193,454,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="268,454,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 

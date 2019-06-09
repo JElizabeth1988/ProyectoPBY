@@ -26,6 +26,64 @@ namespace WpfApplication1
         {
             InitializeComponent();
             rbSi.IsChecked = true;
+
+            //CB Género
+            cbGenero.Items.Add("Femenino");
+            cbGenero.Items.Add("Masculino");
+
+            //CB ESTADO CIVIL
+            cbEstadoCivil.Items.Add("Casado");
+            cbEstadoCivil.Items.Add("Conviviente Civil");
+            cbEstadoCivil.Items.Add("Soltero");
+            cbEstadoCivil.Items.Add("Divorciado");
+            cbEstadoCivil.Items.Add("Viudo");
+
+            //CB NACIONALIDAD
+            cbNacionalidad.Items.Add("Chilena");
+            cbNacionalidad.Items.Add("Peruana");
+            cbNacionalidad.Items.Add("Mexicana");
+            cbNacionalidad.Items.Add("Argentina");
+            cbNacionalidad.Items.Add("Boliviana");
+            cbNacionalidad.Items.Add("Haitiana");
+            cbNacionalidad.Items.Add("Colombiana");
+            cbNacionalidad.Items.Add("Venezolana");
+            cbNacionalidad.Items.Add("China");
+            cbNacionalidad.Items.Add("Otra");
+
+            //CB CARGAS
+            cbNumCargas.Items.Add("0-2");
+            cbNumCargas.Items.Add("2-4");
+            cbNumCargas.Items.Add("Más de 4");
+
+            //CB TITULO
+            cbTitulo.Items.Add("Profesional");
+            cbTitulo.Items.Add("Técnico");
+            cbTitulo.Items.Add("No Aplica");
+
+            //CB REGION
+            cbRegion.Items.Add("ARICA Y PARINACOTA");
+            cbRegion.Items.Add("TARAPACÁ");
+            cbRegion.Items.Add("ANTOFAGASTA");
+            cbRegion.Items.Add("ATACAMA");
+            cbRegion.Items.Add("COQUIMBO");
+            cbRegion.Items.Add("VALPARAÍSO");
+            cbRegion.Items.Add("METROPOLITANA DE SANTIAGO");
+            cbRegion.Items.Add("LIBERTADOR GENERAL BDO. O´HIGGINS");
+            cbRegion.Items.Add("MAULE");
+            cbRegion.Items.Add("ÑUBLE");
+            cbRegion.Items.Add("BIOBÍO");
+            cbRegion.Items.Add("ARAUCANÍA");
+            cbRegion.Items.Add("LOS RÍOS");
+            cbRegion.Items.Add("LOS LAGOS");
+            cbRegion.Items.Add("AYSÉN DEL GENERAL CARLOS IBAÑEZ DEL CAMPO");
+            cbRegion.Items.Add("MAGALLANES Y DE LA ANTARTICA CHILENA");
+
+            //CB RECEPTOR
+            cbReceptor.Items.Add("Francisca Morán");
+            cbReceptor.Items.Add("Tomás Carjaval");
+            cbReceptor.Items.Add("Antonia Ramírez");
+            cbReceptor.Items.Add("Armando Cárcamo");
+            cbReceptor.Items.Add("Ignacio Méndez");
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
