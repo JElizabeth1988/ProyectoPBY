@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using BibliotecaNegocio;
 
 namespace BibliotecaControlador
 {
-    public class Conexion
-    {
+   
 
-    }
 }
