@@ -10,14 +10,14 @@
 
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="RegistroPostulante" Height="690.226" Width="683.88" ResizeMode="NoResize" WindowTitleBrush="Black"  Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen">
+        Title="Postulante" Height="690.226" Width="683.88" ResizeMode="NoResize" WindowTitleBrush="Black"  Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,-1">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
                 <GradientStop Color="White" Offset="1"/>
                 <GradientStop Color="#FF0B0B0B"/>
-                <GradientStop Color="#FF9FEAFF"/>
+                <GradientStop Color="#FF4ED0F4"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
@@ -49,9 +49,9 @@
         <ComboBox x:Name="cbProfesion" HorizontalAlignment="Left" Margin="193,407,0,0" VerticalAlignment="Top" Width="156"/>
         <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Margin="193,496,0,0" VerticalAlignment="Top" Width="156"/>
         <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left" Margin="193,539,0,0" VerticalAlignment="Top" Width="156"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="120,605,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="#FF4ED0F4"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="257,605,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="#FF4ED0F4" Click="btnBuscar_Click"/>
-        <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="392,605,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold" Background="#FF4ED0F4" Click="btnPuntaje_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="120,605,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="257,605,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="#FF4ED0F4" Click="btnBuscar_Click" BorderThickness="2" BorderBrush="Black"/>
+        <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="392,605,0,0" VerticalAlignment="Top" Width="128" FontWeight="Bold" Background="#FF4ED0F4" Click="btnPuntaje_Click" BorderThickness="2" BorderBrush="Black"/>
         <TextBox x:Name="txtDvRut" HorizontalAlignment="Left" Height="23" Margin="379,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
         <Label x:Name="lblmonto" Content="Monto Ahorro" HorizontalAlignment="Left" Margin="410,363,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtMontoAhorro" HorizontalAlignment="Left" Height="23" Margin="511,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

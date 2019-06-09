@@ -25,6 +25,7 @@ namespace WpfApplication1
         public RegistroPostulante()
         {
             InitializeComponent();
+            rbSi.IsChecked = true;
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
