@@ -26,5 +26,17 @@ namespace WpfApplication1
         {
             InitializeComponent();
         }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoPostulante list = new ListadoPostulante();
+            list.Show();
+        }
+
+        private void btnPuntaje_Click(object sender, RoutedEventArgs e)
+        {
+            RevisionPostulante rev = new RevisionPostulante();
+            rev.Show();
+        }
     }
 }

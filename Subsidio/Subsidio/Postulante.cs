@@ -16,12 +16,12 @@ namespace Subsidio
             set { _run_postulante = value; }
         }
 
-        private string _nombre;
+        private string _nombres;
 
-        public string Nombre
+        public string Nombres
         {
-            get { return _nombre; }
-            set { _nombre = value; }
+            get { return _nombres; }
+            set { _nombres = value; }
         }
 
 
