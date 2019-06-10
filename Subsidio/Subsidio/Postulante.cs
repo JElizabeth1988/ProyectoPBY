@@ -13,7 +13,18 @@ namespace BibliotecaNegocio
         public string Run_Postulante
         {
             get { return _run_postulante; }
-            set { _run_postulante = value; }
+            set
+            {
+                if (value != null && value.Length >= 11 && value.Length <= 12)
+                {
+                    _run_postulante = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Campo Rut no puede estar Vacío");
+                }
+
+            }
         }
 
         private string _nombre;
@@ -21,7 +32,16 @@ namespace BibliotecaNegocio
         public string Nombre
         {
             get { return _nombre; }
-            set { _nombre = value; }
+            set {
+                    if (value != null)
+                    {
+                        _nombre = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Campo Nombre no puede estar Vacío");
+                    }
+                }
         }
 
 
@@ -30,7 +50,16 @@ namespace BibliotecaNegocio
         public string Apellido_Paterno
         {
             get { return _apellido_paterno; }
-            set { _apellido_paterno = value; }
+            set {
+                    if (value != null)
+                    {
+                        _apellido_paterno = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Campo Apellido Paterno no puede estar Vacío");
+                    }
+                 }
         }
 
         private string _apellido_materno;
@@ -38,7 +67,17 @@ namespace BibliotecaNegocio
         public string Apellido_Materno
         {
             get { return _apellido_materno; }
-            set { _apellido_materno = value; }
+            set {
+                if (value != null)
+                {
+                    _apellido_materno = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Campo Apellido no puede estar Vacío");
+                }
+
+            }
         }
 
         private DateTime _fecha_Nacimiento;
@@ -54,7 +93,16 @@ namespace BibliotecaNegocio
         public int Monto_Ahorro
         {
             get { return _monto_ahorro; }
-            set { _monto_ahorro = value; }
+            set {
+                if (value >=8000000)
+                {
+                    _monto_ahorro = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Monto Ahorro insuficiente");
+                }
+                 }
         }
 
         private char _pueblo_originario;
