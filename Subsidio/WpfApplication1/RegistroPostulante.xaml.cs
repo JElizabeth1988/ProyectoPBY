@@ -100,7 +100,7 @@ namespace WpfApplication1
             rev.Show();
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -111,9 +111,9 @@ namespace WpfApplication1
                 pos.Apellido_Materno = txtApMaterno.Text;
                 pos.Fecha_Nacimiento = dpFechaNac.SelectedDate.Value;
                 pos.Monto_Ahorro = int.Parse(txtMontoAhorro.Text);
-                pos.Pueblo_Originario = rbSi.IsChecked == true ? 'S':'N';
+                pos.Pueblo_Originario = rbSi.IsChecked == true ? 'S' : 'N';
                 pos.Cargas_Familiares = int.Parse(cbNumCargas.SelectedItem.ToString());
-               
+
                 //CLAVES FORANEAS
                 /*pos.Id_Nacionalidad =;
                 pos.Id_Estado_Civil =;
@@ -127,10 +127,15 @@ namespace WpfApplication1
                 bool resp = cone.Grabar(pos);
                 MessageBox.Show(resp ? "Grabo" : "No Grabo");
             }
+            catch (ArgumentException exa) //catch excepciones hechas por el usuario
+            {
+                MessageBox.Show(exa.Message);
+            }
             catch (Exception ex)
             {
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format(ex.Message));
 
-                MessageBox.Show(ex.Message);
             }
         }
     }
