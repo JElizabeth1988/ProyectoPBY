@@ -430,6 +430,12 @@ namespace WpfApplication1 {
             return;
             case 26:
             this.btnGuardar = ((System.Windows.Controls.Button)(target));
+            
+            #line 52 "..\..\RegistroPostulante.xaml"
+            this.btnGuardar.Click += new System.Windows.RoutedEventHandler(this.btnGuardar_Click);
+            
+            #line default
+            #line hidden
             return;
             case 27:
             this.btnBuscar = ((System.Windows.Controls.Button)(target));

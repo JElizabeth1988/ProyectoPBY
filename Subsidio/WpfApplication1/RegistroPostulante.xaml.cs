@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using BibliotecaControlador;
+using BibliotecaNegocio;
 
 namespace WpfApplication1
 {
@@ -96,6 +98,40 @@ namespace WpfApplication1
         {
             RevisionPostulante rev = new RevisionPostulante();
             rev.Show();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Postulante pos = new Postulante();
+                pos.Run_Postulante = txtRut.Text;
+                pos.Nombre = txtNombre.Text;
+                pos.Apellido_Paterno = txtApPaterno.Text;
+                pos.Apellido_Materno = txtApMaterno.Text;
+                pos.Fecha_Nacimiento = dpFechaNac.SelectedDate.Value;
+                pos.Monto_Ahorro = int.Parse(txtMontoAhorro.Text);
+                pos.Pueblo_Originario = rbSi.IsChecked == true ? 'S':'N';
+                pos.Cargas_Familiares = int.Parse(cbNumCargas.SelectedItem.ToString());
+               
+                //CLAVES FORANEAS
+                /*pos.Id_Nacionalidad =;
+                pos.Id_Estado_Civil =;
+                pos.Id_Genero =;
+                pos.Id_Region =;
+                pos.Id_Region =;
+                pos.Id_Receptor =;
+                pos.Id_Titulo =;   */
+
+                Conexion cone = new Conexion();
+                bool resp = cone.Grabar(pos);
+                MessageBox.Show(resp ? "Grabo" : "No Grabo");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
