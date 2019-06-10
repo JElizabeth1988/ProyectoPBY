@@ -26,7 +26,7 @@ namespace BibliotecaControlador
             {
                 string sql =
                     "insert into postulante values(@run_postulante,'@nombre','@apellido_paterno',@apellido_materno,'@fecha_nacimiento','@monto_ahorro','@pueblo_originario','@cargas_familiares','@id_nacionalidad','@'id_estado_civil','@id_genero','@id_region','@id_receptor','id_titulo')";
-                sql = sql.Replace("@run_pustulante", p.Run_Postulante;
+                sql = sql.Replace("@run_pustulante", p.Run_Postulante);
                 sql = sql.Replace("@nom", p.Nombre);
                 sql = sql.Replace("@apellido_paterno", p.Apellido_Paterno);
                 sql = sql.Replace("@apellido_materno", p.Apellido_Materno);

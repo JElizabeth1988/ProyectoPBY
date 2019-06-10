@@ -1,7 +1,6 @@
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll.config
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.pdb
-C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Oracle.DataAccess.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Subsidio.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Subsidio.pdb
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.csprojResolveAssemblyReference.cache

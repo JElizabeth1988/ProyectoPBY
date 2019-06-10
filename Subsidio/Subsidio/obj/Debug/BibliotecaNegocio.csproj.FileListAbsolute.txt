@@ -3,3 +3,8 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Subs
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.dll
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Subsidio.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Subsidio.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.pdb

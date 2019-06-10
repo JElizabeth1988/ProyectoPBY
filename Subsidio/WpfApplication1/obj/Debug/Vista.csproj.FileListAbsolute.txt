@@ -56,3 +56,7 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.g.resources
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.pdb
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.pdb
