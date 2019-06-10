@@ -16,12 +16,12 @@ namespace BibliotecaNegocio
             set { _run_postulante = value; }
         }
 
-        private string _nombres;
+        private string _nombre;
 
-        public string Nombres
+        public string Nombre
         {
-            get { return _nombres; }
-            set { _nombres = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
 
