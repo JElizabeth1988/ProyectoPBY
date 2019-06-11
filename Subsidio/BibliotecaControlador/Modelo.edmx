@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Modelo.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID_ESTADO_CIVIL" />
+          </Key>
+          <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="ID_GENERO" />
+          </Key>
+          <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NACIONALIDAD">
+          <Key>
+            <PropertyRef Name="ID_NACIONALIDAD" />
+          </Key>
+          <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POSTULANTE">
+          <Key>
+            <PropertyRef Name="RUN_POSTULANTE" />
+          </Key>
+          <Property Name="RUN_POSTULANTE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="APELLIDO_PATERNO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="APELLIDO_MATERNO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="date" Nullable="false" />
+          <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUEBLO_ORIGINARIO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_REGION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_RECEPTOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_CARGA_FAMILIAR">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_CARGA_FAMILIAR" />
+          </Key>
+          <Property Name="ID_PUNTAJE_CARGA_FAMILIAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CARGA_INF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CARGA_SUP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_EDAD">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_EDAD" />
+          </Key>
+          <Property Name="ID_PUNTAJE_EDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EDAD_SUP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EDAD_INF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_ESTADO_CIVIL" />
+          </Key>
+          <Property Name="ID_PUNTAJE_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_MONTO_AHORRO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_MONTO_AHORRO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_SUP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_INF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_PUEBLO_ORIGINARIO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_TITULO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_TITULO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_ZONA_EXTREMA">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_ZONA_EXTREMA" />
+          </Key>
+          <Property Name="ID_PUNTAJE_ZONA_EXTREMA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REGION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="PORCENTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECEPTOR">
+          <Key>
+            <PropertyRef Name="ID_RECEPTOR" />
+          </Key>
+          <Property Name="ID_RECEPTOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="APELLIDO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID_REGION" />
+          </Key>
+          <Property Name="ID_REGION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TITULO">
+          <Key>
+            <PropertyRef Name="ID_TITULO" />
+          </Key>
+          <Property Name="ID_TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
+          <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_GENERO_FK">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="ID_GENERO" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_GENERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_NACIONALIDAD_FK">
+          <End Role="NACIONALIDAD" Type="Self.NACIONALIDAD" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NACIONALIDAD">
+              <PropertyRef Name="ID_NACIONALIDAD" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_NACIONALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_RECEPTOR_FK">
+          <End Role="RECEPTOR" Type="Self.RECEPTOR" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEPTOR">
+              <PropertyRef Name="ID_RECEPTOR" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_RECEPTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_REGION_FK">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID_REGION" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_TITULO_FK">
+          <End Role="TITULO" Type="Self.TITULO" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITULO">
+              <PropertyRef Name="ID_TITULO" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_TITULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModeloStoreContainer">
+          <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="GENERO" EntityType="Self.GENERO" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="POSTULANTE" EntityType="Self.POSTULANTE" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_CARGA_FAMILIAR" EntityType="Self.PUNTAJE_CARGA_FAMILIAR" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_EDAD" EntityType="Self.PUNTAJE_EDAD" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_ESTADO_CIVIL" EntityType="Self.PUNTAJE_ESTADO_CIVIL" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_MONTO_AHORRO" EntityType="Self.PUNTAJE_MONTO_AHORRO" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_PUEBLO_ORIGINARIO" EntityType="Self.PUNTAJE_PUEBLO_ORIGINARIO" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_TITULO" EntityType="Self.PUNTAJE_TITULO" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="PUNTAJE_ZONA_EXTREMA" EntityType="Self.PUNTAJE_ZONA_EXTREMA" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="RECEPTOR" EntityType="Self.RECEPTOR" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="SUBSIDIO" store:Type="Tables" />
+          <EntitySet Name="TITULO" EntityType="Self.TITULO" Schema="SUBSIDIO" store:Type="Tables" />
+          <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Self.POSTULANTE_ESTADO_CIVIL_FK">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_GENERO_FK" Association="Self.POSTULANTE_GENERO_FK">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_NACIONALIDAD_FK" Association="Self.POSTULANTE_NACIONALIDAD_FK">
+            <End Role="NACIONALIDAD" EntitySet="NACIONALIDAD" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_RECEPTOR_FK" Association="Self.POSTULANTE_RECEPTOR_FK">
+            <End Role="RECEPTOR" EntitySet="RECEPTOR" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_REGION_FK" Association="Self.POSTULANTE_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_TITULO_FK" Association="Self.POSTULANTE_TITULO_FK">
+            <End Role="TITULO" EntitySet="TITULO" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID_ESTADO_CIVIL" />
+          </Key>
+          <Property Name="ID_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="ESTADO_CIVIL" ToRole="POSTULANTE" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="ID_GENERO" />
+          </Key>
+          <Property Name="ID_GENERO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="GENERO" ToRole="POSTULANTE" />
+        </EntityType>
+        <EntityType Name="NACIONALIDAD">
+          <Key>
+            <PropertyRef Name="ID_NACIONALIDAD" />
+          </Key>
+          <Property Name="ID_NACIONALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="NACIONALIDAD" ToRole="POSTULANTE" />
+        </EntityType>
+        <EntityType Name="POSTULANTE">
+          <Key>
+            <PropertyRef Name="RUN_POSTULANTE" />
+          </Key>
+          <Property Name="RUN_POSTULANTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_PATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_MATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO_AHORRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUEBLO_ORIGINARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CARGAS_FAMILIARES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_NACIONALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_GENERO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_REGION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ESTADO_CIVIL" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
+          <NavigationProperty Name="GENERO" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
+          <NavigationProperty Name="NACIONALIDAD" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
+          <NavigationProperty Name="RECEPTOR" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="POSTULANTE" ToRole="RECEPTOR" />
+          <NavigationProperty Name="REGION" Relationship="Self.POSTULANTE_REGION_FK" FromRole="POSTULANTE" ToRole="REGION" />
+          <NavigationProperty Name="TITULO" Relationship="Self.POSTULANTE_TITULO_FK" FromRole="POSTULANTE" ToRole="TITULO" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_CARGA_FAMILIAR">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_CARGA_FAMILIAR" />
+          </Key>
+          <Property Name="ID_PUNTAJE_CARGA_FAMILIAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CARGA_INF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CARGA_SUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_EDAD">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_EDAD" />
+          </Key>
+          <Property Name="ID_PUNTAJE_EDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EDAD_SUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EDAD_INF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_ESTADO_CIVIL" />
+          </Key>
+          <Property Name="ID_PUNTAJE_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_MONTO_AHORRO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_MONTO_AHORRO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_MONTO_AHORRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_SUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_INF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_PUEBLO_ORIGINARIO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_TITULO">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_TITULO" />
+          </Key>
+          <Property Name="ID_PUNTAJE_TITULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUNTAJE_ZONA_EXTREMA">
+          <Key>
+            <PropertyRef Name="ID_PUNTAJE_ZONA_EXTREMA" />
+          </Key>
+          <Property Name="ID_PUNTAJE_ZONA_EXTREMA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REGION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PORCENTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECEPTOR">
+          <Key>
+            <PropertyRef Name="ID_RECEPTOR" />
+          </Key>
+          <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID_REGION" />
+          </Key>
+          <Property Name="ID_REGION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_REGION_FK" FromRole="REGION" ToRole="POSTULANTE" />
+        </EntityType>
+        <EntityType Name="TITULO">
+          <Key>
+            <PropertyRef Name="ID_TITULO" />
+          </Key>
+          <Property Name="ID_TITULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_TITULO_FK" FromRole="TITULO" ToRole="POSTULANTE" />
+        </EntityType>
+        <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
+          <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_GENERO_FK">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="ID_GENERO" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_GENERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_NACIONALIDAD_FK">
+          <End Role="NACIONALIDAD" Type="Self.NACIONALIDAD" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NACIONALIDAD">
+              <PropertyRef Name="ID_NACIONALIDAD" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_NACIONALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_RECEPTOR_FK">
+          <End Role="RECEPTOR" Type="Self.RECEPTOR" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEPTOR">
+              <PropertyRef Name="ID_RECEPTOR" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_RECEPTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_REGION_FK">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID_REGION" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="POSTULANTE_TITULO_FK">
+          <End Role="TITULO" Type="Self.TITULO" Multiplicity="1" />
+          <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITULO">
+              <PropertyRef Name="ID_TITULO" />
+            </Principal>
+            <Dependent Role="POSTULANTE">
+              <PropertyRef Name="ID_TITULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SubsidioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" />
+          <EntitySet Name="GENERO" EntityType="Self.GENERO" />
+          <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" />
+          <EntitySet Name="POSTULANTE" EntityType="Self.POSTULANTE" />
+          <EntitySet Name="PUNTAJE_CARGA_FAMILIAR" EntityType="Self.PUNTAJE_CARGA_FAMILIAR" />
+          <EntitySet Name="PUNTAJE_EDAD" EntityType="Self.PUNTAJE_EDAD" />
+          <EntitySet Name="PUNTAJE_ESTADO_CIVIL" EntityType="Self.PUNTAJE_ESTADO_CIVIL" />
+          <EntitySet Name="PUNTAJE_MONTO_AHORRO" EntityType="Self.PUNTAJE_MONTO_AHORRO" />
+          <EntitySet Name="PUNTAJE_PUEBLO_ORIGINARIO" EntityType="Self.PUNTAJE_PUEBLO_ORIGINARIO" />
+          <EntitySet Name="PUNTAJE_TITULO" EntityType="Self.PUNTAJE_TITULO" />
+          <EntitySet Name="PUNTAJE_ZONA_EXTREMA" EntityType="Self.PUNTAJE_ZONA_EXTREMA" />
+          <EntitySet Name="RECEPTOR" EntityType="Self.RECEPTOR" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" />
+          <EntitySet Name="TITULO" EntityType="Self.TITULO" />
+          <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Self.POSTULANTE_ESTADO_CIVIL_FK">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_GENERO_FK" Association="Self.POSTULANTE_GENERO_FK">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_NACIONALIDAD_FK" Association="Self.POSTULANTE_NACIONALIDAD_FK">
+            <End Role="NACIONALIDAD" EntitySet="NACIONALIDAD" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_RECEPTOR_FK" Association="Self.POSTULANTE_RECEPTOR_FK">
+            <End Role="RECEPTOR" EntitySet="RECEPTOR" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_REGION_FK" Association="Self.POSTULANTE_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="POSTULANTE_TITULO_FK" Association="Self.POSTULANTE_TITULO_FK">
+            <End Role="TITULO" EntitySet="TITULO" />
+            <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="SubsidioEntities">
+          <EntitySetMapping Name="ESTADO_CIVIL">
+            <EntityTypeMapping TypeName="Modelo.ESTADO_CIVIL">
+              <MappingFragment StoreEntitySet="ESTADO_CIVIL">
+                <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENERO">
+            <EntityTypeMapping TypeName="Modelo.GENERO">
+              <MappingFragment StoreEntitySet="GENERO">
+                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NACIONALIDAD">
+            <EntityTypeMapping TypeName="Modelo.NACIONALIDAD">
+              <MappingFragment StoreEntitySet="NACIONALIDAD">
+                <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSTULANTE">
+            <EntityTypeMapping TypeName="Modelo.POSTULANTE">
+              <MappingFragment StoreEntitySet="POSTULANTE">
+                <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+                <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
+                <ScalarProperty Name="PUEBLO_ORIGINARIO" ColumnName="PUEBLO_ORIGINARIO" />
+                <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
+                <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+                <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+                <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_CARGA_FAMILIAR">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_CARGA_FAMILIAR">
+              <MappingFragment StoreEntitySet="PUNTAJE_CARGA_FAMILIAR">
+                <ScalarProperty Name="ID_PUNTAJE_CARGA_FAMILIAR" ColumnName="ID_PUNTAJE_CARGA_FAMILIAR" />
+                <ScalarProperty Name="CARGA_INF" ColumnName="CARGA_INF" />
+                <ScalarProperty Name="CARGA_SUP" ColumnName="CARGA_SUP" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_EDAD">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_EDAD">
+              <MappingFragment StoreEntitySet="PUNTAJE_EDAD">
+                <ScalarProperty Name="ID_PUNTAJE_EDAD" ColumnName="ID_PUNTAJE_EDAD" />
+                <ScalarProperty Name="EDAD_SUP" ColumnName="EDAD_SUP" />
+                <ScalarProperty Name="EDAD_INF" ColumnName="EDAD_INF" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_ESTADO_CIVIL">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_ESTADO_CIVIL">
+              <MappingFragment StoreEntitySet="PUNTAJE_ESTADO_CIVIL">
+                <ScalarProperty Name="ID_PUNTAJE_ESTADO_CIVIL" ColumnName="ID_PUNTAJE_ESTADO_CIVIL" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_MONTO_AHORRO">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_MONTO_AHORRO">
+              <MappingFragment StoreEntitySet="PUNTAJE_MONTO_AHORRO">
+                <ScalarProperty Name="ID_PUNTAJE_MONTO_AHORRO" ColumnName="ID_PUNTAJE_MONTO_AHORRO" />
+                <ScalarProperty Name="MONTO_SUP" ColumnName="MONTO_SUP" />
+                <ScalarProperty Name="MONTO_INF" ColumnName="MONTO_INF" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_PUEBLO_ORIGINARIO">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_PUEBLO_ORIGINARIO">
+              <MappingFragment StoreEntitySet="PUNTAJE_PUEBLO_ORIGINARIO">
+                <ScalarProperty Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" ColumnName="ID_PUNTAJE_PUEBLO_ORIGINARIO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_TITULO">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_TITULO">
+              <MappingFragment StoreEntitySet="PUNTAJE_TITULO">
+                <ScalarProperty Name="ID_PUNTAJE_TITULO" ColumnName="ID_PUNTAJE_TITULO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUNTAJE_ZONA_EXTREMA">
+            <EntityTypeMapping TypeName="Modelo.PUNTAJE_ZONA_EXTREMA">
+              <MappingFragment StoreEntitySet="PUNTAJE_ZONA_EXTREMA">
+                <ScalarProperty Name="ID_PUNTAJE_ZONA_EXTREMA" ColumnName="ID_PUNTAJE_ZONA_EXTREMA" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="PORCENTAJE" ColumnName="PORCENTAJE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEPTOR">
+            <EntityTypeMapping TypeName="Modelo.RECEPTOR">
+              <MappingFragment StoreEntitySet="RECEPTOR">
+                <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="Modelo.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TITULO">
+            <EntityTypeMapping TypeName="Modelo.TITULO">
+              <MappingFragment StoreEntitySet="TITULO">
+                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

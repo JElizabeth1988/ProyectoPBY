@@ -1,0 +1,8 @@
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll.config
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb

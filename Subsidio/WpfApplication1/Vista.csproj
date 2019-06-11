@@ -155,9 +155,9 @@
     <Resource Include="imagenes\WUMmJUlJ.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecaControlador\BibliotecaControlador.csproj">
+    <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">
       <Project>{ee0cdd84-786d-48c2-afba-12bae6979d65}</Project>
-      <Name>BibliotecaControlador</Name>
+      <Name>BibliotecaDALC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Subsidio\BibliotecaNegocio.csproj">
       <Project>{2cd338de-ec12-4ebc-b586-f33f598d80f3}</Project>

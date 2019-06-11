@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-using BibliotecaControlador;
+using BibliotecaDALC;
 using BibliotecaNegocio;
 
 namespace WpfApplication1

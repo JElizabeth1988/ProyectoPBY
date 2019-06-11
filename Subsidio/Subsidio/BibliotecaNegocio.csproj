@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\BibliotecaControlador\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,7 +51,12 @@
     <Compile Include="Receptor.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Titulo.cs" />
-    <Compile Include="Verificar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">
+      <Project>{ee0cdd84-786d-48c2-afba-12bae6979d65}</Project>
+      <Name>BibliotecaDALC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

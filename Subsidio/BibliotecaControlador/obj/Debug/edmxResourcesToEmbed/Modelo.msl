@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="SubsidioEntities">
+    <EntitySetMapping Name="ESTADO_CIVIL">
+      <EntityTypeMapping TypeName="Modelo.ESTADO_CIVIL">
+        <MappingFragment StoreEntitySet="ESTADO_CIVIL">
+          <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENERO">
+      <EntityTypeMapping TypeName="Modelo.GENERO">
+        <MappingFragment StoreEntitySet="GENERO">
+          <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NACIONALIDAD">
+      <EntityTypeMapping TypeName="Modelo.NACIONALIDAD">
+        <MappingFragment StoreEntitySet="NACIONALIDAD">
+          <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSTULANTE">
+      <EntityTypeMapping TypeName="Modelo.POSTULANTE">
+        <MappingFragment StoreEntitySet="POSTULANTE">
+          <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+          <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+          <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
+          <ScalarProperty Name="PUEBLO_ORIGINARIO" ColumnName="PUEBLO_ORIGINARIO" />
+          <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
+          <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+          <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+          <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+          <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_CARGA_FAMILIAR">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_CARGA_FAMILIAR">
+        <MappingFragment StoreEntitySet="PUNTAJE_CARGA_FAMILIAR">
+          <ScalarProperty Name="ID_PUNTAJE_CARGA_FAMILIAR" ColumnName="ID_PUNTAJE_CARGA_FAMILIAR" />
+          <ScalarProperty Name="CARGA_INF" ColumnName="CARGA_INF" />
+          <ScalarProperty Name="CARGA_SUP" ColumnName="CARGA_SUP" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_EDAD">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_EDAD">
+        <MappingFragment StoreEntitySet="PUNTAJE_EDAD">
+          <ScalarProperty Name="ID_PUNTAJE_EDAD" ColumnName="ID_PUNTAJE_EDAD" />
+          <ScalarProperty Name="EDAD_SUP" ColumnName="EDAD_SUP" />
+          <ScalarProperty Name="EDAD_INF" ColumnName="EDAD_INF" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_ESTADO_CIVIL">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_ESTADO_CIVIL">
+        <MappingFragment StoreEntitySet="PUNTAJE_ESTADO_CIVIL">
+          <ScalarProperty Name="ID_PUNTAJE_ESTADO_CIVIL" ColumnName="ID_PUNTAJE_ESTADO_CIVIL" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_MONTO_AHORRO">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_MONTO_AHORRO">
+        <MappingFragment StoreEntitySet="PUNTAJE_MONTO_AHORRO">
+          <ScalarProperty Name="ID_PUNTAJE_MONTO_AHORRO" ColumnName="ID_PUNTAJE_MONTO_AHORRO" />
+          <ScalarProperty Name="MONTO_SUP" ColumnName="MONTO_SUP" />
+          <ScalarProperty Name="MONTO_INF" ColumnName="MONTO_INF" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_PUEBLO_ORIGINARIO">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_PUEBLO_ORIGINARIO">
+        <MappingFragment StoreEntitySet="PUNTAJE_PUEBLO_ORIGINARIO">
+          <ScalarProperty Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" ColumnName="ID_PUNTAJE_PUEBLO_ORIGINARIO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_TITULO">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_TITULO">
+        <MappingFragment StoreEntitySet="PUNTAJE_TITULO">
+          <ScalarProperty Name="ID_PUNTAJE_TITULO" ColumnName="ID_PUNTAJE_TITULO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUNTAJE_ZONA_EXTREMA">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_ZONA_EXTREMA">
+        <MappingFragment StoreEntitySet="PUNTAJE_ZONA_EXTREMA">
+          <ScalarProperty Name="ID_PUNTAJE_ZONA_EXTREMA" ColumnName="ID_PUNTAJE_ZONA_EXTREMA" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="PORCENTAJE" ColumnName="PORCENTAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEPTOR">
+      <EntityTypeMapping TypeName="Modelo.RECEPTOR">
+        <MappingFragment StoreEntitySet="RECEPTOR">
+          <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION">
+      <EntityTypeMapping TypeName="Modelo.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TITULO">
+      <EntityTypeMapping TypeName="Modelo.TITULO">
+        <MappingFragment StoreEntitySet="TITULO">
+          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
