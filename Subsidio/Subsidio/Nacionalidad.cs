@@ -3,31 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibliotecaDALC;
 
 namespace BibliotecaNegocio
 {
     public class Nacionalidad
     {
-        private int _id_nacionalidad;
+        //Crear objeto de la Bdd
+        private SubsidioEntities bdd = new SubsidioEntities();
 
-        public int Id_Nacionalidad
-        {
-            get { return _id_nacionalidad; }
-            set { _id_nacionalidad = value; }
-        }
+        public decimal Id_Nacionalidad { get; set; }
 
-        private string _descripcion;
-
-        public string Descripcion
-        {
-            get { return _descripcion; }
-            set { _descripcion = value; }
-
-        }
+        public string Descripcion { get; set; }
 
         public Nacionalidad()
         {
 
+        }
+
+        public bool Read()
+        {
+            try
+            {
+                NACIONALIDAD nac = bdd.
+                     NACIONALIDAD.First(a => a.ID_NACIONALIDAD == Id_Nacionalidad);
+                Descripcion = nac.DESCRIPCION;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public List<Nacionalidad> ReadAll()
+        {
+            try
+            {
+                List<Nacionalidad> lista = new List<Nacionalidad>();
+                var lista_nac_bdd = bdd.NACIONALIDAD.ToList();
+                foreach (NACIONALIDAD item in lista_nac_bdd)
+                {
+                    Nacionalidad na = new Nacionalidad();
+                    na.Id_Nacionalidad = item.ID_NACIONALIDAD;//number no los toma el int
+                    na.Descripcion = item.DESCRIPCION;
+                    lista.Add(na);
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

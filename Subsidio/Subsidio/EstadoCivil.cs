@@ -12,7 +12,7 @@ namespace BibliotecaNegocio
         //Crear objeto de la Bdd
         private SubsidioEntities bdd = new SubsidioEntities();
 
-        public int Id_Estado_Civil { get; set; }
+        public decimal Id_Estado_Civil { get; set; }
         public string Descripcion { get; set; }
         
         public EstadoCivil()
@@ -35,6 +35,27 @@ namespace BibliotecaNegocio
             }
         }
 
+        public List<EstadoCivil> ReadAll()
+        {
+            try
+            {
+                List<EstadoCivil> lista = new List<EstadoCivil>();
+                var lista_ecivil_bdd = bdd.ESTADO_CIVIL.ToList();
+                foreach (BibliotecaDALC.ESTADO_CIVIL item in lista_ecivil_bdd)
+                {
+                    EstadoCivil est = new EstadoCivil();
+                    est.Id_Estado_Civil = item.ID_ESTADO_CIVIL;//number no los toma el int
+                    est.Descripcion = item.DESCRIPCION;
+                    lista.Add(est);
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
     }
 }

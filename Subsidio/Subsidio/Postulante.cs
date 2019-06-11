@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibliotecaDALC;
 
 namespace BibliotecaNegocio
 {
@@ -88,9 +89,9 @@ namespace BibliotecaNegocio
             set { _fecha_Nacimiento = value; }
         }
 
-        private int _monto_ahorro;
+        private decimal _monto_ahorro;
 
-        public int Monto_Ahorro
+        public decimal Monto_Ahorro
         {
             get { return _monto_ahorro; }
             set {
@@ -113,23 +114,216 @@ namespace BibliotecaNegocio
             set { _pueblo_originario = value; }
         }
 
-        private int _cargas_familiares;
+        private decimal _cargas_familiares;
 
-        public int Cargas_Familiares
+        public decimal Cargas_Familiares
         {
             get { return _cargas_familiares; }
             set { _cargas_familiares = value; }
         }
 
         //Foraneas
-        public int Id_Nacionalidad { get; set; }
-        public int Id_Estado_Civil { get; set; }
-        public int Id_Genero { get; set; }
-        public int Id_Region { get; set; }
-        public int Id_Receptor { get; set; }
-        public int Id_Titulo { get; set; }
+        public decimal Id_Nacionalidad { get; set; }
+        public decimal Id_Estado_Civil { get; set; }
+        public decimal Id_Genero { get; set; }
+        public decimal Id_Region { get; set; }
+        public decimal Id_Receptor { get; set; }
+        public decimal Id_Titulo { get; set; }
 
+        public Postulante()
+        {
+
+        }
+
+        //creo un objeto que me permite manipular todo en la BD
+        private SubsidioEntities bdd = new SubsidioEntities();
+
+        //MÉTODOS CRUD
+        //grabar
+        public Boolean Grabar()
+        {
+            try
+            {
+                //creo un modelo de la tabla postulante
+                POSTULANTE pos = new POSTULANTE();
+                CommonBC.Syncronize(this, pos);
+                bdd.POSTULANTE.Add(pos);
+                bdd.SaveChanges();
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+               // Logger.Mensaje(ex.Message);
+            }
+        }
+
+        public bool Eliminar()
+        {
+            try
+            {
+                    BibliotecaDALC.POSTULANTE pos =
+                    //bdd.POSTULANTE.First(po => po.Run_Postulante.Equals(Run_Postulante));
+                    bdd.POSTULANTE.Find(Run_Postulante);
+
+                    bdd.POSTULANTE.Remove(pos);
+                    bdd.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                //Logger.Mensaje(ex.Message);
+            }
+        }
+
+        public bool Buscar()
+        {
+            try
+            {
+                BibliotecaDALC.POSTULANTE pos =
+                bdd.POSTULANTE.First(po => po.RUN_POSTULANTE.Equals(Run_Postulante));
+               
+                CommonBC.Syncronize(pos, this);//arregló this
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                //Logger.Mensaje(ex.Message);
+            }
+        }
+
+        public bool Read()
+        {
+            try
+            {
+                POSTULANTE pos = bdd.POSTULANTE.Find(Run_Postulante);
+                CommonBC.Syncronize(pos, this);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //Logger.Mensaje(ex.Message);
+            }
+
+        }
+        public List<Postulante> ReadAll()
+        {
+            try
+            {
+                var p = from pos in bdd.POSTULANTE
+                        select new Postulante()
+                        {
+                            Run_Postulante = pos.RUN_POSTULANTE,
+                            Nombre = pos.NOMBRE,
+                            Apellido_Paterno = pos.APELLIDO_PATERNO,
+                            Apellido_Materno = pos.APELLIDO_MATERNO,
+                            Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
+                            Monto_Ahorro= pos.MONTO_AHORRO,
+                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            Cargas_Familiares=pos.CARGAS_FAMILIARES,
+                            Id_Nacionalidad=pos.ID_NACIONALIDAD,
+                            Id_Estado_Civil=pos.ID_ESTADO_CIVIL,
+                            Id_Genero=pos.ID_GENERO,
+                            Id_Region=pos.ID_REGION,
+                            Id_Receptor=pos.ID_RECEPTOR,
+                            Id_Titulo=pos.ID_TITULO
+
+              
+                        };
+                return p.ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+       /* public List<listaPostulantes> ReadAll2()
+        {
+            try
+            {
+                var p = from pos in bdd.POSTULANTE
+                        join actemp in bdd.ActividadEmpresa
+                          on cli.IdActividadEmpresa equals actemp.IdActividadEmpresa
+                        join temp in bdd.TipoEmpresa
+                          on cli.IdTipoEmpresa equals temp.IdTipoEmpresa
+                        select new ListaClientes()
+                        {
+                            Rut = cli.RutCliente,
+                            NombreContacto = cli.NombreContacto,
+                            RazonSocial = cli.RazonSocial,
+                            MailContacto = cli.MailContacto,
+                            Direccion = cli.Direccion,
+                            Telefono = cli.Telefono,
+                            ActividadEmpresa = actemp.Descripcion,
+                            TipoEmpresa = temp.Descripcion
+                        };
+                return c.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }*///completar zzz
+
+        //Modificar
+        public bool Modificar()
+        {
+            try
+            {
+                //creo un modelo de la tabla cliente
+                POSTULANTE pos = bdd.POSTULANTE.Find(Run_Postulante);
+                CommonBC.Syncronize(this, pos);
+                bdd.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
 
 
     }
+    public class listaPostulantes
+    {
+        public string Rut { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido_Paterno { get; set; }
+        public string Apellido_Materno { get; set; }
+        public DateTime Fecha_Nacimiento { get; set; }
+        public char Pueblo_Originario { get; set; }
+        public decimal Cargas_Familiares { get; set; }
+        public decimal Id_Nacionalidad { get; set; }
+        public decimal Id_Estado_Civil { get; set; }
+        public decimal Id_Genero { get; set; }
+        public decimal Id_Region { get; set; }
+        public decimal Id_Receptor { get; set; }
+        public decimal Id_Titulo { get; set; }
+
+        public listaPostulantes()
+        {
+
+        }
+
+    }
+
+    
 }
