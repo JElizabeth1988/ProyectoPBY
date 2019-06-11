@@ -56,10 +56,6 @@ namespace WpfApplication1
                 cbNacionalidad.Items.Add(cb);
             }
 
-            //CB CARGAS???? mejor dejarlo como textBox
-            cbNumCargas.Items.Add("0-2");
-            cbNumCargas.Items.Add("2-4");
-            cbNumCargas.Items.Add("Más de 4");
 
             //CB TITULO
             foreach (Titulo item in new Titulo().ReadAll())
@@ -101,32 +97,47 @@ namespace WpfApplication1
             rev.Show();
         }
 
-        /*private async void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Postulante pos = new Postulante();
-                pos.Run_Postulante = txtRut.Text;
-                pos.Nombre = txtNombre.Text;
-                pos.Apellido_Paterno = txtApPaterno.Text;
-                pos.Apellido_Materno = txtApMaterno.Text;
-                pos.Fecha_Nacimiento = dpFechaNac.SelectedDate.Value;
-                pos.Monto_Ahorro = int.Parse(txtMontoAhorro.Text);
-                pos.Pueblo_Originario = rbSi.IsChecked == true ? 'S' : 'N';
-                pos.Cargas_Familiares = int.Parse(cbNumCargas.SelectedItem.ToString());
 
-                //CLAVES FORANEAS
-                /*pos.Id_Nacionalidad =;
-                pos.Id_Estado_Civil =;
-                pos.Id_Genero =;
-                pos.Id_Region =;
-                pos.Id_Region =;
-                pos.Id_Receptor =;
-                pos.Id_Titulo =;  
+                string run_postulante = txtRut.Text;
+                string nombre = txtNombre.Text;
+                string apellido_paterno = txtApPaterno.Text;
+                string apellido_materno = txtApMaterno.Text;
+                DateTime fecha_nacimiento = dpFechaNac.SelectedDate.Value;
+                int monto_ahorro = int.Parse(txtMontoAhorro.Text);
+                char pueblo_originario = rbSi.IsChecked == true ? 'S' : 'N';
+                int cargas_familiares = int.Parse(txtNumCargas.Text);
+                decimal id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
+                decimal id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
+                decimal id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
+                decimal id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
+                decimal id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                decimal id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
 
-               // Conexion cone = new Conexion();
-                bool resp = cone.Grabar(pos);
-                MessageBox.Show(resp ? "Grabo" : "No Grabo");
+                Postulante pos = new Postulante()
+                {
+                    Run_Postulante = run_postulante,
+                    Nombre = nombre,
+                    Apellido_Paterno = apellido_paterno,
+                    Apellido_Materno = apellido_materno,
+                    Fecha_Nacimiento = fecha_nacimiento,
+                    Monto_Ahorro = monto_ahorro,
+                    Pueblo_Originario = pueblo_originario,
+                    Cargas_Familiares = cargas_familiares,
+                    Id_Nacionalidad = id_nacionalidad,
+                    Id_Estado_Civil=id_estado_civil,
+                    Id_Genero = id_genero,
+                    Id_Region = id_region,
+                    Id_Receptor = id_receptor,
+                    Id_Titulo = id_titulo
+                };
+
+                bool resp = pos.Grabar();
+                await this.ShowMessageAsync("Mensaje:",
+                           string.Format(resp ? "Guardado" : "No guardado"));
             }
             catch (ArgumentException exa) //catch excepciones hechas por el usuario
             {
@@ -138,11 +149,16 @@ namespace WpfApplication1
                      string.Format(ex.Message));
 
             }
-        }*/
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
 
         //añadir formato al rut
-
+        /*
         private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
@@ -205,10 +221,7 @@ namespace WpfApplication1
                 txtRut.Text = "";
             }
         }
+        */
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
