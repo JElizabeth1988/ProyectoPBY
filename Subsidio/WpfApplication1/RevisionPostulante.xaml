@@ -33,7 +33,7 @@
                 <Label x:Name="label4" Content="Estado Civil" HorizontalAlignment="Left" Margin="43,175,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="label5" Content="Edad" HorizontalAlignment="Left" Margin="43,105,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="label6" Content="Zona Extrema" HorizontalAlignment="Left" Margin="43,210,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <Label x:Name="label7" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="43,140,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="labe" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="43,140,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             </Grid>
         </GroupBox>
         <Label x:Name="label8" Content="Total Puntaje:" HorizontalAlignment="Left" Margin="60,284,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
