@@ -44,7 +44,7 @@ namespace WpfApplication1
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.Id_Estado_Civil;
                 cb.descripcion = item.Descripcion;
-                cbGenero.Items.Add(cb);
+                cbEstadoCivil.Items.Add(cb);
             }
 
             //CB NACIONALIDAD
@@ -53,7 +53,7 @@ namespace WpfApplication1
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.Id_Nacionalidad ;
                 cb.descripcion = item.Descripcion;
-                cbGenero.Items.Add(cb);
+                cbNacionalidad.Items.Add(cb);
             }
 
             //CB CARGAS???? mejor dejarlo como textBox
@@ -67,7 +67,7 @@ namespace WpfApplication1
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.Id_Titulo;
                 cb.descripcion = item.Descripcion;
-                cbGenero.Items.Add(cb);
+                cbTitulo.Items.Add(cb);
             }
 
             //CB REGION
@@ -76,17 +76,17 @@ namespace WpfApplication1
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.Id_Region;
                 cb.descripcion = item.Nombre;
-                cbGenero.Items.Add(cb);
+                cbRegion.Items.Add(cb);
             }
 
             //CB RECEPTOR
-           /* foreach (Region item in new Region().ReadAll())
+            foreach (Receptor item in new Receptor().ReadAll())
             {
-                comboBoxItem2 cb = new comboBoxItem2();
-                cb.id = item.Id_Region;
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Receptor;
                 cb.descripcion = item.Nombre;
-                cbGenero.Items.Add(cb);
-            }*///Mañana lo arreglo zzzZZZ
+                cbReceptor.Items.Add(cb);
+            }
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
