@@ -55,7 +55,7 @@ namespace WpfApplication1
             //CB CARGAS
             cbNumCargas.Items.Add("0-2");
             cbNumCargas.Items.Add("2-4");
-            cbNumCargas.Items.Add("Más de 4");
+            cbNumCargas.Items.Add("Más de 4");/
 
             //CB TITULO
             cbTitulo.Items.Add("Profesional");
