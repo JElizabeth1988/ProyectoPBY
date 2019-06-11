@@ -60,3 +60,7 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.pdb
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.pdb

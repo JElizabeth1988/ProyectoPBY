@@ -34,5 +34,11 @@ namespace WpfApplication1
             postulante.Show();
 
         }
+
+        private void Tile_Click_2(object sender, RoutedEventArgs e)
+        {
+            ListadoPostulante listado = new ListadoPostulante();
+            listado.Show();
+        }
     }
 }

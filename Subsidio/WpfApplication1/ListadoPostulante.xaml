@@ -10,8 +10,11 @@
 
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="ListadoPostulante" Height="300" Width="300">
-    <Grid>
-        
+        Title="Listado de Postulantes" Height="512.355" Width="733.833" WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen" Background="#FF7EDCF6" TitleCharacterCasing="Normal">
+    <Grid Background="#FF7EDCF6">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="105" Margin="553,34,0,0" VerticalAlignment="Top" Width="127" Source="imagenes/Minvu.png"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="25,186,0,0" VerticalAlignment="Top" Height="267" Width="678"/>
+        <Label x:Name="label" Content="Postulantes Beneficiados con Subsidio" HorizontalAlignment="Left" Margin="75,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnListado" Content="Ver Listado" HorizontalAlignment="Left" Margin="79,137,0,0" VerticalAlignment="Top" Width="113" FontWeight="Bold" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}"/>
     </Grid>
 </Controls:MetroWindow>

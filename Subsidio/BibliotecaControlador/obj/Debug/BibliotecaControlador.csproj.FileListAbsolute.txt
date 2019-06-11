@@ -6,3 +6,11 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.csprojResolveAssemblyReference.cache
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll.config
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Subsidio.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Subsidio.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
