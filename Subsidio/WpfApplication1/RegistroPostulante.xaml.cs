@@ -101,7 +101,7 @@ namespace WpfApplication1
             rev.Show();
         }
 
-        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
+        /*private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -122,9 +122,9 @@ namespace WpfApplication1
                 pos.Id_Region =;
                 pos.Id_Region =;
                 pos.Id_Receptor =;
-                pos.Id_Titulo =;   */
+                pos.Id_Titulo =;  
 
-                Conexion cone = new Conexion();
+               // Conexion cone = new Conexion();
                 bool resp = cone.Grabar(pos);
                 MessageBox.Show(resp ? "Grabo" : "No Grabo");
             }
@@ -138,7 +138,7 @@ namespace WpfApplication1
                      string.Format(ex.Message));
 
             }
-        }
+        }*/
 
 
         //añadir formato al rut
@@ -206,5 +206,9 @@ namespace WpfApplication1
             }
         }
 
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

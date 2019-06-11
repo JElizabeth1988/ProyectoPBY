@@ -8,3 +8,7 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Subsidi
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\obj\Debug\Subsidio.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\EntityFramework.xml

@@ -64,3 +64,5 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Deb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.dll
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\BibliotecaControlador.pdb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Subsidio.pdb
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\EntityFramework.xml

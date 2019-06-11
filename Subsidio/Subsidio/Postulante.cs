@@ -231,7 +231,7 @@ namespace BibliotecaNegocio
                             Apellido_Materno = pos.APELLIDO_MATERNO,
                             Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
                             Monto_Ahorro= pos.MONTO_AHORRO,
-                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            //Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
                             Cargas_Familiares=pos.CARGAS_FAMILIARES,
                             Id_Nacionalidad=pos.ID_NACIONALIDAD,
                             Id_Estado_Civil=pos.ID_ESTADO_CIVIL,
