@@ -158,7 +158,7 @@ namespace BibliotecaNegocio
             {
 
                 return false;
-               // Logger.Mensaje(ex.Message);
+               Logger.Mensaje(ex.Message);
             }
         }
 
@@ -179,7 +179,7 @@ namespace BibliotecaNegocio
             {
 
                 return false;
-                //Logger.Mensaje(ex.Message);
+                Logger.Mensaje(ex.Message);
             }
         }
 
@@ -199,7 +199,7 @@ namespace BibliotecaNegocio
             {
 
                 return false;
-                //Logger.Mensaje(ex.Message);
+                Logger.Mensaje(ex.Message);
             }
         }
 

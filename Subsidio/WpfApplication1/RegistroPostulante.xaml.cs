@@ -30,62 +30,63 @@ namespace WpfApplication1
             rbSi.IsChecked = true;
 
             //CB Género
-            cbGenero.Items.Add("Femenino");
-            cbGenero.Items.Add("Masculino");
+            foreach (Genero item in new Genero().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Genero;
+                cb.descripcion = item.Descripcion;
+                cbGenero.Items.Add(cb);
+            }
 
             //CB ESTADO CIVIL
-            cbEstadoCivil.Items.Add("Casado");
-            cbEstadoCivil.Items.Add("Conviviente Civil");
-            cbEstadoCivil.Items.Add("Soltero");
-            cbEstadoCivil.Items.Add("Divorciado");
-            cbEstadoCivil.Items.Add("Viudo");
+            foreach (EstadoCivil item in new EstadoCivil().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Estado_Civil;
+                cb.descripcion = item.Descripcion;
+                cbGenero.Items.Add(cb);
+            }
 
             //CB NACIONALIDAD
-            cbNacionalidad.Items.Add("Chilena");
-            cbNacionalidad.Items.Add("Peruana");
-            cbNacionalidad.Items.Add("Mexicana");
-            cbNacionalidad.Items.Add("Argentina");
-            cbNacionalidad.Items.Add("Boliviana");
-            cbNacionalidad.Items.Add("Haitiana");
-            cbNacionalidad.Items.Add("Colombiana");
-            cbNacionalidad.Items.Add("Venezolana");
-            cbNacionalidad.Items.Add("China");
-            cbNacionalidad.Items.Add("Otra");
+            foreach (Nacionalidad item in new Nacionalidad().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Nacionalidad ;
+                cb.descripcion = item.Descripcion;
+                cbGenero.Items.Add(cb);
+            }
 
-            //CB CARGAS
+            //CB CARGAS???? mejor dejarlo como textBox
             cbNumCargas.Items.Add("0-2");
             cbNumCargas.Items.Add("2-4");
             cbNumCargas.Items.Add("Más de 4");
 
             //CB TITULO
-            cbTitulo.Items.Add("Profesional");
-            cbTitulo.Items.Add("Técnico");
-            cbTitulo.Items.Add("No Aplica");
+            foreach (Titulo item in new Titulo().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Titulo;
+                cb.descripcion = item.Descripcion;
+                cbGenero.Items.Add(cb);
+            }
 
             //CB REGION
-            cbRegion.Items.Add("ARICA Y PARINACOTA");
-            cbRegion.Items.Add("TARAPACÁ");
-            cbRegion.Items.Add("ANTOFAGASTA");
-            cbRegion.Items.Add("ATACAMA");
-            cbRegion.Items.Add("COQUIMBO");
-            cbRegion.Items.Add("VALPARAÍSO");
-            cbRegion.Items.Add("METROPOLITANA DE SANTIAGO");
-            cbRegion.Items.Add("LIBERTADOR GENERAL BDO. O´HIGGINS");
-            cbRegion.Items.Add("MAULE");
-            cbRegion.Items.Add("ÑUBLE");
-            cbRegion.Items.Add("BIOBÍO");
-            cbRegion.Items.Add("ARAUCANÍA");
-            cbRegion.Items.Add("LOS RÍOS");
-            cbRegion.Items.Add("LOS LAGOS");
-            cbRegion.Items.Add("AYSÉN DEL GENERAL CARLOS IBAÑEZ DEL CAMPO");
-            cbRegion.Items.Add("MAGALLANES Y DE LA ANTARTICA CHILENA");
+            foreach (Region item in new Region().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.Id_Region;
+                cb.descripcion = item.Nombre;
+                cbGenero.Items.Add(cb);
+            }
 
             //CB RECEPTOR
-            cbReceptor.Items.Add("Francisca Morán");
-            cbReceptor.Items.Add("Tomás Carjaval");
-            cbReceptor.Items.Add("Antonia Ramírez");
-            cbReceptor.Items.Add("Armando Cárcamo");
-            cbReceptor.Items.Add("Ignacio Méndez");
+           /* foreach (Region item in new Region().ReadAll())
+            {
+                comboBoxItem2 cb = new comboBoxItem2();
+                cb.id = item.Id_Region;
+                cb.descripcion = item.Nombre;
+                cbGenero.Items.Add(cb);
+            }*///Mañana lo arreglo zzzZZZ
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -138,5 +139,72 @@ namespace WpfApplication1
 
             }
         }
+
+
+        //añadir formato al rut
+
+        private void txtRut_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
+            {
+                string v = new Verificar().ValidarRut(txtRut.Text);
+                txtDvRut.Text = v;
+                try
+                {
+                    string rutSinFormato = txtRut.Text;
+
+                    //si el rut ingresado tiene "." o "," o "-" son ratirados para realizar la formula 
+                    rutSinFormato = rutSinFormato.Replace(",", "");
+                    rutSinFormato = rutSinFormato.Replace(".", "");
+                    rutSinFormato = rutSinFormato.Replace("-", "");
+                    string rutFormateado = String.Empty;
+
+                    //obtengo la parte numerica del RUT
+                    //string rutTemporal = rutSinFormato.Substring(0, rutSinFormato.Length - 1);
+                    string rutTemporal = rutSinFormato;
+                    //obtengo el Digito Verificador del RUT
+                    //string dv = rutSinFormato.Substring(rutSinFormato.Length - 1, 1);
+
+                    Int64 rut;
+
+                    //aqui convierto a un numero el RUT si ocurre un error lo deja en CERO
+                    if (!Int64.TryParse(rutTemporal, out rut))
+                    {
+                        rut = 0;
+                    }
+
+                    //este comando es el que formatea con los separadores de miles
+                    rutFormateado = rut.ToString("N0");
+
+                    if (rutFormateado.Equals("0"))
+                    {
+                        rutFormateado = string.Empty;
+                    }
+                    else
+                    {
+                        //si no hubo problemas con el formateo agrego el DV a la salida
+                        // rutFormateado += "-" + dv;
+
+                        //y hago este replace por si el servidor tuviese configuracion anglosajona y reemplazo las comas por puntos
+                        rutFormateado = rutFormateado.Replace(",", ".");
+                    }
+
+                    //se pasa a mayuscula si tiene letra k
+                    rutFormateado = rutFormateado.ToUpper();
+
+                    //la salida esperada para el ejemplo es 99.999.999-K
+                    txtRut.Text = rutFormateado;
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            else
+            {
+                txtRut.Text = "";
+            }
+        }
+
     }
 }

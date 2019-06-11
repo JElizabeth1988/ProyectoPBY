@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using BibliotecaNegocio;
 
 namespace WpfApplication1
 {
@@ -22,9 +23,27 @@ namespace WpfApplication1
     /// </summary>
     public partial class ListadoPostulante : MetroWindow
     {
+        
         public ListadoPostulante()
         {
             InitializeComponent();
+        }
+
+        private void btnListado_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Postulante pos = new Postulante();
+                dgvLista.ItemsSource = pos.ReadAll2();//en proceso
+                dgvLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
         }
     }
 }

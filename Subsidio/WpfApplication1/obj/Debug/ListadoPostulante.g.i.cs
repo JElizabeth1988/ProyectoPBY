@@ -54,7 +54,7 @@ namespace WpfApplication1 {
         
         #line 16 "..\..\ListadoPostulante.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.DataGrid dataGrid;
+        internal System.Windows.Controls.DataGrid dgvLista;
         
         #line default
         #line hidden
@@ -109,13 +109,19 @@ namespace WpfApplication1 {
             this.image = ((System.Windows.Controls.Image)(target));
             return;
             case 2:
-            this.dataGrid = ((System.Windows.Controls.DataGrid)(target));
+            this.dgvLista = ((System.Windows.Controls.DataGrid)(target));
             return;
             case 3:
             this.label = ((System.Windows.Controls.Label)(target));
             return;
             case 4:
             this.btnListado = ((System.Windows.Controls.Button)(target));
+            
+            #line 18 "..\..\ListadoPostulante.xaml"
+            this.btnListado.Click += new System.Windows.RoutedEventHandler(this.btnListado_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;
