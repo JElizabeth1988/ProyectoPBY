@@ -106,9 +106,9 @@ namespace BibliotecaNegocio
                  }
         }
 
-        private char _pueblo_originario;
+        private string _pueblo_originario;
 
-        public char Pueblo_Originario
+        public string Pueblo_Originario
         {
             get { return _pueblo_originario; }
             set { _pueblo_originario = value; }
@@ -231,7 +231,7 @@ namespace BibliotecaNegocio
                             Apellido_Materno = pos.APELLIDO_MATERNO,
                             Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
                             Monto_Ahorro= pos.MONTO_AHORRO,
-                            //Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
                             Cargas_Familiares=pos.CARGAS_FAMILIARES,
                             Id_Nacionalidad=pos.ID_NACIONALIDAD,
                             Id_Estado_Civil=pos.ID_ESTADO_CIVIL,
@@ -251,37 +251,51 @@ namespace BibliotecaNegocio
                 return null;
             }
         }
-       /* public List<listaPostulantes> ReadAll2()
+        public List<listaPostulantes> ReadAll2()
         {
             try
             {
                 var p = from pos in bdd.POSTULANTE
-                        join actemp in bdd.ActividadEmpresa
-                          on cli.IdActividadEmpresa equals actemp.IdActividadEmpresa
-                        join temp in bdd.TipoEmpresa
-                          on cli.IdTipoEmpresa equals temp.IdTipoEmpresa
-                        select new ListaClientes()
+                        join ecivil in bdd.ESTADO_CIVIL
+                          on pos.ID_ESTADO_CIVIL equals ecivil.ID_ESTADO_CIVIL
+                        join sexo in bdd.GENERO
+                          on pos.ID_GENERO equals sexo.ID_GENERO
+                        join nac in bdd.NACIONALIDAD
+                          on pos.ID_NACIONALIDAD equals nac.ID_NACIONALIDAD
+                        join rec in bdd.RECEPTOR
+                          on pos.ID_RECEPTOR equals rec.ID_RECEPTOR
+                        join reg in bdd.REGION
+                          on pos.ID_REGION equals reg.ID_REGION
+                        join tit in bdd.TITULO
+                          on pos.ID_TITULO equals tit.ID_TITULO
+                        select new listaPostulantes()
                         {
-                            Rut = cli.RutCliente,
-                            NombreContacto = cli.NombreContacto,
-                            RazonSocial = cli.RazonSocial,
-                            MailContacto = cli.MailContacto,
-                            Direccion = cli.Direccion,
-                            Telefono = cli.Telefono,
-                            ActividadEmpresa = actemp.Descripcion,
-                            TipoEmpresa = temp.Descripcion
+                            Rut = pos.RUN_POSTULANTE,
+                            Nombre = pos.NOMBRE,
+                            Apellido_Paterno = pos.APELLIDO_PATERNO,
+                            Apellido_Materno = pos.APELLIDO_MATERNO,
+                            Fecha_Nacimiento = pos.FECHA_NACIMIENTO,
+                            Monto_Ahorro = pos.MONTO_AHORRO,
+                            Pueblo_Originario = pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            Cargas_Familiares = pos.CARGAS_FAMILIARES,
+                            Nacionalidad = nac.DESCRIPCION,
+                            Estado_Civil = ecivil.DESCRIPCION,
+                            Genero = sexo.DESCRIPCION,
+                            Region = reg.NOMBRE,
+                            Receptor = rec.NOMBRE+" "+rec.APELLIDO,
+                            Titulo = tit.DESCRIPCION
                         };
-                return c.ToList();
+                return p.ToList();
 
             }
             catch (Exception ex)
             {
                 return null;
             }
-        }*///completar zzz
+        }
 
         //Modificar
-        public bool Modificar()
+        /*public bool Modificar()
         {
             try
             {
@@ -298,7 +312,9 @@ namespace BibliotecaNegocio
 
                 return false;
             }
-        }
+        }*/
+
+
 
 
     }
@@ -309,14 +325,15 @@ namespace BibliotecaNegocio
         public string Apellido_Paterno { get; set; }
         public string Apellido_Materno { get; set; }
         public DateTime Fecha_Nacimiento { get; set; }
-        public char Pueblo_Originario { get; set; }
+        public decimal Monto_Ahorro { get; set; }
+        public string Pueblo_Originario { get; set; }
         public decimal Cargas_Familiares { get; set; }
-        public decimal Id_Nacionalidad { get; set; }
-        public decimal Id_Estado_Civil { get; set; }
-        public decimal Id_Genero { get; set; }
-        public decimal Id_Region { get; set; }
-        public decimal Id_Receptor { get; set; }
-        public decimal Id_Titulo { get; set; }
+        public string Nacionalidad { get; set; }
+        public string Estado_Civil { get; set; }
+        public string Genero { get; set; }
+        public string Region { get; set; }
+        public string Receptor { get; set; }
+        public string Titulo { get; set; }
 
         public listaPostulantes()
         {

@@ -38,7 +38,8 @@
         <Label x:Name="lblPueblo" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="49,450,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.421,1.365" FontWeight="Bold"/>
         <Label x:Name="lblRegion" Content="Región" HorizontalAlignment="Left" Margin="49,496,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.183,0.291" FontWeight="Bold"/>
         <Label x:Name="lblReceptor" Content="Receptor" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese RUT sin DV" Height="23" Margin="193,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Controls:TextBoxHelper.ClearTextButton="True"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese RUT sin DV" Height="23" Margin="193,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Controls:TextBoxHelper.ClearTextButton="True" LostFocus="txtRut_LostFocus" />
+        
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Nombres" Height="23" Margin="193,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
         <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Apellido Paterno" Height="23" Margin="193,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
         <TextBox x:Name="txtApMaterno" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Ingrese Apellido Materno " Height="23" Margin="193,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>

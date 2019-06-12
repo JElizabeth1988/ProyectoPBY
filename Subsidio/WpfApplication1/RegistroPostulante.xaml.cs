@@ -78,9 +78,9 @@ namespace WpfApplication1
             //CB RECEPTOR
             foreach (Receptor item in new Receptor().ReadAll())
             {
-                comboBoxItem cb = new comboBoxItem();
+                comboBoxItem2 cb = new comboBoxItem2();
                 cb.id = item.Id_Receptor;
-                cb.descripcion = item.Nombre;
+                cb.nombre = item.Nombre+" "+item.Apellido;
                 cbReceptor.Items.Add(cb);
             }
         }
@@ -102,19 +102,47 @@ namespace WpfApplication1
             try
             {
 
-                string run_postulante = txtRut.Text;
+                string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
+                if (run_postulante.Length == 11)
+                {
+                    run_postulante = "0" + txtRut.Text + "-" + txtDvRut.Text;
+                }
                 string nombre = txtNombre.Text;
                 string apellido_paterno = txtApPaterno.Text;
                 string apellido_materno = txtApMaterno.Text;
                 DateTime fecha_nacimiento = dpFechaNac.SelectedDate.Value;
-                int monto_ahorro = int.Parse(txtMontoAhorro.Text);
-                char pueblo_originario = rbSi.IsChecked == true ? 'S' : 'N';
-                int cargas_familiares = int.Parse(txtNumCargas.Text);
+                //int monto_ahorro = int.Parse(txtMontoAhorro.Text);
+                int monto_ahorro = 0;
+                if (int.TryParse(txtMontoAhorro.Text, out monto_ahorro))
+                {
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Ingrese un valor numérico"));
+                    txtNumCargas.Focus();
+                    return;
+                }
+                string pueblo_originario = rbSi.IsChecked == true ? "Si" : "No";
+                //int cargas_familiares = int.Parse(txtNumCargas.Text);
+                int cargas_familiares = 0;
+                if (int.TryParse(txtNumCargas.Text, out cargas_familiares))
+                {
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Ingrese un valor numérico"));
+                    txtNumCargas.Focus();
+                    return;
+                }
                 decimal id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
                 decimal id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
                 decimal id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
                 decimal id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
-                decimal id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                decimal id_receptor = ((comboBoxItem2)cbReceptor.SelectedItem).id;
                 decimal id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
 
                 Postulante pos = new Postulante()
@@ -158,7 +186,7 @@ namespace WpfApplication1
 
 
         //añadir formato al rut
-        /*
+        
         private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
@@ -221,7 +249,7 @@ namespace WpfApplication1
                 txtRut.Text = "";
             }
         }
-        */
+        
 
     }
 }
