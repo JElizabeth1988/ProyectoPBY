@@ -68,3 +68,4 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Deb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\EntityFramework.xml
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\EntityFramework.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\EntityFramework.xml
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\WpfApplication1\bin\Debug\Oracle.ManagedDataAccess.dll

@@ -142,7 +142,7 @@ namespace WpfApplication1
                 decimal id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
                 decimal id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
                 decimal id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
-                decimal id_receptor = ((comboBoxItem2)cbReceptor.SelectedItem).id;
+                decimal id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
                 decimal id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
 
                 Postulante pos = new Postulante()
