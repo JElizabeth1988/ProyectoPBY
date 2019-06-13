@@ -11,6 +11,8 @@ namespace BibliotecaNegocio
 {
     public class Postulante
     {
+        Errores err = new Errores();
+        public Errores retornar() { return err; }
         private string _run_postulante;
 
         public string Run_Postulante
@@ -18,13 +20,14 @@ namespace BibliotecaNegocio
             get { return _run_postulante; }
             set
             {
-                if (value != null && value.Length >= 11 && value.Length <= 12)
+                if (value != "" && value.Length >= 11 && value.Length <= 12)
                 {
                     _run_postulante = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Rut no puede estar Vacío");
                 }
 
             }
@@ -36,14 +39,15 @@ namespace BibliotecaNegocio
         {
             get { return _nombre; }
             set {
-                    if (value != null)
+                    if (value != "")
                     {
                         _nombre = value;
                     }
                     else
                     {
-                        throw new ArgumentException("Campo Nombre no puede estar Vacío");
-                    }
+                    //throw new ArgumentException("Campo Nombre no puede estar Vacío");
+                    err.AgregarError("- Campo Nombre no puede estar Vacío");
+                }
                 }
         }
 
@@ -54,13 +58,14 @@ namespace BibliotecaNegocio
         {
             get { return _apellido_paterno; }
             set {
-                    if (value != null)
+                    if (value != "")
                     {
                         _apellido_paterno = value;
                     }
                     else
                     {
-                        throw new ArgumentException("Campo Apellido Paterno no puede estar Vacío");
+                    //throw new ArgumentException("Campo Apellido Paterno no puede estar Vacío");
+                    err.AgregarError("- Campo Apellido Paterno no puede estar Vacío");
                     }
                  }
         }
@@ -71,13 +76,14 @@ namespace BibliotecaNegocio
         {
             get { return _apellido_materno; }
             set {
-                if (value != null)
+                if (value != "")
                 {
                     _apellido_materno = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Campo Apellido no puede estar Vacío");
+                    //throw new ArgumentException("Campo Apellido no puede estar Vacío");
+                    err.AgregarError("- Campo Apellido Materno no puede estar Vacío");
                 }
 
             }
@@ -103,14 +109,15 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    throw new ArgumentException("Monto Ahorro insuficiente");
+                    //throw new ArgumentException("Monto Ahorro insuficiente");
+                    err.AgregarError("- Monto de Ahorro Insuficiente");
                 }
                  }
         }
 
-        private char _pueblo_originario;
+        private string _pueblo_originario;
 
-        public char Pueblo_Originario
+        public string Pueblo_Originario
         {
             get { return _pueblo_originario; }
             set { _pueblo_originario = value; }
@@ -216,7 +223,7 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 return false;
-                //Logger.Mensaje(ex.Message);
+                Logger.Mensaje(ex.Message);
             }
 
         }
@@ -233,7 +240,7 @@ namespace BibliotecaNegocio
                             Apellido_Materno = pos.APELLIDO_MATERNO,
                             Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
                             Monto_Ahorro= pos.MONTO_AHORRO,
-                            //Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
                             Cargas_Familiares=pos.CARGAS_FAMILIARES,
                             Id_Nacionalidad=pos.ID_NACIONALIDAD,
                             Id_Estado_Civil=pos.ID_ESTADO_CIVIL,

@@ -70,7 +70,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="comboBoxItem.cs" />
-    <Compile Include="comboBoxItem2.cs" />
     <Compile Include="ListadoPostulante.xaml.cs">
       <DependentUpon>ListadoPostulante.xaml</DependentUpon>
     </Compile>
