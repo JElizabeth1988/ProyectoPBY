@@ -18,3 +18,5 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Bibliot
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\EntityFramework.xml
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Oracle.DataAccess.dll
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Oracle.DataAccess.dll
+C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\Subsidio\bin\Debug\Oracle.ManagedDataAccess.dll
