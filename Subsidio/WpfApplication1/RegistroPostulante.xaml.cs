@@ -94,11 +94,11 @@ namespace WpfApplication1
             txtMontoAhorro.Text = "0";
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        /*private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             ListadoPostulante list = new ListadoPostulante();
             list.Show();
-        }
+        }*/
 
         private void btnPuntaje_Click(object sender, RoutedEventArgs e)
         {
@@ -215,9 +215,77 @@ namespace WpfApplication1
             this.Close();
         }
 
+        private async void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                Postulante p = new Postulante();
+                p.Run_Postulante = txtRut.Text + "-" + txtDvRut.Text;
+                bool buscar = p.Buscar();
+                if (buscar)
+                {
+                    txtRut.Text = p.Run_Postulante.Substring(0, 10);
+                    txtDvRut.Text = p.Run_Postulante.Substring(11, 1);
+                    txtRut.IsEnabled = false;
+                    txtDvRut.IsEnabled = false;
+                    txtNombre.Text = p.Nombre;
+                    txtApPaterno.Text = p.Apellido_Paterno;
+                    txtApMaterno.Text = p.Apellido_Materno;
+                    dpFechaNac.Text = p.Fecha_Nacimiento.ToString();
+                    Genero ge = new Genero();
+                    ge.Id_Genero = p.Id_Genero;
+                    ge.Read();
+                    cbGenero.Text = ge.Descripcion;
+                    EstadoCivil ec = new EstadoCivil();
+                    ec.Id_Estado_Civil = p.Id_Estado_Civil;
+                    ec.Read();
+                    cbEstadoCivil.Text = ec.Descripcion;
+                    Nacionalidad na = new Nacionalidad();
+                    na.Id_Nacionalidad = p.Id_Nacionalidad;
+                    na.Read();
+                    cbNacionalidad.Text = na.Descripcion;
+                    Titulo ti = new Titulo();
+                    ti.Id_Titulo = p.Id_Titulo;
+                    ti.Read();
+                    cbTitulo.Text = ti.Descripcion;
+                    //CheckBox pueblo origirario rbs
+                    
+                    Region rg = new Region();
+                    rg.Id_Region = p.Id_Region;
+                    rg.Read();
+                    cbRegion.Text = rg.Nombre;
+                    Receptor re = new Receptor();
+                    re.Id_Receptor = p.Id_Receptor;
+                    re.Read();
+                    cbReceptor.Text = re.Nombre;
+                    txtNumCargas.Text = p.Cargas_Familiares.ToString();
+                    txtMontoAhorro.Text = p.Monto_Ahorro.ToString();
+
+                    btnGuardar.Visibility = Visibility.Hidden;
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                     string.Format("No se encontraron resultados!"));
+                    /*MessageBox.Show("No se encontraron resultados!");*/
+                }
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Buscar Información! "));
+                /*MessageBox.Show("error al buscar");*/
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
+
+
 
         //añadir formato al rut
-        
+
         private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
