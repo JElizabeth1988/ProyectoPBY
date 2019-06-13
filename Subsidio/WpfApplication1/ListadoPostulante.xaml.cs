@@ -100,7 +100,7 @@ namespace WpfApplication1
                     pos.Apellido_Materno = reader.GetString(3);
                     pos.Fecha_Nacimiento = reader.GetDateTime(4);
                     pos.Monto_Ahorro = reader.GetInt32(5);
-                    pos.Pueblo_Originario = reader.GetChar(6);
+                    pos.Pueblo_Originario = reader.GetString(6);
                     pos.Cargas_Familiares = reader.GetInt32(7);
                     pos.Id_Nacionalidad = reader.GetInt32(8);
                     pos.Id_Estado_Civil = reader.GetInt32(9);
