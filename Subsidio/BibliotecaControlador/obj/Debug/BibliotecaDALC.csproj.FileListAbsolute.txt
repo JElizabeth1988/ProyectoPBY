@@ -7,3 +7,4 @@ C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\o
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache

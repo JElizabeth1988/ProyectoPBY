@@ -51,7 +51,7 @@ namespace WpfApplication1
             foreach (Nacionalidad item in new Nacionalidad().ReadAll())
             {
                 comboBoxItem cb = new comboBoxItem();
-                cb.id = item.Id_Nacionalidad ;
+                cb.id = item.Id_Nacionalidad;
                 cb.descripcion = item.Descripcion;
                 cbNacionalidad.Items.Add(cb);
             }
@@ -83,6 +83,15 @@ namespace WpfApplication1
                 cb.descripcion = item.Nombre;
                 cbReceptor.Items.Add(cb);
             }
+
+            cbEstadoCivil.SelectedIndex = 0;
+            cbGenero.SelectedIndex = 0;
+            cbNacionalidad.SelectedIndex = 0;
+            cbReceptor.SelectedIndex = 0;
+            cbRegion.SelectedIndex = 0;
+            cbTitulo.SelectedIndex = 0;
+            txtNumCargas.Text = "0";
+            txtMontoAhorro.Text = "0";
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -119,12 +128,12 @@ namespace WpfApplication1
                 }
                 else
                 {
-                    await this.ShowMessageAsync("Mensaje:",
+                    /*await this.ShowMessageAsync("Mensaje:",
                      string.Format("Ingrese un valor numérico"));
-                    txtNumCargas.Focus();
+                    txtNumCargas.Focus();*/
                     return;
                 }
-                string pueblo_originario = rbSi.IsChecked == true ? "Si" : "No";
+                string pueblo_originario = rbSi.IsChecked == true ? "S" : "N";
                 //int cargas_familiares = int.Parse(txtNumCargas.Text);
                 int cargas_familiares = 0;
                 if (int.TryParse(txtNumCargas.Text, out cargas_familiares))
@@ -133,16 +142,16 @@ namespace WpfApplication1
                 }
                 else
                 {
-                    await this.ShowMessageAsync("Mensaje:",
+                    /*await this.ShowMessageAsync("Mensaje:",
                      string.Format("Ingrese un valor numérico"));
-                    txtNumCargas.Focus();
+                    txtNumCargas.Focus();*/
                     return;
                 }
                 decimal id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
                 decimal id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
                 decimal id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
                 decimal id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
-                decimal id_receptor = ((comboBoxItem2)cbReceptor.SelectedItem).id;
+                decimal id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
                 decimal id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
 
                 Postulante pos = new Postulante()
@@ -153,7 +162,7 @@ namespace WpfApplication1
                     Apellido_Materno = apellido_materno,
                     Fecha_Nacimiento = fecha_nacimiento,
                     Monto_Ahorro = monto_ahorro,
-                    //Pueblo_Originario = pueblo_originario,
+                    Pueblo_Originario = pueblo_originario,
                     Cargas_Familiares = cargas_familiares,
                     Id_Nacionalidad = id_nacionalidad,
                     Id_Estado_Civil=id_estado_civil,
@@ -166,15 +175,37 @@ namespace WpfApplication1
                 bool resp = pos.Grabar();
                 await this.ShowMessageAsync("Mensaje:",
                            string.Format(resp ? "Guardado" : "No guardado"));
+                //-----------------------------------------------------------------------------------------------
+                //MOSTRAR LISTA DE ERRORES
+                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
+                {
+                    Errores de = pos.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje1:",
+                        string.Format(li));
+                }
+
+
+                //-----------------------------------------------------------------------------------------------
+
+
             }
-            catch (ArgumentException exa) //catch excepciones hechas por el usuario
-            {
-                MessageBox.Show(exa.Message);
-            }
-            catch (Exception ex)
+           
+            catch (ArgumentException ex) //catch excepciones hechas por el usuario
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error de ingreso de datos"));
+                Logger.Mensaje(ex.Message);
 
             }
         }
