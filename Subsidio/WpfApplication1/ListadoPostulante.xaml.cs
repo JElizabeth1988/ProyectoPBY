@@ -34,7 +34,7 @@ namespace WpfApplication1
             try
             {
                 Postulante pos = new Postulante();
-                dgvLista.ItemsSource = pos.ReadAll();//en proceso read all 2
+                dgvLista.ItemsSource = pos.ReadAll2();
                 dgvLista.Items.Refresh();
 
             }

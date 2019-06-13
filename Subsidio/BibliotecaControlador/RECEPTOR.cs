@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BibliotecaDALC
+namespace BibliotecaControlador
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +21,6 @@ namespace BibliotecaDALC
     
         public decimal ID_RECEPTOR { get; set; }
         public string NOMBRE { get; set; }
-        public string APELLIDO { get; set; }
     
         public virtual ICollection<POSTULANTE> POSTULANTE { get; set; }
     }

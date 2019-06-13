@@ -110,7 +110,6 @@
           </Key>
           <Property Name="ID_RECEPTOR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
-          <Property Name="APELLIDO" Type="varchar2" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="REGION">
           <Key>
@@ -357,7 +356,6 @@
           </Key>
           <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
         </EntityType>
         <EntityType Name="REGION">
@@ -448,7 +446,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SubsidioEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EntitiesSubsidio" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" />
           <EntitySet Name="GENERO" EntityType="Self.GENERO" />
           <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" />
@@ -493,7 +491,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="SubsidioEntities">
+        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="EntitiesSubsidio">
           <EntitySetMapping Name="ESTADO_CIVIL">
             <EntityTypeMapping TypeName="Modelo.ESTADO_CIVIL">
               <MappingFragment StoreEntitySet="ESTADO_CIVIL">
@@ -609,7 +607,6 @@
               <MappingFragment StoreEntitySet="RECEPTOR">
                 <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

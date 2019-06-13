@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BibliotecaDALC;
+using BibliotecaControlador;
+
+
 
 namespace BibliotecaNegocio
 {
@@ -106,9 +108,9 @@ namespace BibliotecaNegocio
                  }
         }
 
-        private string _pueblo_originario;
+        private char _pueblo_originario;
 
-        public string Pueblo_Originario
+        public char Pueblo_Originario
         {
             get { return _pueblo_originario; }
             set { _pueblo_originario = value; }
@@ -136,7 +138,7 @@ namespace BibliotecaNegocio
         }
 
         //creo un objeto que me permite manipular todo en la BD
-        private SubsidioEntities bdd = new SubsidioEntities();
+        private EntitiesSubsidio bdd = new EntitiesSubsidio();
 
         //MÉTODOS CRUD
         //grabar
@@ -166,7 +168,7 @@ namespace BibliotecaNegocio
         {
             try
             {
-                    BibliotecaDALC.POSTULANTE pos =
+                    BibliotecaControlador.POSTULANTE pos =
                     //bdd.POSTULANTE.First(po => po.Run_Postulante.Equals(Run_Postulante));
                     bdd.POSTULANTE.Find(Run_Postulante);
 
@@ -187,7 +189,7 @@ namespace BibliotecaNegocio
         {
             try
             {
-                BibliotecaDALC.POSTULANTE pos =
+                POSTULANTE pos =
                 bdd.POSTULANTE.First(po => po.RUN_POSTULANTE.Equals(Run_Postulante));
                
                 CommonBC.Syncronize(pos, this);//arregló this
@@ -231,7 +233,7 @@ namespace BibliotecaNegocio
                             Apellido_Materno = pos.APELLIDO_MATERNO,
                             Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
                             Monto_Ahorro= pos.MONTO_AHORRO,
-                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            //Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
                             Cargas_Familiares=pos.CARGAS_FAMILIARES,
                             Id_Nacionalidad=pos.ID_NACIONALIDAD,
                             Id_Estado_Civil=pos.ID_ESTADO_CIVIL,
@@ -282,7 +284,7 @@ namespace BibliotecaNegocio
                             Estado_Civil = ecivil.DESCRIPCION,
                             Genero = sexo.DESCRIPCION,
                             Region = reg.NOMBRE,
-                            Receptor = rec.NOMBRE+" "+rec.APELLIDO,
+                            Receptor = rec.NOMBRE,
                             Titulo = tit.DESCRIPCION
                         };
                 return p.ToList();

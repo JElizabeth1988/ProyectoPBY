@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BibliotecaDALC;
+using BibliotecaControlador;
 
 namespace BibliotecaNegocio
 {
     public class EstadoCivil
     {
         //Crear objeto de la Bdd
-        private SubsidioEntities bdd = new SubsidioEntities();
+        private EntitiesSubsidio bdd = new EntitiesSubsidio();
 
         public decimal Id_Estado_Civil { get; set; }
         public string Descripcion { get; set; }
@@ -41,7 +41,7 @@ namespace BibliotecaNegocio
             {
                 List<EstadoCivil> lista = new List<EstadoCivil>();
                 var lista_ecivil_bdd = bdd.ESTADO_CIVIL.ToList();
-                foreach (BibliotecaDALC.ESTADO_CIVIL item in lista_ecivil_bdd)
+                foreach (BibliotecaControlador.ESTADO_CIVIL item in lista_ecivil_bdd)
                 {
                     EstadoCivil est = new EstadoCivil();
                     est.Id_Estado_Civil = item.ID_ESTADO_CIVIL;//number no los toma el int

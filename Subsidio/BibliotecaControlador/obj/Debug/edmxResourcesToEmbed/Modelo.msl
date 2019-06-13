@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="SubsidioEntities">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="EntitiesSubsidio">
     <EntitySetMapping Name="ESTADO_CIVIL">
       <EntityTypeMapping TypeName="Modelo.ESTADO_CIVIL">
         <MappingFragment StoreEntitySet="ESTADO_CIVIL">
@@ -116,7 +116,6 @@
         <MappingFragment StoreEntitySet="RECEPTOR">
           <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

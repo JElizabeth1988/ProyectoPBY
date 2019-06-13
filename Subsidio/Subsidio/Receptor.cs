@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BibliotecaDALC;
+using BibliotecaControlador;
 
 namespace BibliotecaNegocio
 {
     public class Receptor
     {
         //Crear objeto de la Bdd
-        private SubsidioEntities bdd = new SubsidioEntities();
+        private EntitiesSubsidio bdd = new EntitiesSubsidio();
 
         public decimal Id_Receptor { get; set; }
 
         public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        
 
         public Receptor()
         {
@@ -29,7 +29,6 @@ namespace BibliotecaNegocio
                 RECEPTOR rec = bdd.
                      RECEPTOR.First(a => a.ID_RECEPTOR == Id_Receptor);
                 Nombre = rec.NOMBRE;
-                Apellido = rec.APELLIDO;
                 return true;
             }
             catch (Exception ex)
@@ -49,7 +48,6 @@ namespace BibliotecaNegocio
                     Receptor re = new Receptor();
                     re.Id_Receptor = item.ID_RECEPTOR;//number no los toma el int
                     re.Nombre = item.NOMBRE;
-                    re.Apellido = item.APELLIDO;
                     lista.Add(re);
                 }
                 return lista;

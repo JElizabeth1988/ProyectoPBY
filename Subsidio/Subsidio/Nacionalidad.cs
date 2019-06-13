@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BibliotecaDALC;
+using BibliotecaControlador;
 
 namespace BibliotecaNegocio
 {
     public class Nacionalidad
     {
         //Crear objeto de la Bdd
-        private SubsidioEntities bdd = new SubsidioEntities();
+        private EntitiesSubsidio bdd = new EntitiesSubsidio();
 
         public decimal Id_Nacionalidad { get; set; }
 

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-using BibliotecaDALC;
+using BibliotecaControlador;
 using BibliotecaNegocio;
 
 namespace WpfApplication1
@@ -78,9 +78,9 @@ namespace WpfApplication1
             //CB RECEPTOR
             foreach (Receptor item in new Receptor().ReadAll())
             {
-                comboBoxItem2 cb = new comboBoxItem2();
+                comboBoxItem cb = new comboBoxItem();
                 cb.id = item.Id_Receptor;
-                cb.nombre = item.Nombre+" "+item.Apellido;
+                cb.descripcion = item.Nombre;
                 cbReceptor.Items.Add(cb);
             }
         }
@@ -153,7 +153,7 @@ namespace WpfApplication1
                     Apellido_Materno = apellido_materno,
                     Fecha_Nacimiento = fecha_nacimiento,
                     Monto_Ahorro = monto_ahorro,
-                    Pueblo_Originario = pueblo_originario,
+                    //Pueblo_Originario = pueblo_originario,
                     Cargas_Familiares = cargas_familiares,
                     Id_Nacionalidad = id_nacionalidad,
                     Id_Estado_Civil=id_estado_civil,

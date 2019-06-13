@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BibliotecaDALC
+namespace BibliotecaControlador
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SubsidioEntities : DbContext
+    public partial class EntitiesSubsidio : DbContext
     {
-        public SubsidioEntities()
-            : base("name=SubsidioEntities")
+        public EntitiesSubsidio()
+            : base("name=EntitiesSubsidio")
         {
         }
     

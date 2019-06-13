@@ -114,7 +114,6 @@
     </Key>
     <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="REGION">
@@ -205,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SubsidioEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EntitiesSubsidio" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" />
     <EntitySet Name="GENERO" EntityType="Self.GENERO" />
     <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" />
