@@ -94,7 +94,17 @@ namespace BibliotecaNegocio
         public DateTime Fecha_Nacimiento
         {
             get { return _fecha_Nacimiento; }
-            set { _fecha_Nacimiento = value; }
+            set {
+                if (value != null)
+                {
+                    _fecha_Nacimiento = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo fecha no puede estar Vacío");
+                    err.AgregarError("- Campo fecha no puede estar Vacío");
+                }
+            }
         }
 
         private decimal _monto_ahorro;
@@ -120,7 +130,18 @@ namespace BibliotecaNegocio
         public string Pueblo_Originario
         {
             get { return _pueblo_originario; }
-            set { _pueblo_originario = value; }
+            set {
+                if (value != null)
+                {
+                    _pueblo_originario = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Pueblo Originario no puede estar Vacío");
+                    err.AgregarError("-Campo Pueblo Originario no puede estar Vacío");
+                }
+
+               }
         }
 
         private decimal _cargas_familiares;
@@ -128,16 +149,133 @@ namespace BibliotecaNegocio
         public decimal Cargas_Familiares
         {
             get { return _cargas_familiares; }
-            set { _cargas_familiares = value; }
+            set {
+                if (value !=null)
+                {
+                    _cargas_familiares = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Pueblo Originario no puede estar Vacío");
+                    err.AgregarError("-Campo Cargas familiares no puede estar vacío");
+                }
+                 }
         }
 
         //Foraneas
-        public decimal Id_Nacionalidad { get; set; }
-        public decimal Id_Estado_Civil { get; set; }
-        public decimal Id_Genero { get; set; }
-        public decimal Id_Region { get; set; }
-        public decimal Id_Receptor { get; set; }
-        public decimal Id_Titulo { get; set; }
+
+        private decimal id_Nacionalidad;
+
+        public decimal Id_Nacionalidad
+        {
+            get { return id_Nacionalidad; }
+            set {
+                if (value != 0)
+                {
+                    id_Nacionalidad = value;
+                }
+                else
+                {
+                   
+                    err.AgregarError("-Campo Nacionalidad no puede estar Vacío");
+                }
+
+                }
+        }
+
+        private decimal id_estado_civil;
+
+        public decimal Id_Estado_Civil
+        {
+            get { return id_estado_civil; }
+            set {
+                if (value != 0)
+                {
+                    id_estado_civil = value;
+                }
+                else
+                {
+                    
+                    err.AgregarError("-Campo Estado Civil no puede estar Vacío");
+                }
+                }
+        }
+
+        private decimal id_genero;
+
+        public decimal Id_Genero
+        {
+            get { return id_genero; }
+            set {
+                if (value != 0)
+                {
+                    id_genero = value;
+                }
+                else
+                {
+
+                    err.AgregarError("-Campo Género no puede estar Vacío");
+                }
+                }
+        }
+
+        private decimal id_region;
+
+        public decimal Id_Region
+        {
+            get { return id_region; }
+            set
+            {
+                    if (value != 0)
+                    {
+                        id_region = value;
+                    }
+                    else
+                    {
+
+                        err.AgregarError("-Campo Region no puede estar Vacío");
+                    }
+                
+            }     
+        }
+
+        private decimal id_receptor;
+
+        public decimal Id_Receptor
+        {
+            get { return id_receptor; }
+            set {
+                if (value != 0)
+                {
+                    id_receptor = value;
+                }
+                else
+                {
+
+                    err.AgregarError("-Campo Receptor no puede estar Vacío");
+                }
+                }
+        }
+
+        private decimal id_titulo;
+
+        public decimal Id_Titulo
+        {
+            get { return id_titulo; }
+            set {
+                if (value != 0)
+                {
+                    id_titulo = value;
+                }
+                else
+                {
+
+                    err.AgregarError("-Campo titulo no puede estar Vacío");
+                }
+
+              }
+        }
+
 
         public Postulante()
         {
