@@ -10,22 +10,24 @@
 
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Ministerio de Vivienda y Urbanismo"  Height="664" Width="1017.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal">
+        Title="Ministerio de Vivienda y Urbanismo"  Height="664" Width="1314.001"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal" WindowState="Maximized">
     <Controls:MetroWindow.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF0E61D1" Offset="0"/>
             <GradientStop Color="#FF7CB9E7" Offset="0.56"/>
         </LinearGradientBrush>
     </Controls:MetroWindow.Background>
-    <Grid Background="#FF4ED0F4" Margin="0,0,-5,0">
+    <Grid Background="#FF4ED0F4" Margin="0,0,-5.333,-133">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="699*"/>
-            <ColumnDefinition Width="92*"/>
-            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="515" Margin="0,121,-124.667,0" VerticalAlignment="Top" Width="1142" Source="imagenes/1127.jpg" Grid.ColumnSpan="3"/>
+        <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1314" Margin="-3,1,3,0" Stretch="Fill"/>
 
-        <Controls:Tile Click="Tile_Click" Margin="217,69,265.333,402" Height="Auto" Width="Auto" Background="{x:Null}" >
+        <Controls:Tile Click="Tile_Click" Margin="298,116,726,544" Height="Auto" Width="Auto" Background="{x:Null}" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="163*"/>
@@ -38,8 +40,8 @@
                 <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
             </Grid>
         </Controls:Tile>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="51,44,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Controls:Tile Click="Tile_Click_2" Margin="506,68,81,403" Height="Auto" Width="Auto" Background="{x:Null}" Grid.ColumnSpan="2" >
+        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="1055,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png"/>
+        <Controls:Tile Click="Tile_Click_2" Margin="702,102,310,519" Height="Auto" Width="Auto" Background="{x:Null}" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="163*"/>

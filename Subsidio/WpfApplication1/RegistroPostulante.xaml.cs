@@ -84,14 +84,7 @@ namespace WpfApplication1
                 cbReceptor.Items.Add(cb);
             }
 
-            cbEstadoCivil.SelectedIndex = 0;
-            cbGenero.SelectedIndex = 0;
-            cbNacionalidad.SelectedIndex = 0;
-            cbReceptor.SelectedIndex = 0;
-            cbRegion.SelectedIndex = 0;
-            cbTitulo.SelectedIndex = 0;
-            txtNumCargas.Text = "0";
-            txtMontoAhorro.Text = "0";
+            
         }
 
         /*private void btnBuscar_Click(object sender, RoutedEventArgs e)
