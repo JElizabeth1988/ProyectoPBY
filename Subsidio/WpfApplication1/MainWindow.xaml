@@ -18,16 +18,23 @@
         </LinearGradientBrush>
     </Controls:MetroWindow.Background>
     <Grid Background="#FF4ED0F4" Margin="0,0,-5.333,-133">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="178*"/>
+            <ColumnDefinition Width="1125*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1314" Margin="-3,1,3,0" Stretch="Fill"/>
+        <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1377" Margin="-64,0,0,0" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
 
-        <Controls:Tile Click="Tile_Click" Margin="298,116,726,544" Height="Auto" Width="Auto" Background="{x:Null}" >
+        <Controls:Tile Click="Tile_Click" Margin="75,28,726,552" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="163*"/>
@@ -36,12 +43,12 @@
                 <Grid.Background>
                     <ImageBrush/>
                 </Grid.Background>
-                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,0,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
+                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,-10,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" StrokeThickness="3"/>
+                <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,18,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
             </Grid>
         </Controls:Tile>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="1055,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png"/>
-        <Controls:Tile Click="Tile_Click_2" Margin="702,102,310,519" Height="Auto" Width="Auto" Background="{x:Null}" >
+        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="954,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png" Grid.Column="3" Grid.RowSpan="2"/>
+        <Controls:Tile Click="Tile_Click_2" Margin="479,8,310,533" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="163*"/>
@@ -50,8 +57,8 @@
                 <Grid.Background>
                     <ImageBrush/>
                 </Grid.Background>
-                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,0,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="196" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblPost1" Content="  LISTADO DE&#xD;&#xA;POSTULANTES" HorizontalAlignment="Left" Margin="40,14,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
+                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,-10,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="196" Grid.ColumnSpan="2" StrokeThickness="3"/>
+                <Label x:Name="lblPost1" Content="  LISTADO DE&#xD;&#xA;POSTULANTES" HorizontalAlignment="Left" Margin="38,6,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
             </Grid>
         </Controls:Tile>
 

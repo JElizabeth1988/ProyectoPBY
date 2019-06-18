@@ -38,11 +38,12 @@ namespace WpfApplication1
 
         private void abrirConexion()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["EntitiesSubsidio"].ConnectionString;
-            conn = new OracleConnection(connectionString);
 
             try
             {
+                string connectionString = ConfigurationManager.ConnectionStrings["EntitiesSubsidio"].ConnectionString;
+            conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=SUBSIDIO;Password=SUBSIDIO");
+
                 conn.Open();
             }
             catch (Exception ex)
