@@ -20,7 +20,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="105" Margin="25,23,0,0" VerticalAlignment="Top" Width="127" Source="imagenes/Minvu.png"/>
         <GroupBox x:Name="groupBox" Header="Puntajes" HorizontalAlignment="Left" Margin="392,23,0,0" VerticalAlignment="Top" Height="293" Width="378" Controls:ControlsHelper.ContentCharacterCasing="Normal" Controls:ControlsHelper.HeaderFontWeight="Medium" Controls:GroupBoxHelper.HeaderForeground="{x:Null}" BorderThickness="1">
             <Grid HorizontalAlignment="Left" Height="255" Margin="0,10,-0.333,-5" VerticalAlignment="Top" Width="365">
-                <TextBox x:Name="txtCargas" HorizontalAlignment="Left" Height="23" Margin="185,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                <TextBox x:Name="txtCargas" HorizontalAlignment="Left" Height="23" Margin="185,0,0,229" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" IsEnabled="False"/>
                 <TextBox x:Name="txtAhorro" HorizontalAlignment="Left" Height="23" Margin="185,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsEnabled="False"/>
                 <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="185,70,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsEnabled="False"/>
                 <TextBox x:Name="txtEstadoCivil" HorizontalAlignment="Left" Height="23" Margin="185,175,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsEnabled="False"/>

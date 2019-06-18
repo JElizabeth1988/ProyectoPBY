@@ -140,29 +140,29 @@ namespace WpfApplication1
                     txtNumCargas.Focus();*/
                     return;
                 }
-                decimal id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
-                decimal id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
-                decimal id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
-                decimal id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
-                decimal id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
-                decimal id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                int id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
+                int id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
+                int id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
+                int id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
+                int id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                int id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
 
                 Postulante pos = new Postulante()
                 {
-                    Run_Postulante = run_postulante,
-                    Nombre = nombre,
-                    Apellido_Paterno = apellido_paterno,
-                    Apellido_Materno = apellido_materno,
-                    Fecha_Nacimiento = fecha_nacimiento,
-                    Monto_Ahorro = monto_ahorro,
-                    Pueblo_Originario = pueblo_originario,
-                    Cargas_Familiares = cargas_familiares,
-                    Id_Nacionalidad = id_nacionalidad,
-                    Id_Estado_Civil=id_estado_civil,
-                    Id_Genero = id_genero,
-                    Id_Region = id_region,
-                    Id_Receptor = id_receptor,
-                    Id_Titulo = id_titulo
+                    RUN_POSTULANTE = run_postulante,
+                    NOMBRE = nombre,
+                    APELLIDO_PATERNO = apellido_paterno,
+                    APELLIDO_MATERNO= apellido_materno,
+                    FECHA_NACIMIENTO = fecha_nacimiento,
+                    MONTO_AHORRO = monto_ahorro,
+                    PUEBLO_ORIGINARIO = pueblo_originario,
+                    CARGAS_FAMILIARES = cargas_familiares,
+                    ID_NACIONALIDAD = id_nacionalidad,
+                    ID_ESTADO_CIVIL=id_estado_civil,
+                    ID_GENERO = id_genero,
+                    ID_REGION = id_region,
+                    ID_RECEPTOR = id_receptor,
+                    ID_TITULO = id_titulo
                 };
 
                 bool resp = pos.Grabar();
@@ -214,46 +214,46 @@ namespace WpfApplication1
             try
             {
                 Postulante p = new Postulante();
-                p.Run_Postulante = txtRut.Text + "-" + txtDvRut.Text;
+                p.RUN_POSTULANTE = txtRut.Text + "-" + txtDvRut.Text;
                 bool buscar = p.Buscar();
                 if (buscar)
                 {
-                    txtRut.Text = p.Run_Postulante.Substring(0, 10);
-                    txtDvRut.Text = p.Run_Postulante.Substring(11, 1);
+                    txtRut.Text = p.RUN_POSTULANTE.Substring(0, 10);
+                    txtDvRut.Text = p.RUN_POSTULANTE.Substring(11, 1);
                     txtRut.IsEnabled = false;
                     txtDvRut.IsEnabled = false;
-                    txtNombre.Text = p.Nombre;
-                    txtApPaterno.Text = p.Apellido_Paterno;
-                    txtApMaterno.Text = p.Apellido_Materno;
-                    dpFechaNac.Text = p.Fecha_Nacimiento.ToString();
+                    txtNombre.Text = p.NOMBRE;
+                    txtApPaterno.Text = p.APELLIDO_PATERNO;
+                    txtApMaterno.Text = p.APELLIDO_MATERNO;
+                    dpFechaNac.Text = p.FECHA_NACIMIENTO.ToString();
                     Genero ge = new Genero();
-                    ge.Id_Genero = p.Id_Genero;
+                    ge.Id_Genero = p.ID_GENERO;
                     ge.Read();
                     cbGenero.Text = ge.Descripcion;
                     EstadoCivil ec = new EstadoCivil();
-                    ec.Id_Estado_Civil = p.Id_Estado_Civil;
+                    ec.Id_Estado_Civil = p.ID_ESTADO_CIVIL;
                     ec.Read();
                     cbEstadoCivil.Text = ec.Descripcion;
                     Nacionalidad na = new Nacionalidad();
-                    na.Id_Nacionalidad = p.Id_Nacionalidad;
+                    na.Id_Nacionalidad = p.ID_NACIONALIDAD;
                     na.Read();
                     cbNacionalidad.Text = na.Descripcion;
                     Titulo ti = new Titulo();
-                    ti.Id_Titulo = p.Id_Titulo;
+                    ti.Id_Titulo = p.ID_TITULO;
                     ti.Read();
                     cbTitulo.Text = ti.Descripcion;
                     //CheckBox pueblo origirario rbs
                     
                     Region rg = new Region();
-                    rg.Id_Region = p.Id_Region;
+                    rg.Id_Region = p.ID_REGION;
                     rg.Read();
                     cbRegion.Text = rg.Nombre;
                     Receptor re = new Receptor();
-                    re.Id_Receptor = p.Id_Receptor;
+                    re.Id_Receptor = p.ID_RECEPTOR;
                     re.Read();
                     cbReceptor.Text = re.Nombre;
-                    txtNumCargas.Text = p.Cargas_Familiares.ToString();
-                    txtMontoAhorro.Text = p.Monto_Ahorro.ToString();
+                    txtNumCargas.Text = p.CARGAS_FAMILIARES.ToString();
+                    txtMontoAhorro.Text = p.MONTO_AHORRO.ToString();
 
                     btnGuardar.Visibility = Visibility.Hidden;
 

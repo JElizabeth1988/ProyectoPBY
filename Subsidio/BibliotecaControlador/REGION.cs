@@ -19,7 +19,7 @@ namespace BibliotecaControlador
             this.POSTULANTE = new HashSet<POSTULANTE>();
         }
     
-        public decimal ID_REGION { get; set; }
+        public int ID_REGION { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<POSTULANTE> POSTULANTE { get; set; }

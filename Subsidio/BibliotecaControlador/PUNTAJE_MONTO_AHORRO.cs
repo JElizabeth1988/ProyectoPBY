@@ -14,7 +14,7 @@ namespace BibliotecaControlador
     
     public partial class PUNTAJE_MONTO_AHORRO
     {
-        public decimal ID_PUNTAJE_MONTO_AHORRO { get; set; }
+        public int ID_PUNTAJE_MONTO_AHORRO { get; set; }
         public decimal MONTO_SUP { get; set; }
         public decimal MONTO_INF { get; set; }
         public decimal PUNTAJE { get; set; }

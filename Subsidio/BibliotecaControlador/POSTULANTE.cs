@@ -19,15 +19,15 @@ namespace BibliotecaControlador
         public string APELLIDO_PATERNO { get; set; }
         public string APELLIDO_MATERNO { get; set; }
         public System.DateTime FECHA_NACIMIENTO { get; set; }
-        public decimal MONTO_AHORRO { get; set; }
+        public int MONTO_AHORRO { get; set; }
         public string PUEBLO_ORIGINARIO { get; set; }
-        public decimal CARGAS_FAMILIARES { get; set; }
-        public decimal ID_NACIONALIDAD { get; set; }
-        public decimal ID_ESTADO_CIVIL { get; set; }
-        public decimal ID_GENERO { get; set; }
-        public decimal ID_REGION { get; set; }
-        public decimal ID_RECEPTOR { get; set; }
-        public decimal ID_TITULO { get; set; }
+        public int CARGAS_FAMILIARES { get; set; }
+        public int ID_NACIONALIDAD { get; set; }
+        public int ID_ESTADO_CIVIL { get; set; }
+        public int ID_GENERO { get; set; }
+        public int ID_REGION { get; set; }
+        public int ID_RECEPTOR { get; set; }
+        public int ID_TITULO { get; set; }
     
         public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         public virtual GENERO GENERO { get; set; }

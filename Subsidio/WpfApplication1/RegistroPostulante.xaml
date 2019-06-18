@@ -50,7 +50,7 @@
         <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,407,0,0" VerticalAlignment="Top" Width="156"/>
         <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,496,0,0" VerticalAlignment="Top" Width="156"/>
         <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,539,0,0" VerticalAlignment="Top" Width="156"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="233,605,0,0" VerticalAlignment="Top" Width="79" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnGuardar_Click" RenderTransformOrigin="0.367,0.485"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="233,605,0,0" VerticalAlignment="Top" Width="79" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnGuardar_Click" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="116,605,0,0" VerticalAlignment="Top" Width="75" Background="#FF4ED0F4" Click="btnBuscar_Click" BorderThickness="2" BorderBrush="Black"/>
         <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="347,605,0,0" VerticalAlignment="Top" Width="128" Background="#FF4ED0F4" Click="btnPuntaje_Click" BorderThickness="2" BorderBrush="Black"/>
         <TextBox x:Name="txtDvRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="DV" Height="23" Margin="379,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" IsEnabled="False"/>

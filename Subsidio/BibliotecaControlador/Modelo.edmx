@@ -246,7 +246,7 @@
           <Key>
             <PropertyRef Name="ID_ESTADO_CIVIL" />
           </Key>
-          <Property Name="ID_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="ESTADO_CIVIL" ToRole="POSTULANTE" />
         </EntityType>
@@ -254,7 +254,7 @@
           <Key>
             <PropertyRef Name="ID_GENERO" />
           </Key>
-          <Property Name="ID_GENERO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="GENERO" ToRole="POSTULANTE" />
         </EntityType>
@@ -262,7 +262,7 @@
           <Key>
             <PropertyRef Name="ID_NACIONALIDAD" />
           </Key>
-          <Property Name="ID_NACIONALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="NACIONALIDAD" ToRole="POSTULANTE" />
         </EntityType>
@@ -275,15 +275,15 @@
           <Property Name="APELLIDO_PATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="APELLIDO_MATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
-          <Property Name="MONTO_AHORRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_AHORRO" Type="Int32" Nullable="false" />
           <Property Name="PUEBLO_ORIGINARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="CARGAS_FAMILIARES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_NACIONALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_GENERO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_REGION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_TITULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CARGAS_FAMILIARES" Type="Int32" Nullable="false" />
+          <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
+          <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
+          <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
+          <Property Name="ID_REGION" Type="Int32" Nullable="false" />
+          <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ESTADO_CIVIL" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
           <NavigationProperty Name="GENERO" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
           <NavigationProperty Name="NACIONALIDAD" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
@@ -313,7 +313,7 @@
           <Key>
             <PropertyRef Name="ID_PUNTAJE_ESTADO_CIVIL" />
           </Key>
-          <Property Name="ID_PUNTAJE_ESTADO_CIVIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PUNTAJE_ESTADO_CIVIL" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
@@ -321,7 +321,7 @@
           <Key>
             <PropertyRef Name="ID_PUNTAJE_MONTO_AHORRO" />
           </Key>
-          <Property Name="ID_PUNTAJE_MONTO_AHORRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PUNTAJE_MONTO_AHORRO" Type="Int32" Nullable="false" />
           <Property Name="MONTO_SUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="MONTO_INF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
@@ -330,7 +330,7 @@
           <Key>
             <PropertyRef Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" />
           </Key>
-          <Property Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PUNTAJE_PUEBLO_ORIGINARIO" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="PUNTAJE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
@@ -354,7 +354,7 @@
           <Key>
             <PropertyRef Name="ID_RECEPTOR" />
           </Key>
-          <Property Name="ID_RECEPTOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
         </EntityType>
@@ -362,7 +362,7 @@
           <Key>
             <PropertyRef Name="ID_REGION" />
           </Key>
-          <Property Name="ID_REGION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_REGION" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_REGION_FK" FromRole="REGION" ToRole="POSTULANTE" />
         </EntityType>
@@ -370,7 +370,7 @@
           <Key>
             <PropertyRef Name="ID_TITULO" />
           </Key>
-          <Property Name="ID_TITULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_TITULO_FK" FromRole="TITULO" ToRole="POSTULANTE" />
         </EntityType>

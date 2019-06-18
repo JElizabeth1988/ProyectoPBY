@@ -15,7 +15,7 @@ namespace BibliotecaNegocio
         public Errores retornar() { return err; }
         private string _run_postulante;
 
-        public string Run_Postulante
+        public string RUN_POSTULANTE
         {
             get { return _run_postulante; }
             set
@@ -35,7 +35,7 @@ namespace BibliotecaNegocio
 
         private string _nombre;
 
-        public string Nombre
+        public string NOMBRE
         {
             get { return _nombre; }
             set {
@@ -54,7 +54,7 @@ namespace BibliotecaNegocio
 
         private string _apellido_paterno;
 
-        public string Apellido_Paterno
+        public string APELLIDO_PATERNO
         {
             get { return _apellido_paterno; }
             set {
@@ -72,7 +72,7 @@ namespace BibliotecaNegocio
 
         private string _apellido_materno;
 
-        public string Apellido_Materno
+        public string APELLIDO_MATERNO
         {
             get { return _apellido_materno; }
             set {
@@ -91,7 +91,7 @@ namespace BibliotecaNegocio
 
         private DateTime _fecha_Nacimiento;
 
-        public DateTime Fecha_Nacimiento
+        public DateTime FECHA_NACIMIENTO
         {
             get { return _fecha_Nacimiento; }
             set {
@@ -107,9 +107,9 @@ namespace BibliotecaNegocio
             }
         }
 
-        private decimal _monto_ahorro;
+        private int _monto_ahorro;
 
-        public decimal Monto_Ahorro
+        public int MONTO_AHORRO
         {
             get { return _monto_ahorro; }
             set {
@@ -127,7 +127,7 @@ namespace BibliotecaNegocio
 
         private string _pueblo_originario;
 
-        public string Pueblo_Originario
+        public string PUEBLO_ORIGINARIO
         {
             get { return _pueblo_originario; }
             set {
@@ -144,9 +144,9 @@ namespace BibliotecaNegocio
                }
         }
 
-        private decimal _cargas_familiares;
+        private int _cargas_familiares;
 
-        public decimal Cargas_Familiares
+        public int CARGAS_FAMILIARES
         {
             get { return _cargas_familiares; }
             set {
@@ -164,9 +164,9 @@ namespace BibliotecaNegocio
 
         //Foraneas
 
-        private decimal id_Nacionalidad;
+        private int id_Nacionalidad;
 
-        public decimal Id_Nacionalidad
+        public int ID_NACIONALIDAD
         {
             get { return id_Nacionalidad; }
             set {
@@ -183,9 +183,9 @@ namespace BibliotecaNegocio
                 }
         }
 
-        private decimal id_estado_civil;
+        private int id_estado_civil;
 
-        public decimal Id_Estado_Civil
+        public int ID_ESTADO_CIVIL
         {
             get { return id_estado_civil; }
             set {
@@ -201,9 +201,9 @@ namespace BibliotecaNegocio
                 }
         }
 
-        private decimal id_genero;
+        private int id_genero;
 
-        public decimal Id_Genero
+        public int ID_GENERO
         {
             get { return id_genero; }
             set {
@@ -219,9 +219,9 @@ namespace BibliotecaNegocio
                 }
         }
 
-        private decimal id_region;
+        private int id_region;
 
-        public decimal Id_Region
+        public int ID_REGION
         {
             get { return id_region; }
             set
@@ -239,9 +239,9 @@ namespace BibliotecaNegocio
             }     
         }
 
-        private decimal id_receptor;
+        private int id_receptor;
 
-        public decimal Id_Receptor
+        public int ID_RECEPTOR
         {
             get { return id_receptor; }
             set {
@@ -257,9 +257,9 @@ namespace BibliotecaNegocio
                 }
         }
 
-        private decimal id_titulo;
+        private int id_titulo;
 
-        public decimal Id_Titulo
+        public int ID_TITULO
         {
             get { return id_titulo; }
             set {
@@ -315,7 +315,7 @@ namespace BibliotecaNegocio
             {
                     BibliotecaControlador.POSTULANTE pos =
                     //bdd.POSTULANTE.First(po => po.Run_Postulante.Equals(Run_Postulante));
-                    bdd.POSTULANTE.Find(Run_Postulante);
+                    bdd.POSTULANTE.Find(RUN_POSTULANTE);
 
                     bdd.POSTULANTE.Remove(pos);
                     bdd.SaveChanges();
@@ -335,7 +335,7 @@ namespace BibliotecaNegocio
             try
             {
                 POSTULANTE pos =
-                bdd.POSTULANTE.First(po => po.RUN_POSTULANTE.Equals(Run_Postulante));
+                bdd.POSTULANTE.First(po => po.RUN_POSTULANTE.Equals(RUN_POSTULANTE));
                
                 CommonBC.Syncronize(pos, this);//arregló this
 
@@ -354,7 +354,7 @@ namespace BibliotecaNegocio
         {
             try
             {
-                POSTULANTE pos = bdd.POSTULANTE.Find(Run_Postulante);
+                POSTULANTE pos = bdd.POSTULANTE.Find(RUN_POSTULANTE);
                 CommonBC.Syncronize(pos, this);
                 return true;
             }
@@ -372,20 +372,20 @@ namespace BibliotecaNegocio
                 var p = from pos in bdd.POSTULANTE
                         select new Postulante()
                         {
-                            Run_Postulante = pos.RUN_POSTULANTE,
-                            Nombre = pos.NOMBRE,
-                            Apellido_Paterno = pos.APELLIDO_PATERNO,
-                            Apellido_Materno = pos.APELLIDO_MATERNO,
-                            Fecha_Nacimiento= pos.FECHA_NACIMIENTO,
-                            Monto_Ahorro= pos.MONTO_AHORRO,
-                            Pueblo_Originario= pos.PUEBLO_ORIGINARIO,//ambos son char????
-                            Cargas_Familiares=pos.CARGAS_FAMILIARES,
-                            Id_Nacionalidad=pos.ID_NACIONALIDAD,
-                            Id_Estado_Civil=pos.ID_ESTADO_CIVIL,
-                            Id_Genero=pos.ID_GENERO,
-                            Id_Region=pos.ID_REGION,
-                            Id_Receptor=pos.ID_RECEPTOR,
-                            Id_Titulo=pos.ID_TITULO
+                            RUN_POSTULANTE = pos.RUN_POSTULANTE,
+                            NOMBRE= pos.NOMBRE,
+                            APELLIDO_PATERNO = pos.APELLIDO_PATERNO,
+                            APELLIDO_MATERNO = pos.APELLIDO_MATERNO,
+                            FECHA_NACIMIENTO= pos.FECHA_NACIMIENTO,
+                            MONTO_AHORRO= pos.MONTO_AHORRO,
+                            PUEBLO_ORIGINARIO= pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            CARGAS_FAMILIARES=pos.CARGAS_FAMILIARES,
+                            ID_NACIONALIDAD=pos.ID_NACIONALIDAD,
+                            ID_ESTADO_CIVIL=pos.ID_ESTADO_CIVIL,
+                            ID_GENERO=pos.ID_GENERO,
+                            ID_REGION=pos.ID_REGION,
+                            ID_RECEPTOR=pos.ID_RECEPTOR,
+                            ID_TITULO=pos.ID_TITULO
 
               
                         };
@@ -425,7 +425,7 @@ namespace BibliotecaNegocio
                             Monto_Ahorro = pos.MONTO_AHORRO,
                             Pueblo_Originario = pos.PUEBLO_ORIGINARIO,//ambos son char????
                             Cargas_Familiares = pos.CARGAS_FAMILIARES,
-                            Nacionalidad = nac.DESCRIPCION,
+                            Nacionalidad = nac.ID_NACIONALIDAD,
                             Estado_Civil = ecivil.DESCRIPCION,
                             Genero = sexo.DESCRIPCION,
                             Region = reg.NOMBRE,
@@ -472,10 +472,10 @@ namespace BibliotecaNegocio
         public string Apellido_Paterno { get; set; }
         public string Apellido_Materno { get; set; }
         public DateTime Fecha_Nacimiento { get; set; }
-        public decimal Monto_Ahorro { get; set; }
+        public int Monto_Ahorro { get; set; }
         public string Pueblo_Originario { get; set; }
-        public decimal Cargas_Familiares { get; set; }
-        public string Nacionalidad { get; set; }
+        public int Cargas_Familiares { get; set; }
+        public int Nacionalidad { get; set; }
         public string Estado_Civil { get; set; }
         public string Genero { get; set; }
         public string Region { get; set; }

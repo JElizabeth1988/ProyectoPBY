@@ -94,20 +94,20 @@ namespace WpfApplication1
                 while (reader.Read())
                 {
                     Postulante pos = new Postulante();
-                    pos.Run_Postulante = reader.GetString(0);
-                    pos.Nombre = reader.GetString(1);
-                    pos.Apellido_Paterno = reader.GetString(2);
-                    pos.Apellido_Materno = reader.GetString(3);
-                    pos.Fecha_Nacimiento = reader.GetDateTime(4);
-                    pos.Monto_Ahorro = reader.GetInt32(5);
-                    pos.Pueblo_Originario = reader.GetString(6);
-                    pos.Cargas_Familiares = reader.GetInt32(7);
-                    pos.Id_Nacionalidad = reader.GetInt32(8);
-                    pos.Id_Estado_Civil = reader.GetInt32(9);
-                    pos.Id_Genero = reader.GetInt32(10);
-                    pos.Id_Region = reader.GetInt32(11);
-                    pos.Id_Receptor = reader.GetInt32(12);
-                    pos.Id_Titulo = reader.GetInt32(13);
+                    pos.RUN_POSTULANTE = reader.GetString(0);
+                    pos.NOMBRE = reader.GetString(1);
+                    pos.APELLIDO_PATERNO= reader.GetString(2);
+                    pos.APELLIDO_MATERNO = reader.GetString(3);
+                    pos.FECHA_NACIMIENTO = reader.GetDateTime(4);
+                    pos.MONTO_AHORRO = reader.GetInt32(5);
+                    pos.PUEBLO_ORIGINARIO = reader.GetString(6);
+                    pos.CARGAS_FAMILIARES = reader.GetInt32(7);
+                    pos.ID_NACIONALIDAD= reader.GetInt32(8);
+                    pos.ID_ESTADO_CIVIL = reader.GetInt32(9);
+                    pos.ID_GENERO = reader.GetInt32(10);
+                    pos.ID_REGION = reader.GetInt32(11);
+                    pos.ID_RECEPTOR = reader.GetInt32(12);
+                    pos.ID_TITULO = reader.GetInt32(13);
 
                     lista.Add(pos);
 

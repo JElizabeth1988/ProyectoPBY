@@ -12,7 +12,7 @@ namespace BibliotecaNegocio
         //Crear objeto de la Bdd
         private EntitiesSubsidio bdd = new EntitiesSubsidio();
 
-        public decimal Id_Nacionalidad { get; set; }
+        public int Id_Nacionalidad { get; set; }
 
         public string Descripcion { get; set; }
 

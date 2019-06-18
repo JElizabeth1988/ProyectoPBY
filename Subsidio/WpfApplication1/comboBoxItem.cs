@@ -2,7 +2,7 @@
 {
     internal class comboBoxItem
     {
-        public decimal id { get; set; }
+        public int id { get; set; }
         public string descripcion { get; set; }
 
 

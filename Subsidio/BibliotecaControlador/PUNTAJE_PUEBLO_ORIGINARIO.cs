@@ -14,7 +14,7 @@ namespace BibliotecaControlador
     
     public partial class PUNTAJE_PUEBLO_ORIGINARIO
     {
-        public decimal ID_PUNTAJE_PUEBLO_ORIGINARIO { get; set; }
+        public int ID_PUNTAJE_PUEBLO_ORIGINARIO { get; set; }
         public string DESCRIPCION { get; set; }
         public decimal PUNTAJE { get; set; }
     }
