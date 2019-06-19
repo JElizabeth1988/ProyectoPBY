@@ -83,13 +83,14 @@ namespace WpfApplication1
                 cb.descripcion = item.Nombre;
                 cbReceptor.Items.Add(cb);
             }
+
             //CB pueblo Originario
             foreach (PuebloOriginario item in new PuebloOriginario().ReadAll())
             {
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.id_pueblo;
                 cb.descripcion = item.Nombre;
-                cbReceptor.Items.Add(cb);
+                cbPueblo.Items.Add(cb);
             }
 
             //CB pueblo tipo Vivienda
@@ -98,7 +99,7 @@ namespace WpfApplication1
                 comboBoxItem cb = new comboBoxItem();
                 cb.id = item.ID_VIVIENDA;
                 cb.descripcion = item.Descripcion;
-                cbReceptor.Items.Add(cb);
+                cbTipoVivienda.Items.Add(cb);
             }
 
 
