@@ -186,7 +186,7 @@ namespace WpfApplication1
                     APELLIDO_MATERNO= apellido_materno,
                     FECHA_NACIMIENTO = fecha_nacimiento,
                     MONTO_AHORRO = monto_ahorro,
-                    VALOR_VIVENDA = valor_vivenda,
+                    VALOR_VIVIENDA = valor_vivenda,
                     CARGAS_FAMILIARES = cargas_familiares,
                     ID_NACIONALIDAD = id_nacionalidad,
                     ID_ESTADO_CIVIL=id_estado_civil,

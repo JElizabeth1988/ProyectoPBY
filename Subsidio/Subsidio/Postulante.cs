@@ -146,7 +146,7 @@ namespace BibliotecaNegocio
 
         private int valor_vivienda;
 
-        public int VALOR_VIVENDA
+        public int VALOR_VIVIENDA
         {
             get { return valor_vivienda; }
             set {
@@ -397,7 +397,7 @@ namespace BibliotecaNegocio
                             FECHA_NACIMIENTO = pos.FECHA_NACIMIENTO,
                             MONTO_AHORRO = pos.MONTO_AHORRO,
                             CARGAS_FAMILIARES = pos.CARGAS_FAMILIARES,
-                            VALOR_VIVENDA = pos.VALOR_VIVIENDA,
+                            VALOR_VIVIENDA = pos.VALOR_VIVIENDA,
                             ID_NACIONALIDAD=pos.ID_NACIONALIDAD,
                             ID_ESTADO_CIVIL=pos.ID_ESTADO_CIVIL,
                             ID_GENERO=pos.ID_GENERO,

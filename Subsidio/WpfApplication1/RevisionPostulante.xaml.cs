@@ -55,8 +55,109 @@ namespace WpfApplication1
 
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
         {
-            OracleCommand cmd = new OracleCommand("FN_cargas_familiares", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                //FN PUNTAJE CARGAS FAMILIARES
+                listaPostulantes list = new listaPostulantes(); //PARA LLAMAR DATOS ?)
+                Postulante pos = new Postulante();
+
+                OracleCommand cmd = new OracleCommand("FN_PUNTAJE_CARG_FAM", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("rut", OracleDbType.Varchar2).Value = txtRut.Text;
+
+                //NECESARIO RESCATAR VARIABLE SALIDA?
+                /*OracleParameter output = cmd.Parameters.Add("v_punt", OracleDbType.Int32);
+                output.Direction = ParameterDirection.ReturnValue;
+                string cargas = output.ToString();*/
+
+                string cargas = cmd.ExecuteNonQuery().ToString();
+
+                txtCargas.Text = cargas;
+
+                //FN PUNTAJE ESTADO 
+                cmd = new OracleCommand("FN_PUNTAJE_CIVIL", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("rut", OracleDbType.Varchar2).Value = txtRut.Text;
+
+                string civil = cmd.ExecuteNonQuery().ToString();
+
+                txtEstadoCivil.Text = civil;
+
+
+                //FN PUNTAJE AHORRO, COMO LLAMO AL MONTO DE ESE POSTULANTE?
+                cmd = new OracleCommand("FN_AHORRO", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("monto", OracleDbType.Int32).Value = list.Monto_Ahorro;
+
+                string monto = cmd.ExecuteNonQuery().ToString();
+
+                txtAhorro.Text = monto;
+
+                //FN PUNTAJE PUEBLO
+                cmd = new OracleCommand("FN_PUEBLO", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("pueblo", OracleDbType.Varchar2).Value = list.Pueblo;
+
+                string pueblo = cmd.ExecuteNonQuery().ToString();
+
+                txtPueblo.Text = pueblo;
+
+                //FN PUNTAJE TITULO
+                cmd = new OracleCommand("FN_TITULO", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("id_tit", OracleDbType.Int32).Value = pos.ID_TITULO;
+
+                string titulo = cmd.ExecuteNonQuery().ToString();
+
+                txtTitulo.Text = titulo;
+
+                //FN PUNTAJE EDAD
+                cmd = new OracleCommand("FN_EDAD", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("fecha", OracleDbType.Date).Value = list.Fecha_Nacimiento;
+
+                string edad = cmd.ExecuteNonQuery().ToString();
+
+                txtEdad.Text = edad;
+
+                //FN PUNTAJE ZONA EXTREMA--
+                cmd = new OracleCommand("FN_PORC_REGION", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("id_region", OracleDbType.Int32).Value = pos.ID_REGION;
+
+                string region = cmd.ExecuteNonQuery().ToString();
+
+                txtRegion.Text = region;
+
+                //TOTAL
+                cmd = new OracleCommand("FN_TOTAL", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("fecha", OracleDbType.Date).Value = list.Fecha_Nacimiento;
+                cmd.Parameters.Add("monto", OracleDbType.Int32).Value = list.Monto_Ahorro;
+                cmd.Parameters.Add("pueblo", OracleDbType.Varchar2).Value = list.Pueblo;
+                cmd.Parameters.Add("id_tit", OracleDbType.Int32).Value = pos.ID_TITULO;
+                cmd.Parameters.Add("id_region", OracleDbType.Int32).Value = pos.ID_REGION;
+
+                string total = cmd.ExecuteNonQuery().ToString();
+
+                txtCalculo.Text = total;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Cargar datos");
+                Logger.Mensaje(ex.Message);
+            }
+            //conn.Close();
 
         }
     }
