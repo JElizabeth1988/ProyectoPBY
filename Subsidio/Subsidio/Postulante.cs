@@ -150,7 +150,7 @@ namespace BibliotecaNegocio
         {
             get { return valor_vivienda; }
             set {
-                    if(value != null)
+                    if(value != 0)
                     {
                         valor_vivienda = value;
                     }

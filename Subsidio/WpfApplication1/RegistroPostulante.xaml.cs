@@ -103,13 +103,21 @@ namespace WpfApplication1
             }
 
 
+            cbEstadoCivil.SelectedIndex = 0;
+            cbGenero.SelectedIndex = 0;
+            cbNacionalidad.SelectedIndex = 0;
+            cbPueblo.SelectedIndex = 0;
+            cbReceptor.SelectedIndex = 0;
+            cbRegion.SelectedIndex = 0;
+            cbTipoVivienda.SelectedIndex = 0;
+            cbTitulo.SelectedIndex = 0;
+            dpFechaNac.SelectedDate = DateTime.Now;
+            txtNumCargas.Text = "0";
+
+
         }
 
-        /*private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            ListadoPostulante list = new ListadoPostulante();
-            list.Show();
-        }*/
+        
 
         private void btnPuntaje_Click(object sender, RoutedEventArgs e)
         {
@@ -233,8 +241,8 @@ namespace WpfApplication1
 
                 else
                 {
-                    await this.ShowMessageAsync("Mensaje:",
-                          string.Format("Error: Postulante Menor de Edad"));
+                    await this.ShowMessageAsync("Error:",
+                          string.Format("Postulante Menor de Edad"));
                 
                 }
         }
@@ -278,6 +286,9 @@ namespace WpfApplication1
                     txtApPaterno.Text = p.APELLIDO_PATERNO;
                     txtApMaterno.Text = p.APELLIDO_MATERNO;
                     dpFechaNac.Text = p.FECHA_NACIMIENTO.ToString();
+                    txtNumCargas.Text = p.CARGAS_FAMILIARES.ToString();
+                    txtMontoAhorro.Text = p.MONTO_AHORRO.ToString();
+                    txtValorVivienda.Text = p.VALOR_VIVIENDA.ToString();
                     Genero ge = new Genero();
                     ge.Id_Genero = p.ID_GENERO;
                     ge.Read();
@@ -294,8 +305,8 @@ namespace WpfApplication1
                     ti.Id_Titulo = p.ID_TITULO;
                     ti.Read();
                     cbTitulo.Text = ti.Descripcion;
-                    //CheckBox pueblo origirario rbs
-                    
+
+
                     Region rg = new Region();
                     rg.Id_Region = p.ID_REGION;
                     rg.Read();
@@ -304,8 +315,17 @@ namespace WpfApplication1
                     re.Id_Receptor = p.ID_RECEPTOR;
                     re.Read();
                     cbReceptor.Text = re.Nombre;
-                    txtNumCargas.Text = p.CARGAS_FAMILIARES.ToString();
-                    txtMontoAhorro.Text = p.MONTO_AHORRO.ToString();
+
+                    Vivienda viv = new Vivienda();
+                    viv.ID_VIVIENDA = p.ID_VIVIENDA;
+                    viv.Read();
+                    cbTipoVivienda.Text = viv.Descripcion;
+
+                    PuebloOriginario pu = new PuebloOriginario();
+                    pu.id_pueblo = p.ID_PUEBLO;
+                    pu.Read();
+                    cbPueblo.Text = pu.Nombre;
+
 
                     btnGuardar.Visibility = Visibility.Hidden;
 
@@ -393,7 +413,39 @@ namespace WpfApplication1
                 txtRut.Text = "";
             }
         }
-        
 
+        private void btnListar_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoPostulante list = new ListadoPostulante();
+            list.Show();
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtDvRut.Clear();
+            txtRut.Clear();
+            txtRut.IsEnabled = true;
+            txtNombre.Clear();
+            txtApPaterno.Clear();
+            txtApMaterno.Clear();
+            txtMontoAhorro.Clear();
+            txtNumCargas.Text = "0";
+            txtValorVivienda.Clear();
+            cbEstadoCivil.SelectedIndex = 0;
+            cbGenero.SelectedIndex = 0;
+            cbNacionalidad.SelectedIndex = 0;
+            cbPueblo.SelectedIndex = 0;
+            cbReceptor.SelectedIndex = 0;
+            cbRegion.SelectedIndex = 0;
+            cbTipoVivienda.SelectedIndex = 0;
+            cbTitulo.SelectedIndex = 0;
+            dpFechaNac.SelectedDate = DateTime.Now;
+            txtNumCargas.Text = "0";
+
+            txtRut.Focus();//Mover el cursor a la poscición Rut
+
+            btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+            txtRut.IsEnabled = true;
+        }
     }
 }
