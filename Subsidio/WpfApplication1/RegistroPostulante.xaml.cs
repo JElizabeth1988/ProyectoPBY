@@ -328,6 +328,9 @@ namespace WpfApplication1
 
 
                     btnGuardar.Visibility = Visibility.Hidden;
+                    await this.ShowMessageAsync("Mensaje:",
+                    string.Format("Postulante Existente!"));
+                    /*MessageBox.Show("No se encontraron resultados!");*/
 
                 }
                 else
