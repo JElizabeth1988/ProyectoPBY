@@ -121,106 +121,125 @@ namespace WpfApplication1
         {
             try
             {
-
-                string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
-                if (run_postulante.Length == 11)
+                if (dpFechaNac.SelectedDate.Value < DateTime.Now.AddYears(-9))
                 {
-                    run_postulante = "0" + txtRut.Text + "-" + txtDvRut.Text;
-                }
-                string nombre = txtNombre.Text;
-                string apellido_paterno = txtApPaterno.Text;
-                string apellido_materno = txtApMaterno.Text;
-                DateTime fecha_nacimiento = dpFechaNac.SelectedDate.Value;
-                //int monto_ahorro = int.Parse(txtMontoAhorro.Text);
-                int monto_ahorro = 0;
-                if (int.TryParse(txtMontoAhorro.Text, out monto_ahorro))
-                {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un valor numérico"));
-                    txtNumCargas.Focus();*/
-                    return;
-                }
-                //int cargas_familiares = int.Parse(txtNumCargas.Text);
-                int cargas_familiares = 0;
-                if (int.TryParse(txtNumCargas.Text, out cargas_familiares))
-                {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un valor numérico"));
-                    txtNumCargas.Focus();*/
-                    return;
-                }
-                int valor_vivenda = 0;
-                if (int.TryParse(txtValorVivienda.Text, out valor_vivenda))
-                {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un valor numérico"));
-                    txtNumCargas.Focus();*/
-                    return;
-                }
-                int id_pueblo = ((comboBoxItem)cbPueblo.SelectedItem).id;
-                int id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
-                int id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
-                int id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
-                int id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
-                int id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
-                int id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
-                int id_vivienda = ((comboBoxItem)cbTipoVivienda.SelectedItem).id;
-
-                Postulante pos = new Postulante()
-                {
-                    RUN_POSTULANTE = run_postulante,
-                    NOMBRE = nombre,
-                    APELLIDO_PATERNO = apellido_paterno,
-                    APELLIDO_MATERNO= apellido_materno,
-                    FECHA_NACIMIENTO = fecha_nacimiento,
-                    MONTO_AHORRO = monto_ahorro,
-                    VALOR_VIVIENDA = valor_vivenda,
-                    CARGAS_FAMILIARES = cargas_familiares,
-                    ID_NACIONALIDAD = id_nacionalidad,
-                    ID_ESTADO_CIVIL=id_estado_civil,
-                    ID_GENERO = id_genero,
-                    ID_REGION = id_region,
-                    ID_RECEPTOR = id_receptor,
-                    ID_TITULO = id_titulo,
-                    ID_VIVIENDA= id_vivienda,
-                    ID_PUEBLO= id_pueblo
-                };
-
-                bool resp = pos.Grabar();
-                await this.ShowMessageAsync("Mensaje:",
-                           string.Format(resp ? "Guardado" : "No guardado"));
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-                    Errores de = pos.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
+                    string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
+                    if (run_postulante.Length == 11)
                     {
-                        li += item + " \n";
+                        run_postulante = "0" + txtRut.Text + "-" + txtDvRut.Text;
                     }
-                    await this.ShowMessageAsync("Mensaje1:",
-                        string.Format(li));
+                    string nombre = txtNombre.Text;
+                    string apellido_paterno = txtApPaterno.Text;
+                    string apellido_materno = txtApMaterno.Text;
+
+                    DateTime fecha_nacimiento = dpFechaNac.SelectedDate.Value;
+
+                    //int monto_ahorro = int.Parse(txtMontoAhorro.Text);
+                    int monto_ahorro = 0;
+                    if (int.TryParse(txtMontoAhorro.Text, out monto_ahorro))
+                    {
+
+                    }
+                    else
+                    {
+                        /*await this.ShowMessageAsync("Mensaje:",
+                         string.Format("Ingrese un valor numérico"));
+                        txtNumCargas.Focus();*/
+                        return;
+                    }
+                    //int cargas_familiares = int.Parse(txtNumCargas.Text);
+                    int cargas_familiares = 0;
+                    if (int.TryParse(txtNumCargas.Text, out cargas_familiares))
+                    {
+
+                    }
+                    else
+                    {
+                        /*await this.ShowMessageAsync("Mensaje:",
+                         string.Format("Ingrese un valor numérico"));
+                        txtNumCargas.Focus();*/
+                        return;
+                    }
+                    int valor_vivenda = 0;
+                    if (int.TryParse(txtValorVivienda.Text, out valor_vivenda))
+                    {
+
+                    }
+                    else
+                    {
+                        /*await this.ShowMessageAsync("Mensaje:",
+                         string.Format("Ingrese un valor numérico"));
+                        txtNumCargas.Focus();*/
+                        return;
+                    }
+
+
+                    int id_pueblo = ((comboBoxItem)cbPueblo.SelectedItem).id;
+                    int id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
+                    int id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
+                    int id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
+                    int id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
+                    int id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                    int id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                    int id_vivienda = ((comboBoxItem)cbTipoVivienda.SelectedItem).id;
+
+
+
+                    Postulante pos = new Postulante()
+                    {
+                        RUN_POSTULANTE = run_postulante,
+                        NOMBRE = nombre,
+                        APELLIDO_PATERNO = apellido_paterno,
+                        APELLIDO_MATERNO = apellido_materno,
+                        FECHA_NACIMIENTO = fecha_nacimiento,
+                        MONTO_AHORRO = monto_ahorro,
+                        VALOR_VIVIENDA = valor_vivenda,
+                        CARGAS_FAMILIARES = cargas_familiares,
+                        ID_NACIONALIDAD = id_nacionalidad,
+                        ID_ESTADO_CIVIL = id_estado_civil,
+                        ID_GENERO = id_genero,
+                        ID_REGION = id_region,
+                        ID_RECEPTOR = id_receptor,
+                        ID_TITULO = id_titulo,
+                        ID_VIVIENDA = id_vivienda,
+                        ID_PUEBLO = id_pueblo
+                    };
+
+                    bool resp = pos.Grabar();
+                    await this.ShowMessageAsync("Mensaje:",
+                               string.Format(resp ? "Guardado" : "No guardado"));
+
+
+
+                    //-----------------------------------------------------------------------------------------------
+                    //MOSTRAR LISTA DE ERRORES
+                    if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
+                    {
+                        Errores de = pos.retornar();
+                        string li = "";
+                        foreach (string item in de.ListarErrores())
+                        {
+                            li += item + " \n";
+                        }
+                        await this.ShowMessageAsync("Mensaje1:",
+                            string.Format(li));
+                    }
+
+
+                    //-----------------------------------------------------------------------------------------------
+
                 }
 
 
-                //-----------------------------------------------------------------------------------------------
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Error: Postulante Menor de Edad"));
+                
+                }
+        }
 
 
-            }
-           
             catch (ArgumentException ex) //catch excepciones hechas por el usuario
             {
                 await this.ShowMessageAsync("Mensaje:",
@@ -228,7 +247,7 @@ namespace WpfApplication1
             }
             catch (Exception ex)
             {
-                
+
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
                 Logger.Mensaje(ex.Message);
