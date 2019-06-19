@@ -39,7 +39,7 @@ namespace WpfApplication1
         private void abrirConexion()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["EntitiesSubsidio"].ConnectionString;
-            conn = new OracleConnection("Data Source=XE; User Id=SUBSIDIO;Password=SUBSIDIO;");
+            conn = new OracleConnection("Data Source = localhost:1521 / XE; User Id = SUBSIDIO; Password = SUBSIDIO");
 
             try
             {
