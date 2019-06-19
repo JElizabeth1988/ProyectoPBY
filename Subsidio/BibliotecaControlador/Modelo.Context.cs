@@ -28,7 +28,6 @@ namespace BibliotecaControlador
         public DbSet<ESTADO_CIVIL> ESTADO_CIVIL { get; set; }
         public DbSet<GENERO> GENERO { get; set; }
         public DbSet<NACIONALIDAD> NACIONALIDAD { get; set; }
-        public DbSet<POSTULANTE> POSTULANTE { get; set; }
         public DbSet<PUNTAJE_CARGA_FAMILIAR> PUNTAJE_CARGA_FAMILIAR { get; set; }
         public DbSet<PUNTAJE_EDAD> PUNTAJE_EDAD { get; set; }
         public DbSet<PUNTAJE_ESTADO_CIVIL> PUNTAJE_ESTADO_CIVIL { get; set; }
@@ -39,5 +38,9 @@ namespace BibliotecaControlador
         public DbSet<RECEPTOR> RECEPTOR { get; set; }
         public DbSet<REGION> REGION { get; set; }
         public DbSet<TITULO> TITULO { get; set; }
+        public DbSet<PUEBLO_ORIGINARIO> PUEBLO_ORIGINARIO { get; set; }
+        public DbSet<PUNTAJE_POSTULANTE> PUNTAJE_POSTULANTE { get; set; }
+        public DbSet<POSTULANTE> POSTULANTE { get; set; }
+        public DbSet<VIVIENDA> VIVIENDA { get; set; }
     }
 }

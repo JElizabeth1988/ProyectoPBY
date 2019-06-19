@@ -31,14 +31,23 @@
     <Property Name="APELLIDO_MATERNO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="FECHA_NACIMIENTO" Type="date" Nullable="false" />
     <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="PUEBLO_ORIGINARIO" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VALOR_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_REGION" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_RECEPTOR" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PUEBLO" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PUEBLO_ORIGINARIO">
+    <Key>
+      <PropertyRef Name="ID_PUEBLO" />
+    </Key>
+    <Property Name="ID_PUEBLO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="PUNTAJE_CARGA_FAMILIAR">
     <Key>
@@ -74,6 +83,21 @@
     <Property Name="MONTO_SUP" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="MONTO_INF" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PUNTAJE_POSTULANTE">
+    <Key>
+      <PropertyRef Name="ID_PUNTAJE" />
+    </Key>
+    <Property Name="ID_PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CARGA_FAMILIAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PUEBLO_ORIGINARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="REGION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TOTAL_PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUN_POSTULANTE" Type="varchar2" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="PUNTAJE_PUEBLO_ORIGINARIO">
     <Key>
@@ -120,6 +144,13 @@
     <Property Name="ID_TITULO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="VIVIENDA">
+    <Key>
+      <PropertyRef Name="ID_VIVIENDA" />
+    </Key>
+    <Property Name="ID_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" Nullable="false" />
+  </EntityType>
   <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
     <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="1" />
     <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
@@ -153,6 +184,18 @@
       </Principal>
       <Dependent Role="POSTULANTE">
         <PropertyRef Name="ID_NACIONALIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_PUEBLO_FK">
+    <End Role="PUEBLO_ORIGINARIO" Type="Self.PUEBLO_ORIGINARIO" Multiplicity="1" />
+    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUEBLO_ORIGINARIO">
+        <PropertyRef Name="ID_PUEBLO" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_PUEBLO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -192,21 +235,57 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="POSTULANTE_VIVIENDA_FK">
+    <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="1" />
+    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VIVIENDA">
+        <PropertyRef Name="ID_VIVIENDA" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_VIVIENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PUNTAJE_POSTULANTE_FK">
+    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="1" />
+    <End Role="PUNTAJE_POSTULANTE" Type="Self.PUNTAJE_POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSTULANTE">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Principal>
+      <Dependent Role="PUNTAJE_POSTULANTE">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FN_CARGAS_FAMILIARES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_ESTADO_CIVIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_PUNTAJE_CARG_FAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="RUM" Type="varchar2" Mode="In" />
+  </Function>
   <EntityContainer Name="ModeloStoreContainer">
     <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="GENERO" EntityType="Self.GENERO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="POSTULANTE" EntityType="Self.POSTULANTE" Schema="SUBSIDIO" store:Type="Tables" />
+    <EntitySet Name="PUEBLO_ORIGINARIO" EntityType="Self.PUEBLO_ORIGINARIO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_CARGA_FAMILIAR" EntityType="Self.PUNTAJE_CARGA_FAMILIAR" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_EDAD" EntityType="Self.PUNTAJE_EDAD" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_ESTADO_CIVIL" EntityType="Self.PUNTAJE_ESTADO_CIVIL" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_MONTO_AHORRO" EntityType="Self.PUNTAJE_MONTO_AHORRO" Schema="SUBSIDIO" store:Type="Tables" />
+    <EntitySet Name="PUNTAJE_POSTULANTE" EntityType="Self.PUNTAJE_POSTULANTE" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_PUEBLO_ORIGINARIO" EntityType="Self.PUNTAJE_PUEBLO_ORIGINARIO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_TITULO" EntityType="Self.PUNTAJE_TITULO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_ZONA_EXTREMA" EntityType="Self.PUNTAJE_ZONA_EXTREMA" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="RECEPTOR" EntityType="Self.RECEPTOR" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="REGION" EntityType="Self.REGION" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="TITULO" EntityType="Self.TITULO" Schema="SUBSIDIO" store:Type="Tables" />
+    <EntitySet Name="VIVIENDA" EntityType="Self.VIVIENDA" Schema="SUBSIDIO" store:Type="Tables" />
     <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Self.POSTULANTE_ESTADO_CIVIL_FK">
       <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
@@ -217,6 +296,10 @@
     </AssociationSet>
     <AssociationSet Name="POSTULANTE_NACIONALIDAD_FK" Association="Self.POSTULANTE_NACIONALIDAD_FK">
       <End Role="NACIONALIDAD" EntitySet="NACIONALIDAD" />
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="POSTULANTE_PUEBLO_FK" Association="Self.POSTULANTE_PUEBLO_FK">
+      <End Role="PUEBLO_ORIGINARIO" EntitySet="PUEBLO_ORIGINARIO" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
     <AssociationSet Name="POSTULANTE_RECEPTOR_FK" Association="Self.POSTULANTE_RECEPTOR_FK">
@@ -230,6 +313,14 @@
     <AssociationSet Name="POSTULANTE_TITULO_FK" Association="Self.POSTULANTE_TITULO_FK">
       <End Role="TITULO" EntitySet="TITULO" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="POSTULANTE_VIVIENDA_FK" Association="Self.POSTULANTE_VIVIENDA_FK">
+      <End Role="VIVIENDA" EntitySet="VIVIENDA" />
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="PUNTAJE_POSTULANTE_FK" Association="Self.PUNTAJE_POSTULANTE_FK">
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+      <End Role="PUNTAJE_POSTULANTE" EntitySet="PUNTAJE_POSTULANTE" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

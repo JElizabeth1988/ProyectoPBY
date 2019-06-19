@@ -47,7 +47,7 @@ namespace BibliotecaNegocio
                 foreach (BibliotecaControlador.ESTADO_CIVIL item in lista_ecivil_bdd)
                 {
                     EstadoCivil est = new EstadoCivil();
-                    est.Id_Estado_Civil = item.ID_ESTADO_CIVIL;//number no los toma el int
+                    est.Id_Estado_Civil = item.ID_ESTADO_CIVIL;
                     est.Descripcion = item.DESCRIPCION;
                     lista.Add(est);
                 }

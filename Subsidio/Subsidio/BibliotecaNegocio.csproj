@@ -54,10 +54,13 @@
     <Compile Include="Nacionalidad.cs" />
     <Compile Include="Postulante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PuebloOriginario.cs" />
+    <Compile Include="PuntajePostulante.cs" />
     <Compile Include="Receptor.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Titulo.cs" />
     <Compile Include="Verificar.cs" />
+    <Compile Include="Vivienda.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">

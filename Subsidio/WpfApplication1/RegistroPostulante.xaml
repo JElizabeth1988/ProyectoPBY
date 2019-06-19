@@ -10,7 +10,7 @@
 
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Postulante" Height="690.226" Width="683.88" ResizeMode="NoResize" WindowTitleBrush="Black"  Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen">
+        Title="Postulante" Height="690.226" Width="727.88" ResizeMode="NoResize" WindowTitleBrush="Black"  Icon="imagenes/WUMmJUlJ.jpg" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,-1">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -21,46 +21,49 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="570*"/>
-            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Registro de Postulantes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="105" Margin="535,18,0,0" VerticalAlignment="Top" Width="127" Source="imagenes/Minvu.png" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblRut" Content="Rut" HorizontalAlignment="Left" Margin="49,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblNombres" Content="Nombres" HorizontalAlignment="Left" Margin="49,85,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblApPaterno" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="49,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.314" FontWeight="Bold"/>
-        <Label x:Name="lblApMaterno" Content="Apellido Materno" HorizontalAlignment="Left" Margin="49,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.123,0.285" FontWeight="Bold"/>
-        <Label x:Name="lblFecha" Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblGenero" Content="Género" HorizontalAlignment="Left" Margin="49,267,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblEstado" Content="Estado Civil" HorizontalAlignment="Left" Margin="49,314,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblNacionalidad" Content="Nacionalidad" HorizontalAlignment="Left" Margin="49,362,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.146,0.36" FontWeight="Bold"/>
-        <Label x:Name="lblTitulo" Content="Titulo" HorizontalAlignment="Left" Margin="49,408,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblPueblo" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="49,450,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.421,1.365" FontWeight="Bold"/>
-        <Label x:Name="lblRegion" Content="Región" HorizontalAlignment="Left" Margin="49,496,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.183,0.291" FontWeight="Bold"/>
-        <Label x:Name="lblReceptor" Content="Receptor" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese RUT sin DV" Height="23" Margin="193,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Controls:TextBoxHelper.ClearTextButton="True" LostFocus="txtRut_LostFocus" />
-        
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Nombres" Height="23" Margin="193,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
-        <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Apellido Paterno" Height="23" Margin="193,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
-        <TextBox x:Name="txtApMaterno" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Ingrese Apellido Materno " Height="23" Margin="193,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
-        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="193,224,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,267,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,314,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbNacionalidad" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,362,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,407,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,496,0,0" VerticalAlignment="Top" Width="156"/>
-        <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,539,0,0" VerticalAlignment="Top" Width="156"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="233,605,0,0" VerticalAlignment="Top" Width="79" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnGuardar_Click" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="116,605,0,0" VerticalAlignment="Top" Width="75" Background="#FF4ED0F4" Click="btnBuscar_Click" BorderThickness="2" BorderBrush="Black"/>
-        <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="347,605,0,0" VerticalAlignment="Top" Width="128" Background="#FF4ED0F4" Click="btnPuntaje_Click" BorderThickness="2" BorderBrush="Black"/>
-        <TextBox x:Name="txtDvRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="DV" Height="23" Margin="379,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
-        <Label x:Name="lblmonto" Content="Monto Ahorro" HorizontalAlignment="Left" Margin="410,363,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtMontoAhorro" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Monto" Height="23" Margin="511,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"  Controls:TextBoxHelper.ClearTextButton="True"/>
-        <Label x:Name="lblCargas" Content="N° Cargas" HorizontalAlignment="Left" Margin="410,315,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <RadioButton x:Name="rbSi" Content="Sí" HorizontalAlignment="Left" Margin="193,454,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="268,454,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtNumCargas" HorizontalAlignment="Left" Height="23" Margin="511,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Controls:TextBoxHelper.ClearTextButton="True"/>
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="573,605,0,0" VerticalAlignment="Top" Width="66" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnSalir_Click"/>
+        <Label x:Name="label" Content="Registro de Postulantes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="143"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="105" Margin="547,18,0,0" VerticalAlignment="Top" Width="127" Source="imagenes/Minvu.png"/>
+        <Label x:Name="lblRut" Content="Rut" HorizontalAlignment="Left" Margin="49,41,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="30"/>
+        <Label x:Name="lblNombres" Content="Nombres" HorizontalAlignment="Left" Margin="49,85,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="61"/>
+        <Label x:Name="lblApPaterno" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="49,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.314" FontWeight="Bold" Height="26" Width="105"/>
+        <Label x:Name="lblApMaterno" Content="Apellido Materno" HorizontalAlignment="Left" Margin="49,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.123,0.285" FontWeight="Bold" Height="26" Width="109"/>
+        <Label x:Name="lblFecha" Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="25" Width="111"/>
+        <Label x:Name="lblGenero" Content="Género" HorizontalAlignment="Left" Margin="49,267,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="51"/>
+        <Label x:Name="lblEstado" Content="Estado Civil" HorizontalAlignment="Left" Margin="49,314,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="75"/>
+        <Label x:Name="lblNacionalidad" Content="Nacionalidad" HorizontalAlignment="Left" Margin="49,362,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.146,0.36" FontWeight="Bold" Height="26" Width="85"/>
+        <Label x:Name="lblTitulo" Content="Titulo" HorizontalAlignment="Left" Margin="49,408,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="43"/>
+        <Label x:Name="lblPueblo" Content="Pueblo Originario" HorizontalAlignment="Left" Margin="49,450,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.421,1.365" FontWeight="Bold" Height="26" Width="109"/>
+        <Label x:Name="lblRegion" Content="Región" HorizontalAlignment="Left" Margin="49,496,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.183,0.291" FontWeight="Bold" Height="26" Width="49"/>
+        <Label x:Name="lblReceptor" Content="Receptor" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="27" Width="60"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese RUT sin DV" Height="26" Margin="193,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Controls:TextBoxHelper.ClearTextButton="True" LostFocus="txtRut_LostFocus" />
+
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Nombres" Height="26" Margin="193,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
+        <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Apellido Paterno" Height="26" Margin="193,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
+        <TextBox x:Name="txtApMaterno" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Ingrese Apellido Materno " Height="26" Margin="193,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"  Controls:TextBoxHelper.ClearTextButton="True"/>
+        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="193,224,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,267,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,314,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbNacionalidad" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,362,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,407,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,496,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <ComboBox x:Name="cbReceptor" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,539,0,0" VerticalAlignment="Top" Width="156" Height="27"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="233,605,0,0" VerticalAlignment="Top" Width="79" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnGuardar_Click" RenderTransformOrigin="0.5,0.5" Height="33"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="116,605,0,0" VerticalAlignment="Top" Width="75" Background="#FF4ED0F4" Click="btnBuscar_Click" BorderThickness="2" BorderBrush="Black" Height="33"/>
+        <Button x:Name="btnPuntaje" Content="Revisar Puntaje" HorizontalAlignment="Left" Margin="347,605,0,0" VerticalAlignment="Top" Width="128" Background="#FF4ED0F4" Click="btnPuntaje_Click" BorderThickness="2" BorderBrush="Black" Height="33"/>
+        <TextBox x:Name="txtDvRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="DV" Height="26" Margin="379,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
+        <Label x:Name="lblmonto" Content="Monto Ahorro" HorizontalAlignment="Left" Margin="396,261,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="91"/>
+        <TextBox x:Name="txtMontoAhorro" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Monto" Height="26" Margin="511,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"  Controls:TextBoxHelper.ClearTextButton="True"/>
+        <Label x:Name="lblCargas" Content="N° Cargas" HorizontalAlignment="Left" Margin="396,211,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="27" Width="65"/>
+        <TextBox x:Name="txtNumCargas" HorizontalAlignment="Left" Height="26" Margin="511,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Controls:TextBoxHelper.ClearTextButton="True"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="573,605,0,0" VerticalAlignment="Top" Width="66" Background="#FF4ED0F4" BorderBrush="Black" BorderThickness="2" Click="btnSalir_Click" Height="33"/>
+        <ComboBox x:Name="cbPueblo" HorizontalAlignment="Left"  Controls:TextBoxHelper.Watermark="Seleccione" Margin="193,451,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <Label x:Name="lblEstado_Copy" Content="Tipo de Vivienda" HorizontalAlignment="Left" Margin="396,314,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="105"/>
+        <ComboBox x:Name="cbTipoVivienda" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Seleccione" Margin="511,314,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
+        <Label x:Name="lblEstado_Copy1" Content="Valor Vivienda" HorizontalAlignment="Left" Margin="396,364,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="105"/>
+        <TextBox x:Name="txtValorVivienda" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Monto" Height="26" Margin="511,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"  Controls:TextBoxHelper.ClearTextButton="True"/>
 
     </Grid>
 </Controls:MetroWindow>

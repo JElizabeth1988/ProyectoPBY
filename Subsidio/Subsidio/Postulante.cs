@@ -125,24 +125,6 @@ namespace BibliotecaNegocio
                  }
         }
 
-        private string _pueblo_originario;
-
-        public string PUEBLO_ORIGINARIO
-        {
-            get { return _pueblo_originario; }
-            set {
-                if (value != null)
-                {
-                    _pueblo_originario = value;
-                }
-                else
-                {
-                    //throw new ArgumentException("Campo Pueblo Originario no puede estar Vacío");
-                    err.AgregarError("-Campo Pueblo Originario no puede estar Vacío");
-                }
-
-               }
-        }
 
         private int _cargas_familiares;
 
@@ -161,6 +143,25 @@ namespace BibliotecaNegocio
                 }
                  }
         }
+
+        private int valor_vivienda;
+
+        public int VALOR_VIVENDA
+        {
+            get { return valor_vivienda; }
+            set {
+                    if(value != null)
+                    {
+                        valor_vivienda = value;
+                    }
+                    else
+                    {
+                        //throw new ArgumentException("Campo Pueblo Originario no puede estar Vacío");
+                        err.AgregarError("-Campo valor de vivenda no puede estar vacío");
+                    }
+                }
+        }
+
 
         //Foraneas
 
@@ -276,6 +277,23 @@ namespace BibliotecaNegocio
               }
         }
 
+        private int id_vivienda;
+
+        public int ID_VIVIENDA
+        {
+            get { return id_vivienda; }
+            set { id_vivienda = value; }
+        }
+
+        private int id_Pueblo;
+
+        public int ID_PUEBLO
+        {
+            get { return id_Pueblo; }
+            set { id_Pueblo = value; }
+        }
+
+
 
         public Postulante()
         {
@@ -373,19 +391,21 @@ namespace BibliotecaNegocio
                         select new Postulante()
                         {
                             RUN_POSTULANTE = pos.RUN_POSTULANTE,
-                            NOMBRE= pos.NOMBRE,
+                            NOMBRE = pos.NOMBRE,
                             APELLIDO_PATERNO = pos.APELLIDO_PATERNO,
                             APELLIDO_MATERNO = pos.APELLIDO_MATERNO,
-                            FECHA_NACIMIENTO= pos.FECHA_NACIMIENTO,
-                            MONTO_AHORRO= pos.MONTO_AHORRO,
-                            PUEBLO_ORIGINARIO= pos.PUEBLO_ORIGINARIO,//ambos son char????
-                            CARGAS_FAMILIARES=pos.CARGAS_FAMILIARES,
+                            FECHA_NACIMIENTO = pos.FECHA_NACIMIENTO,
+                            MONTO_AHORRO = pos.MONTO_AHORRO,
+                            CARGAS_FAMILIARES = pos.CARGAS_FAMILIARES,
+                            VALOR_VIVENDA = pos.VALOR_VIVIENDA,
                             ID_NACIONALIDAD=pos.ID_NACIONALIDAD,
                             ID_ESTADO_CIVIL=pos.ID_ESTADO_CIVIL,
                             ID_GENERO=pos.ID_GENERO,
                             ID_REGION=pos.ID_REGION,
                             ID_RECEPTOR=pos.ID_RECEPTOR,
-                            ID_TITULO=pos.ID_TITULO
+                            ID_TITULO=pos.ID_TITULO,
+                            ID_VIVIENDA= pos.ID_VIVIENDA,
+                            ID_PUEBLO=pos.ID_PUEBLO
 
               
                         };
@@ -415,6 +435,10 @@ namespace BibliotecaNegocio
                           on pos.ID_REGION equals reg.ID_REGION
                         join tit in bdd.TITULO
                           on pos.ID_TITULO equals tit.ID_TITULO
+                        join viv in bdd.VIVIENDA
+                         on pos.ID_VIVIENDA equals viv.ID_VIVIENDA
+                        join pue in bdd.PUEBLO_ORIGINARIO
+                         on pos.ID_PUEBLO equals pue.ID_PUEBLO
                         select new listaPostulantes()
                         {
                             Rut = pos.RUN_POSTULANTE,
@@ -423,14 +447,16 @@ namespace BibliotecaNegocio
                             Apellido_Materno = pos.APELLIDO_MATERNO,
                             Fecha_Nacimiento = pos.FECHA_NACIMIENTO,
                             Monto_Ahorro = pos.MONTO_AHORRO,
-                            Pueblo_Originario = pos.PUEBLO_ORIGINARIO,//ambos son char????
+                            valor_vivienda = pos.VALOR_VIVIENDA,
                             Cargas_Familiares = pos.CARGAS_FAMILIARES,
                             Nacionalidad = nac.ID_NACIONALIDAD,
                             Estado_Civil = ecivil.DESCRIPCION,
                             Genero = sexo.DESCRIPCION,
                             Region = reg.NOMBRE,
                             Receptor = rec.NOMBRE,
-                            Titulo = tit.DESCRIPCION
+                            Titulo = tit.DESCRIPCION,
+                            Vivienda= viv.DESCRIPCION,
+                            Pueblo=pue.NOMBRE
                         };
                 return p.ToList();
 
@@ -473,7 +499,7 @@ namespace BibliotecaNegocio
         public string Apellido_Materno { get; set; }
         public DateTime Fecha_Nacimiento { get; set; }
         public int Monto_Ahorro { get; set; }
-        public string Pueblo_Originario { get; set; }
+        public int valor_vivienda { get; set; }
         public int Cargas_Familiares { get; set; }
         public int Nacionalidad { get; set; }
         public string Estado_Civil { get; set; }
@@ -481,6 +507,8 @@ namespace BibliotecaNegocio
         public string Region { get; set; }
         public string Receptor { get; set; }
         public string Titulo { get; set; }
+        public string Vivienda { get; set; }
+        public string Pueblo { get; set; }
 
         public listaPostulantes()
         {

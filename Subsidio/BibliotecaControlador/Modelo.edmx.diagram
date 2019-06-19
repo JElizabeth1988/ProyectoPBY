@@ -4,27 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e4243e611e0445a5afd18f73becd8130" Name="Diagram1">
-        <EntityTypeShape EntityType="Modelo.ESTADO_CIVIL" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.GENERO" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.NACIONALIDAD" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.POSTULANTE" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_CARGA_FAMILIAR" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_EDAD" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_ESTADO_CIVIL" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_MONTO_AHORRO" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_PUEBLO_ORIGINARIO" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_TITULO" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.PUNTAJE_ZONA_EXTREMA" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.RECEPTOR" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.REGION" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.TITULO" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
-        <AssociationConnector Association="Modelo.POSTULANTE_ESTADO_CIVIL_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.POSTULANTE_GENERO_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.POSTULANTE_NACIONALIDAD_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.POSTULANTE_RECEPTOR_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.POSTULANTE_REGION_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.POSTULANTE_TITULO_FK" ManuallyRouted="false" />
+      <Diagram DiagramId="e4243e611e0445a5afd18f73becd8130" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="Modelo.ESTADO_CIVIL" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.GENERO" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.NACIONALIDAD" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_CARGA_FAMILIAR" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_EDAD" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_ESTADO_CIVIL" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_MONTO_AHORRO" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_PUEBLO_ORIGINARIO" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_TITULO" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_ZONA_EXTREMA" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.RECEPTOR" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.REGION" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TITULO" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PUEBLO_ORIGINARIO" Width="1.5" PointX="0.75" PointY="18.125" />
+        <EntityTypeShape EntityType="Modelo.PUNTAJE_POSTULANTE" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="Modelo.POSTULANTE" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="Modelo.VIVIENDA" Width="1.5" PointX="0.75" PointY="20.5" />
+        <AssociationConnector Association="Modelo.POSTULANTE_ESTADO_CIVIL_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_GENERO_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_NACIONALIDAD_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_PUEBLO_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_RECEPTOR_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_REGION_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_TITULO_FK" />
+        <AssociationConnector Association="Modelo.POSTULANTE_VIVIENDA_FK" />
+        <AssociationConnector Association="Modelo.PUNTAJE_POSTULANTE_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

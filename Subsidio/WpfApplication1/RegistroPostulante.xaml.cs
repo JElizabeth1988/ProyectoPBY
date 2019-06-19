@@ -27,7 +27,7 @@ namespace WpfApplication1
         public RegistroPostulante()
         {
             InitializeComponent();
-            rbSi.IsChecked = true;
+
 
             //CB Género
             foreach (Genero item in new Genero().ReadAll())
@@ -83,8 +83,25 @@ namespace WpfApplication1
                 cb.descripcion = item.Nombre;
                 cbReceptor.Items.Add(cb);
             }
+            //CB pueblo Originario
+            foreach (PuebloOriginario item in new PuebloOriginario().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.id_pueblo;
+                cb.descripcion = item.Nombre;
+                cbReceptor.Items.Add(cb);
+            }
 
-            
+            //CB pueblo tipo Vivienda
+            foreach (Vivienda item in new Vivienda().ReadAll())
+            {
+                comboBoxItem cb = new comboBoxItem();
+                cb.id = item.ID_VIVIENDA;
+                cb.descripcion = item.Descripcion;
+                cbReceptor.Items.Add(cb);
+            }
+
+
         }
 
         /*private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -126,7 +143,6 @@ namespace WpfApplication1
                     txtNumCargas.Focus();*/
                     return;
                 }
-                string pueblo_originario = rbSi.IsChecked == true ? "S" : "N";
                 //int cargas_familiares = int.Parse(txtNumCargas.Text);
                 int cargas_familiares = 0;
                 if (int.TryParse(txtNumCargas.Text, out cargas_familiares))
@@ -140,12 +156,26 @@ namespace WpfApplication1
                     txtNumCargas.Focus();*/
                     return;
                 }
+                int valor_vivenda = 0;
+                if (int.TryParse(txtValorVivienda.Text, out valor_vivenda))
+                {
+
+                }
+                else
+                {
+                    /*await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Ingrese un valor numérico"));
+                    txtNumCargas.Focus();*/
+                    return;
+                }
+                int id_pueblo = ((comboBoxItem)cbPueblo.SelectedItem).id;
                 int id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
                 int id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
                 int id_genero = ((comboBoxItem)cbGenero.SelectedItem).id;
                 int id_region = ((comboBoxItem)cbRegion.SelectedItem).id;
                 int id_receptor = ((comboBoxItem)cbReceptor.SelectedItem).id;
                 int id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
+                int id_vivienda = ((comboBoxItem)cbTipoVivienda.SelectedItem).id;
 
                 Postulante pos = new Postulante()
                 {
@@ -155,14 +185,16 @@ namespace WpfApplication1
                     APELLIDO_MATERNO= apellido_materno,
                     FECHA_NACIMIENTO = fecha_nacimiento,
                     MONTO_AHORRO = monto_ahorro,
-                    PUEBLO_ORIGINARIO = pueblo_originario,
+                    VALOR_VIVENDA = valor_vivenda,
                     CARGAS_FAMILIARES = cargas_familiares,
                     ID_NACIONALIDAD = id_nacionalidad,
                     ID_ESTADO_CIVIL=id_estado_civil,
                     ID_GENERO = id_genero,
                     ID_REGION = id_region,
                     ID_RECEPTOR = id_receptor,
-                    ID_TITULO = id_titulo
+                    ID_TITULO = id_titulo,
+                    ID_VIVIENDA= id_vivienda,
+                    ID_PUEBLO= id_pueblo
                 };
 
                 bool resp = pos.Grabar();

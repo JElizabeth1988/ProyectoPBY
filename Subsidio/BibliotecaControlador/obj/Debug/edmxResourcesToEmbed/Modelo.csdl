@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="ESTADO_CIVIL" ToRole="POSTULANTE" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_ESTADO_CIVIL_FK" FromRole="ESTADO_CIVIL" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="GENERO">
     <Key>
@@ -14,7 +14,7 @@
     </Key>
     <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="GENERO" ToRole="POSTULANTE" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_GENERO_FK" FromRole="GENERO" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="NACIONALIDAD">
     <Key>
@@ -22,32 +22,7 @@
     </Key>
     <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="NACIONALIDAD" ToRole="POSTULANTE" />
-  </EntityType>
-  <EntityType Name="POSTULANTE">
-    <Key>
-      <PropertyRef Name="RUN_POSTULANTE" />
-    </Key>
-    <Property Name="RUN_POSTULANTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="APELLIDO_PATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="APELLIDO_MATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
-    <Property Name="MONTO_AHORRO" Type="Int32" Nullable="false" />
-    <Property Name="PUEBLO_ORIGINARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="CARGAS_FAMILIARES" Type="Int32" Nullable="false" />
-    <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
-    <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
-    <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
-    <Property Name="ID_REGION" Type="Int32" Nullable="false" />
-    <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
-    <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="ESTADO_CIVIL" Relationship="Self.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
-    <NavigationProperty Name="GENERO" Relationship="Self.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
-    <NavigationProperty Name="NACIONALIDAD" Relationship="Self.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
-    <NavigationProperty Name="RECEPTOR" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="POSTULANTE" ToRole="RECEPTOR" />
-    <NavigationProperty Name="REGION" Relationship="Self.POSTULANTE_REGION_FK" FromRole="POSTULANTE" ToRole="REGION" />
-    <NavigationProperty Name="TITULO" Relationship="Self.POSTULANTE_TITULO_FK" FromRole="POSTULANTE" ToRole="TITULO" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_NACIONALIDAD_FK" FromRole="NACIONALIDAD" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="PUNTAJE_CARGA_FAMILIAR">
     <Key>
@@ -114,7 +89,7 @@
     </Key>
     <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_RECEPTOR_FK" FromRole="RECEPTOR" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="REGION">
     <Key>
@@ -122,7 +97,7 @@
     </Key>
     <Property Name="ID_REGION" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_REGION_FK" FromRole="REGION" ToRole="POSTULANTE" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_REGION_FK" FromRole="REGION" ToRole="POSTULANTE" />
   </EntityType>
   <EntityType Name="TITULO">
     <Key>
@@ -130,85 +105,12 @@
     </Key>
     <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="POSTULANTE" Relationship="Self.POSTULANTE_TITULO_FK" FromRole="TITULO" ToRole="POSTULANTE" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_TITULO_FK" FromRole="TITULO" ToRole="POSTULANTE" />
   </EntityType>
-  <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
-    <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESTADO_CIVIL">
-        <PropertyRef Name="ID_ESTADO_CIVIL" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_ESTADO_CIVIL" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="POSTULANTE_GENERO_FK">
-    <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GENERO">
-        <PropertyRef Name="ID_GENERO" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_GENERO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="POSTULANTE_NACIONALIDAD_FK">
-    <End Role="NACIONALIDAD" Type="Self.NACIONALIDAD" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NACIONALIDAD">
-        <PropertyRef Name="ID_NACIONALIDAD" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_NACIONALIDAD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="POSTULANTE_RECEPTOR_FK">
-    <End Role="RECEPTOR" Type="Self.RECEPTOR" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RECEPTOR">
-        <PropertyRef Name="ID_RECEPTOR" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_RECEPTOR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="POSTULANTE_REGION_FK">
-    <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="REGION">
-        <PropertyRef Name="ID_REGION" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_REGION" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="POSTULANTE_TITULO_FK">
-    <End Role="TITULO" Type="Self.TITULO" Multiplicity="1" />
-    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TITULO">
-        <PropertyRef Name="ID_TITULO" />
-      </Principal>
-      <Dependent Role="POSTULANTE">
-        <PropertyRef Name="ID_TITULO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="EntitiesSubsidio" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" />
     <EntitySet Name="GENERO" EntityType="Self.GENERO" />
     <EntitySet Name="NACIONALIDAD" EntityType="Self.NACIONALIDAD" />
-    <EntitySet Name="POSTULANTE" EntityType="Self.POSTULANTE" />
     <EntitySet Name="PUNTAJE_CARGA_FAMILIAR" EntityType="Self.PUNTAJE_CARGA_FAMILIAR" />
     <EntitySet Name="PUNTAJE_EDAD" EntityType="Self.PUNTAJE_EDAD" />
     <EntitySet Name="PUNTAJE_ESTADO_CIVIL" EntityType="Self.PUNTAJE_ESTADO_CIVIL" />
@@ -219,29 +121,215 @@
     <EntitySet Name="RECEPTOR" EntityType="Self.RECEPTOR" />
     <EntitySet Name="REGION" EntityType="Self.REGION" />
     <EntitySet Name="TITULO" EntityType="Self.TITULO" />
-    <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Self.POSTULANTE_ESTADO_CIVIL_FK">
+    <EntitySet Name="PUEBLO_ORIGINARIO" EntityType="Modelo.PUEBLO_ORIGINARIO" />
+    <EntitySet Name="PUNTAJE_POSTULANTE" EntityType="Modelo.PUNTAJE_POSTULANTE" />
+    <EntitySet Name="POSTULANTE" EntityType="Modelo.POSTULANTE" />
+    <EntitySet Name="VIVIENDA" EntityType="Modelo.VIVIENDA" />
+    <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Modelo.POSTULANTE_ESTADO_CIVIL_FK">
       <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
-    <AssociationSet Name="POSTULANTE_GENERO_FK" Association="Self.POSTULANTE_GENERO_FK">
+    <AssociationSet Name="POSTULANTE_GENERO_FK" Association="Modelo.POSTULANTE_GENERO_FK">
       <End Role="GENERO" EntitySet="GENERO" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
-    <AssociationSet Name="POSTULANTE_NACIONALIDAD_FK" Association="Self.POSTULANTE_NACIONALIDAD_FK">
+    <AssociationSet Name="POSTULANTE_NACIONALIDAD_FK" Association="Modelo.POSTULANTE_NACIONALIDAD_FK">
       <End Role="NACIONALIDAD" EntitySet="NACIONALIDAD" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
-    <AssociationSet Name="POSTULANTE_RECEPTOR_FK" Association="Self.POSTULANTE_RECEPTOR_FK">
+    <AssociationSet Name="POSTULANTE_PUEBLO_FK" Association="Modelo.POSTULANTE_PUEBLO_FK">
+      <End Role="PUEBLO_ORIGINARIO" EntitySet="PUEBLO_ORIGINARIO" />
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="POSTULANTE_RECEPTOR_FK" Association="Modelo.POSTULANTE_RECEPTOR_FK">
       <End Role="RECEPTOR" EntitySet="RECEPTOR" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
-    <AssociationSet Name="POSTULANTE_REGION_FK" Association="Self.POSTULANTE_REGION_FK">
+    <AssociationSet Name="POSTULANTE_REGION_FK" Association="Modelo.POSTULANTE_REGION_FK">
       <End Role="REGION" EntitySet="REGION" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
-    <AssociationSet Name="POSTULANTE_TITULO_FK" Association="Self.POSTULANTE_TITULO_FK">
+    <AssociationSet Name="POSTULANTE_TITULO_FK" Association="Modelo.POSTULANTE_TITULO_FK">
       <End Role="TITULO" EntitySet="TITULO" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
     </AssociationSet>
+    <AssociationSet Name="POSTULANTE_VIVIENDA_FK" Association="Modelo.POSTULANTE_VIVIENDA_FK">
+      <End Role="VIVIENDA" EntitySet="VIVIENDA" />
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="PUNTAJE_POSTULANTE_FK" Association="Modelo.PUNTAJE_POSTULANTE_FK">
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+      <End Role="PUNTAJE_POSTULANTE" EntitySet="PUNTAJE_POSTULANTE" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PUEBLO_ORIGINARIO">
+    <Key>
+      <PropertyRef Name="ID_PUEBLO" />
+    </Key>
+    <Property Name="ID_PUEBLO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_PUEBLO_FK" FromRole="PUEBLO_ORIGINARIO" ToRole="POSTULANTE" />
+  </EntityType>
+  <EntityType Name="PUNTAJE_POSTULANTE">
+    <Key>
+      <PropertyRef Name="ID_PUNTAJE" />
+    </Key>
+    <Property Name="ID_PUNTAJE" Type="Int32" Nullable="false" />
+    <Property Name="CARGA_FAMILIAR" Type="Int32" Nullable="false" />
+    <Property Name="AHORRO" Type="Int32" Nullable="false" />
+    <Property Name="TITULO" Type="Int32" Nullable="false" />
+    <Property Name="EDAD" Type="Int32" Nullable="false" />
+    <Property Name="PUEBLO_ORIGINARIO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO_CIVIL" Type="Int32" Nullable="false" />
+    <Property Name="REGION" Type="Int32" Nullable="false" />
+    <Property Name="TOTAL_PUNTAJE" Type="Int32" Nullable="false" />
+    <Property Name="RUN_POSTULANTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.PUNTAJE_POSTULANTE_FK" FromRole="PUNTAJE_POSTULANTE" ToRole="POSTULANTE" />
+  </EntityType>
+  <EntityType Name="POSTULANTE">
+    <Key>
+      <PropertyRef Name="RUN_POSTULANTE" />
+    </Key>
+    <Property Name="RUN_POSTULANTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO_PATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO_MATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
+    <Property Name="MONTO_AHORRO" Type="Int32" Nullable="false" />
+    <Property Name="CARGAS_FAMILIARES" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_VIVIENDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
+    <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
+    <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
+    <Property Name="ID_REGION" Type="Int32" Nullable="false" />
+    <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
+    <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
+    <Property Name="ID_VIVIENDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PUEBLO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ESTADO_CIVIL" Relationship="Modelo.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
+    <NavigationProperty Name="GENERO" Relationship="Modelo.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
+    <NavigationProperty Name="NACIONALIDAD" Relationship="Modelo.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
+    <NavigationProperty Name="PUEBLO_ORIGINARIO" Relationship="Modelo.POSTULANTE_PUEBLO_FK" FromRole="POSTULANTE" ToRole="PUEBLO_ORIGINARIO" />
+    <NavigationProperty Name="RECEPTOR" Relationship="Modelo.POSTULANTE_RECEPTOR_FK" FromRole="POSTULANTE" ToRole="RECEPTOR" />
+    <NavigationProperty Name="REGION" Relationship="Modelo.POSTULANTE_REGION_FK" FromRole="POSTULANTE" ToRole="REGION" />
+    <NavigationProperty Name="TITULO" Relationship="Modelo.POSTULANTE_TITULO_FK" FromRole="POSTULANTE" ToRole="TITULO" />
+    <NavigationProperty Name="VIVIENDA" Relationship="Modelo.POSTULANTE_VIVIENDA_FK" FromRole="POSTULANTE" ToRole="VIVIENDA" />
+    <NavigationProperty Name="PUNTAJE_POSTULANTE" Relationship="Modelo.PUNTAJE_POSTULANTE_FK" FromRole="POSTULANTE" ToRole="PUNTAJE_POSTULANTE" />
+  </EntityType>
+  <EntityType Name="VIVIENDA">
+    <Key>
+      <PropertyRef Name="ID_VIVIENDA" />
+    </Key>
+    <Property Name="ID_VIVIENDA" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_VIVIENDA_FK" FromRole="VIVIENDA" ToRole="POSTULANTE" />
+  </EntityType>
+  <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
+    <End Type="Modelo.ESTADO_CIVIL" Role="ESTADO_CIVIL" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_CIVIL">
+        <PropertyRef Name="ID_ESTADO_CIVIL" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_ESTADO_CIVIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_GENERO_FK">
+    <End Type="Modelo.GENERO" Role="GENERO" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENERO">
+        <PropertyRef Name="ID_GENERO" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_GENERO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_NACIONALIDAD_FK">
+    <End Type="Modelo.NACIONALIDAD" Role="NACIONALIDAD" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NACIONALIDAD">
+        <PropertyRef Name="ID_NACIONALIDAD" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_NACIONALIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_PUEBLO_FK">
+    <End Type="Modelo.PUEBLO_ORIGINARIO" Role="PUEBLO_ORIGINARIO" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUEBLO_ORIGINARIO">
+        <PropertyRef Name="ID_PUEBLO" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_PUEBLO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_RECEPTOR_FK">
+    <End Type="Modelo.RECEPTOR" Role="RECEPTOR" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECEPTOR">
+        <PropertyRef Name="ID_RECEPTOR" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_RECEPTOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_REGION_FK">
+    <End Type="Modelo.REGION" Role="REGION" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="ID_REGION" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_REGION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_TITULO_FK">
+    <End Type="Modelo.TITULO" Role="TITULO" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITULO">
+        <PropertyRef Name="ID_TITULO" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_TITULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSTULANTE_VIVIENDA_FK">
+    <End Type="Modelo.VIVIENDA" Role="VIVIENDA" Multiplicity="1" />
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VIVIENDA">
+        <PropertyRef Name="ID_VIVIENDA" />
+      </Principal>
+      <Dependent Role="POSTULANTE">
+        <PropertyRef Name="ID_VIVIENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PUNTAJE_POSTULANTE_FK">
+    <End Type="Modelo.POSTULANTE" Role="POSTULANTE" Multiplicity="1" />
+    <End Type="Modelo.PUNTAJE_POSTULANTE" Role="PUNTAJE_POSTULANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSTULANTE">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Principal>
+      <Dependent Role="PUNTAJE_POSTULANTE">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

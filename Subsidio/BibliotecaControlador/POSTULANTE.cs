@@ -14,26 +14,36 @@ namespace BibliotecaControlador
     
     public partial class POSTULANTE
     {
+        public POSTULANTE()
+        {
+            this.PUNTAJE_POSTULANTE = new HashSet<PUNTAJE_POSTULANTE>();
+        }
+    
         public string RUN_POSTULANTE { get; set; }
         public string NOMBRE { get; set; }
         public string APELLIDO_PATERNO { get; set; }
         public string APELLIDO_MATERNO { get; set; }
         public System.DateTime FECHA_NACIMIENTO { get; set; }
         public int MONTO_AHORRO { get; set; }
-        public string PUEBLO_ORIGINARIO { get; set; }
         public int CARGAS_FAMILIARES { get; set; }
+        public int VALOR_VIVIENDA { get; set; }
         public int ID_NACIONALIDAD { get; set; }
         public int ID_ESTADO_CIVIL { get; set; }
         public int ID_GENERO { get; set; }
         public int ID_REGION { get; set; }
         public int ID_RECEPTOR { get; set; }
         public int ID_TITULO { get; set; }
+        public int ID_VIVIENDA { get; set; }
+        public int ID_PUEBLO { get; set; }
     
         public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         public virtual GENERO GENERO { get; set; }
         public virtual NACIONALIDAD NACIONALIDAD { get; set; }
+        public virtual PUEBLO_ORIGINARIO PUEBLO_ORIGINARIO { get; set; }
         public virtual RECEPTOR RECEPTOR { get; set; }
         public virtual REGION REGION { get; set; }
         public virtual TITULO TITULO { get; set; }
+        public virtual VIVIENDA VIVIENDA { get; set; }
+        public virtual ICollection<PUNTAJE_POSTULANTE> PUNTAJE_POSTULANTE { get; set; }
     }
 }
