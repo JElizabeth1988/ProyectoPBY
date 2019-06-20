@@ -29,10 +29,12 @@ namespace WpfApplication1
     /// </summary>
     public partial class RevisionPostulante : MetroWindow
     {
+        RegistroPostulante p = new RegistroPostulante();
         OracleConnection conn = null;
         public RevisionPostulante()
         {
             InitializeComponent();
+            
             abrirConexion();
         }
 

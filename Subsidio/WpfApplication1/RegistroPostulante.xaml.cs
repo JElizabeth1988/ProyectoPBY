@@ -125,6 +125,7 @@ namespace WpfApplication1
         private void btnPuntaje_Click(object sender, RoutedEventArgs e)
         {
             RevisionPostulante rev = new RevisionPostulante();
+            rev.txtRut.Text = txtRut.Text + '-' + txtDvRut.Text;
             rev.Show();
         }
 
