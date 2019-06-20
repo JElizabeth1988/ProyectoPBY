@@ -131,9 +131,7 @@ namespace WpfApplication1
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (dpFechaNac.SelectedDate < DateTime.Now.AddYears(-9) &&
-                    int.Parse(txtMontoAhorro.Text) >= 8000000 &&
-                    int.Parse(txtValorVivienda.Text) >= 25000000)
+            if (dpFechaNac.SelectedDate < DateTime.Now.AddYears(-9) )
             {      
                 try
                 {
