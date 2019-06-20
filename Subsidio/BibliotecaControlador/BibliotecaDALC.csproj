@@ -102,6 +102,9 @@
     <Compile Include="PUNTAJE_TITULO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="PUNTAJE_TOTAL.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="PUNTAJE_ZONA_EXTREMA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -115,6 +118,9 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="VIVIENDA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TESTING.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
   </ItemGroup>

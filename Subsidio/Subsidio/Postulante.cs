@@ -164,6 +164,7 @@ namespace BibliotecaNegocio
             }
         }
 
+        public String ESTADO_BENEFICIO { get; set; }
 
         //Foraneas
 
@@ -401,6 +402,7 @@ namespace BibliotecaNegocio
                             MONTO_AHORRO = pos.MONTO_AHORRO,
                             CARGAS_FAMILIARES = pos.CARGAS_FAMILIARES,
                             VALOR_VIVIENDA = pos.VALOR_VIVIENDA,
+                            ESTADO_BENEFICIO=pos.ESTADO_BENEFICIO,
                             ID_NACIONALIDAD=pos.ID_NACIONALIDAD,
                             ID_ESTADO_CIVIL=pos.ID_ESTADO_CIVIL,
                             ID_GENERO=pos.ID_GENERO,
@@ -452,6 +454,7 @@ namespace BibliotecaNegocio
                             Monto_Ahorro = pos.MONTO_AHORRO,
                             valor_vivienda = pos.VALOR_VIVIENDA,
                             Cargas_Familiares = pos.CARGAS_FAMILIARES,
+                            beneficio=pos.ESTADO_BENEFICIO,
                             Nacionalidad = nac.ID_NACIONALIDAD,
                             Estado_Civil = ecivil.DESCRIPCION,
                             Genero = sexo.DESCRIPCION,
@@ -504,6 +507,7 @@ namespace BibliotecaNegocio
         public int Monto_Ahorro { get; set; }
         public int valor_vivienda { get; set; }
         public int Cargas_Familiares { get; set; }
+        public string beneficio { get; set; }
         public int Nacionalidad { get; set; }
         public string Estado_Civil { get; set; }
         public string Genero { get; set; }

@@ -139,6 +139,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VIVIENDA">
+      <EntityTypeMapping TypeName="Modelo.VIVIENDA">
+        <MappingFragment StoreEntitySet="VIVIENDA">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="POSTULANTE">
       <EntityTypeMapping TypeName="Modelo.POSTULANTE">
         <MappingFragment StoreEntitySet="POSTULANTE">
@@ -150,6 +158,7 @@
           <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
           <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
           <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+          <ScalarProperty Name="ESTADO_BENEFICIO" ColumnName="ESTADO_BENEFICIO" />
           <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
           <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
           <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
@@ -161,13 +170,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VIVIENDA">
-      <EntityTypeMapping TypeName="Modelo.VIVIENDA">
-        <MappingFragment StoreEntitySet="VIVIENDA">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
+    <EntitySetMapping Name="PUNTAJE_TOTAL">
+      <EntityTypeMapping TypeName="Modelo.PUNTAJE_TOTAL">
+        <MappingFragment StoreEntitySet="PUNTAJE_TOTAL">
+          <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+          <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_TESTING">
+      <EntityTypeMapping TypeName="Modelo.V_TESTING">
+        <MappingFragment StoreEntitySet="V_TESTING">
+          <ScalarProperty Name="PUNTAJE_TOTAL" ColumnName="PUNTAJE_TOTAL" />
+          <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
+          <ScalarProperty Name="TIPO_VIVIENDA" ColumnName="TIPO_VIVIENDA" />
+          <ScalarProperty Name="PUNTAJE_ZONA" ColumnName="PUNTAJE_ZONA" />
+          <ScalarProperty Name="ZONA" ColumnName="ZONA" />
+          <ScalarProperty Name="PUNTAJE_TITULO" ColumnName="PUNTAJE_TITULO" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="PUNTAJE_MONTO_AHORRO" ColumnName="PUNTAJE_MONTO_AHORRO" />
+          <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
+          <ScalarProperty Name="PUNTAJE_PUEBLO" ColumnName="PUNTAJE_PUEBLO" />
+          <ScalarProperty Name="PUEBLO_ORIGINARIO" ColumnName="PUEBLO_ORIGINARIO" />
+          <ScalarProperty Name="PUNTAJE_ESTADO_CIVIL" ColumnName="PUNTAJE_ESTADO_CIVIL" />
+          <ScalarProperty Name="ESTADO_CIVIL" ColumnName="ESTADO_CIVIL" />
+          <ScalarProperty Name="PUNTAJE_CARGAS_FAMILIARES" ColumnName="PUNTAJE_CARGAS_FAMILIARES" />
+          <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
+          <ScalarProperty Name="PUNTAJE_EDAD" ColumnName="PUNTAJE_EDAD" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="NOMBRE_POSTULANTE" ColumnName="NOMBRE_POSTULANTE" />
+          <ScalarProperty Name="RUT_POSTULANTE" ColumnName="RUT_POSTULANTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_PUNTAJES" FunctionName="Modelo.Store.SP_PUNTAJES" />
   </EntityContainerMapping>
 </Mapping>

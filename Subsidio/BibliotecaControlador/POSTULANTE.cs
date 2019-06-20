@@ -27,6 +27,7 @@ namespace BibliotecaControlador
         public int MONTO_AHORRO { get; set; }
         public int CARGAS_FAMILIARES { get; set; }
         public int VALOR_VIVIENDA { get; set; }
+        public string ESTADO_BENEFICIO { get; set; }
         public int ID_NACIONALIDAD { get; set; }
         public int ID_ESTADO_CIVIL { get; set; }
         public int ID_GENERO { get; set; }
@@ -45,5 +46,6 @@ namespace BibliotecaControlador
         public virtual TITULO TITULO { get; set; }
         public virtual VIVIENDA VIVIENDA { get; set; }
         public virtual ICollection<PUNTAJE_POSTULANTE> PUNTAJE_POSTULANTE { get; set; }
+        public virtual PUNTAJE_TOTAL PUNTAJE_TOTAL { get; set; }
     }
 }

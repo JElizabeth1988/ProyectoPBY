@@ -33,6 +33,7 @@
     <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="VALOR_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_BENEFICIO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -115,6 +116,13 @@
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="PUNTAJE_TOTAL">
+    <Key>
+      <PropertyRef Name="RUN_POSTULANTE" />
+    </Key>
+    <Property Name="RUN_POSTULANTE" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityType Name="PUNTAJE_ZONA_EXTREMA">
     <Key>
       <PropertyRef Name="ID_PUNTAJE_ZONA_EXTREMA" />
@@ -150,6 +158,36 @@
     </Key>
     <Property Name="ID_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SUBSIDIO.V_TESTING' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_TESTING">
+    <Key>
+      <PropertyRef Name="RUT_POSTULANTE" />
+      <PropertyRef Name="CARGAS_FAMILIARES" />
+      <PropertyRef Name="MONTO_AHORRO" />
+      <PropertyRef Name="TIPO_VIVIENDA" />
+      <PropertyRef Name="VALOR_VIVIENDA" />
+    </Key>
+    <Property Name="RUT_POSTULANTE" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="NOMBRE_POSTULANTE" Type="varchar2" MaxLength="402" />
+    <Property Name="EDAD" Type="number" Precision="38" Scale="0" />
+    <Property Name="PUNTAJE_EDAD" Type="number" Precision="38" Scale="0" />
+    <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PUNTAJE_CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" />
+    <Property Name="ESTADO_CIVIL" Type="varchar2" MaxLength="4000" />
+    <Property Name="PUNTAJE_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" />
+    <Property Name="PUEBLO_ORIGINARIO" Type="varchar2" MaxLength="4000" />
+    <Property Name="PUNTAJE_PUEBLO" Type="number" Precision="38" Scale="0" />
+    <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PUNTAJE_MONTO_AHORRO" Type="number" Precision="38" Scale="0" />
+    <Property Name="TITULO" Type="varchar2" MaxLength="4000" />
+    <Property Name="PUNTAJE_TITULO" Type="number" Precision="38" Scale="0" />
+    <Property Name="ZONA" Type="varchar2" MaxLength="4000" />
+    <Property Name="PUNTAJE_ZONA" Type="number" Precision="38" Scale="0" />
+    <Property Name="TIPO_VIVIENDA" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="VALOR_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PUNTAJE_TOTAL" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
     <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="1" />
@@ -259,14 +297,75 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PUNTAJE_TOT_POSTULANTE_FK">
+    <End Role="POSTULANTE" Type="Self.POSTULANTE" Multiplicity="1" />
+    <End Role="PUNTAJE_TOTAL" Type="Self.PUNTAJE_TOTAL" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="POSTULANTE">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Principal>
+      <Dependent Role="PUNTAJE_TOTAL">
+        <PropertyRef Name="RUN_POSTULANTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FN_AHORRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="MONTO" Type="number" Mode="In" />
+  </Function>
   <Function Name="FN_CARGAS_FAMILIARES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
     <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_DESC_TITULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
+    <Parameter Name="ID_TIT" Type="number" Mode="In" />
   </Function>
   <Function Name="FN_ESTADO_CIVIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
     <Parameter Name="RUT" Type="varchar2" Mode="In" />
   </Function>
+  <Function Name="FN_NOMBRE_PUEBLO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
+    <Parameter Name="IDP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="FN_PERT_PUEBLO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="char">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_PORC_REGION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="ID_REGION" Type="number" Mode="In" />
+  </Function>
+  <Function Name="FN_PROMEDIO_POSTULANTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number" />
+  <Function Name="FN_PUEBLO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
   <Function Name="FN_PUNTAJE_CARG_FAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
-    <Parameter Name="RUM" Type="varchar2" Mode="In" />
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_PUNTAJE_CIVIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="FN_PUNTAJE_EDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="FECHA" Type="date" Mode="In" />
+  </Function>
+  <Function Name="FN_REGION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
+    <Parameter Name="ID_REG" Type="number" Mode="In" />
+  </Function>
+  <Function Name="FN_TITULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="ID_TIT" Type="number" Mode="In" />
+  </Function>
+  <Function Name="FN_TOTAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="number">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="FECHA" Type="date" Mode="In" />
+    <Parameter Name="MONTO" Type="number" Mode="In" />
+    <Parameter Name="TITULO" Type="number" Mode="In" />
+    <Parameter Name="ID_REG" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_PUNTAJES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="PNTJ_CARGAS" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_EDAD" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_ESTADO" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_TITULO" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_REGION" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_PUEBLOS" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_AHORRO" Type="number" Mode="Out" />
+    <Parameter Name="PNTJ_TOTAL" Type="number" Mode="Out" />
   </Function>
   <EntityContainer Name="ModeloStoreContainer">
     <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" Schema="SUBSIDIO" store:Type="Tables" />
@@ -281,11 +380,35 @@
     <EntitySet Name="PUNTAJE_POSTULANTE" EntityType="Self.PUNTAJE_POSTULANTE" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_PUEBLO_ORIGINARIO" EntityType="Self.PUNTAJE_PUEBLO_ORIGINARIO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_TITULO" EntityType="Self.PUNTAJE_TITULO" Schema="SUBSIDIO" store:Type="Tables" />
+    <EntitySet Name="PUNTAJE_TOTAL" EntityType="Self.PUNTAJE_TOTAL" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="PUNTAJE_ZONA_EXTREMA" EntityType="Self.PUNTAJE_ZONA_EXTREMA" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="RECEPTOR" EntityType="Self.RECEPTOR" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="REGION" EntityType="Self.REGION" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="TITULO" EntityType="Self.TITULO" Schema="SUBSIDIO" store:Type="Tables" />
     <EntitySet Name="VIVIENDA" EntityType="Self.VIVIENDA" Schema="SUBSIDIO" store:Type="Tables" />
+    <EntitySet Name="V_TESTING" EntityType="Self.V_TESTING" store:Type="Views" store:Schema="SUBSIDIO">
+      <DefiningQuery>SELECT 
+"V_TESTING"."RUT_POSTULANTE" AS "RUT_POSTULANTE", 
+"V_TESTING"."NOMBRE_POSTULANTE" AS "NOMBRE_POSTULANTE", 
+"V_TESTING"."EDAD" AS "EDAD", 
+"V_TESTING"."PUNTAJE_EDAD" AS "PUNTAJE_EDAD", 
+"V_TESTING"."CARGAS_FAMILIARES" AS "CARGAS_FAMILIARES", 
+"V_TESTING"."PUNTAJE_CARGAS_FAMILIARES" AS "PUNTAJE_CARGAS_FAMILIARES", 
+"V_TESTING"."ESTADO_CIVIL" AS "ESTADO_CIVIL", 
+"V_TESTING"."PUNTAJE_ESTADO_CIVIL" AS "PUNTAJE_ESTADO_CIVIL", 
+"V_TESTING"."PUEBLO_ORIGINARIO" AS "PUEBLO_ORIGINARIO", 
+"V_TESTING"."PUNTAJE_PUEBLO" AS "PUNTAJE_PUEBLO", 
+"V_TESTING"."MONTO_AHORRO" AS "MONTO_AHORRO", 
+"V_TESTING"."PUNTAJE_MONTO_AHORRO" AS "PUNTAJE_MONTO_AHORRO", 
+"V_TESTING"."TITULO" AS "TITULO", 
+"V_TESTING"."PUNTAJE_TITULO" AS "PUNTAJE_TITULO", 
+"V_TESTING"."ZONA" AS "ZONA", 
+"V_TESTING"."PUNTAJE_ZONA" AS "PUNTAJE_ZONA", 
+"V_TESTING"."TIPO_VIVIENDA" AS "TIPO_VIVIENDA", 
+"V_TESTING"."VALOR_VIVIENDA" AS "VALOR_VIVIENDA", 
+"V_TESTING"."PUNTAJE_TOTAL" AS "PUNTAJE_TOTAL"
+FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Self.POSTULANTE_ESTADO_CIVIL_FK">
       <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
@@ -321,6 +444,10 @@
     <AssociationSet Name="PUNTAJE_POSTULANTE_FK" Association="Self.PUNTAJE_POSTULANTE_FK">
       <End Role="POSTULANTE" EntitySet="POSTULANTE" />
       <End Role="PUNTAJE_POSTULANTE" EntitySet="PUNTAJE_POSTULANTE" />
+    </AssociationSet>
+    <AssociationSet Name="PUNTAJE_TOT_POSTULANTE_FK" Association="Self.PUNTAJE_TOT_POSTULANTE_FK">
+      <End Role="POSTULANTE" EntitySet="POSTULANTE" />
+      <End Role="PUNTAJE_TOTAL" EntitySet="PUNTAJE_TOTAL" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
