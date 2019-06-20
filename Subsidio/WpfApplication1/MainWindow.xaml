@@ -32,7 +32,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1377" Margin="-86,0,22,0" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="2" OpacityMask="#FF911B1B" Visibility="Hidden"/>
+        <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1377" Margin="-64,0,0,0" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
 
         <Controls:Tile Click="Tile_Click" Margin="75,28,726,552" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
             <Grid Height="100" Width="206">
@@ -47,7 +47,7 @@
                 <Label x:Name="lblPost" Content="POSTULANTE" HorizontalAlignment="Left" Margin="42,18,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
             </Grid>
         </Controls:Tile>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="954,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png" Grid.Column="3" Grid.RowSpan="2"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="906,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png" Grid.Column="3" Grid.RowSpan="2"/>
         <Controls:Tile Click="Tile_Click_2" Margin="479,8,310,533" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
