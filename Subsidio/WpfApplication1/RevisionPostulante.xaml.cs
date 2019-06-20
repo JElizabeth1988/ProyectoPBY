@@ -117,6 +117,8 @@ namespace WpfApplication1
                 txtRegion.Text = cmd.Parameters["pntj_region"].Value.ToString();//Se ejecuta y se muestra
                 txtCalculo.Text = cmd.Parameters["pntj_TOTAL"].Value.ToString();//Se ejecuta y se muestra
 
+                cargarGrilla();
+
                 conn.Close();
             }
             catch (Exception ex)
@@ -128,5 +130,26 @@ namespace WpfApplication1
            
 
         }
+
+        private void dvgLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cargarGrilla();
+        }
+
+        private void cargarGrilla()
+        {
+
+            OracleCommand cmd = new OracleCommand("SELECT * FROM V_TESTING", conn);
+            cmd.CommandType = CommandType.Text;
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable DT = new DataTable();
+            DT.Load(dr);
+            dvgLista.ItemsSource = DT.DefaultView;
+            dr.Close();
+
+           
+        }
+
     }
 }
