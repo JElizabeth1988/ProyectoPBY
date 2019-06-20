@@ -59,182 +59,63 @@ namespace WpfApplication1
             {
 
 
-                Postulante pos = new Postulante();
-
                 //FN PUNTAJE CARGA----------------------------------------------------------
-                OracleCommand cmd = new OracleCommand("FN_PUNTAJE_CARG_FAM", conn);
+                OracleCommand cmd = new OracleCommand("SP_PUNTAJES", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //parametro de salida (out)
-                //La variable v_punt guarda lo que retorna la función
-                OracleParameter v_punt = cmd.Parameters.Add("v_punt", OracleDbType.Int32);
-                v_punt.Direction = ParameterDirection.ReturnValue;
 
-                //parametros de entrada (in)
-                //la variable RUT es de entrada 
+                //PARAMETRO DE ENTRADA GENERAL----------------------------------------------
                 OracleParameter rut = cmd.Parameters.Add("rut", OracleDbType.Varchar2);
                 rut.Direction = ParameterDirection.Input;//contiene el parametro de entrada
                 rut.Value = txtRut.Text;//se le carga un valor desde caja texto
-
-                cmd.Parameters.Add(rut);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtCargas.Text = cmd.Parameters["v_punt"].Value.ToString();//Se ejecuta y se muestra
-
-
-
-                //FN PUNTAJE ESTADO------------------------------------------------------- 
-                cmd = new OracleCommand("FN_PUNTAJE_CIVIL", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                //Parametro de salida (out)
-                OracleParameter v_puntaje = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                v_puntaje.Direction = ParameterDirection.ReturnValue;
-
-                //Parametros de entrada (in)
-                OracleParameter v_rut = cmd.Parameters.Add("rut", OracleDbType.Varchar2);
-                v_rut.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                v_rut.Value = txtRut.Text;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(v_rut);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtEstadoCivil.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-
-
-                //FN PUNTAJE AHORRO, COMO LLAMO AL MONTO DE ESE POSTULANTE?------------------------
-                cmd = new OracleCommand("FN_AHORRO", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                //Parametro de salida (out)
-                OracleParameter punt = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                punt.Direction = ParameterDirection.ReturnValue;
-
-                //Parametros de entrada (in)
-                OracleParameter monto = cmd.Parameters.Add("monto", OracleDbType.Int32);
-                monto.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                monto.Value = pos.MONTO_AHORRO;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(monto);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtAhorro.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-                //FN PUNTAJE PUEBLO---------------------------------------------------
-                cmd = new OracleCommand("FN_PUEBLO", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                    //--------------------------------------------------------------------------
+                    //parametro de salida (out)
+                OracleParameter pntj_cargas = cmd.Parameters.Add("pntj_cargas", OracleDbType.Int32);
+                pntj_cargas.Direction = ParameterDirection.Output;
 
                 //salida
-                OracleParameter puntajes = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                puntajes.Direction = ParameterDirection.ReturnValue;
+                OracleParameter pntj_edad = cmd.Parameters.Add("pntj_edad", OracleDbType.Int32);
+                pntj_edad.Direction = ParameterDirection.Output;
 
-                //Parametros de entrada (in)
-                OracleParameter ruts = cmd.Parameters.Add("rut", OracleDbType.Varchar2);
-                ruts.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                ruts.Value = txtRut.Text;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(ruts);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtPueblo.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-                //FN PUNTAJE TITULO
-                cmd = new OracleCommand("FN_TITULO", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("id_tit", OracleDbType.Int32).Value = pos.ID_TITULO;
+                //Parametro de salida (out)
+                OracleParameter pntj_estado = cmd.Parameters.Add("pntj_estado", OracleDbType.Int32);
+                pntj_estado.Direction = ParameterDirection.Output;
 
                 // salida
-                OracleParameter valor = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                valor.Direction = ParameterDirection.ReturnValue;
-
-                //Parametros de entrada (in)
-                OracleParameter titulo = cmd.Parameters.Add("id_tit", OracleDbType.Int32);
-                titulo.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                titulo.Value = pos.ID_TITULO;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(titulo);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtTitulo.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-                //FN PUNTAJE EDAD
-                cmd = new OracleCommand("FN_EDAD", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                OracleParameter pntj_titulo = cmd.Parameters.Add("pntj_titulo", OracleDbType.Int32);
+                pntj_titulo.Direction = ParameterDirection.Output;
 
                 //salida
-                OracleParameter p = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                p.Direction = ParameterDirection.ReturnValue;
-
-                //Parametros de entrada (in)
-                OracleParameter fecha = cmd.Parameters.Add("fecha", OracleDbType.Date);
-                fecha.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                fecha.Value = pos.FECHA_NACIMIENTO;//se le carga un valor desde caja texto
-
-                cmd.Parameters.Add(fecha);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtEdad.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-
-
-
-                //FN PUNTAJE ZONA EXTREMA--
-                cmd = new OracleCommand("FN_PORC_REGION", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                OracleParameter pntj_region = cmd.Parameters.Add("pntj_region", OracleDbType.Int32);
+                pntj_region.Direction = ParameterDirection.Output;
 
                 //salida
-                OracleParameter porcentaje = cmd.Parameters.Add("v_porcentaje", OracleDbType.Int32);
-                porcentaje.Direction = ParameterDirection.ReturnValue;
+                OracleParameter pntj_pueblos = cmd.Parameters.Add("pntj_pueblos", OracleDbType.Int32);
+                pntj_pueblos.Direction = ParameterDirection.Output;
 
-                //Parametros de entrada (in)
-                OracleParameter region = cmd.Parameters.Add("id_region", OracleDbType.Date);
-                region.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                region.Value = pos.ID_REGION;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(region);//agrego el parámetro de entrada al comando
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtEdad.Text = cmd.Parameters["v_porcentaje"].Value.ToString();//Se ejecuta y se muestra
-
-                //TOTAL
-                cmd = new OracleCommand("FN_TOTAL", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                //Parametro de salida (out)
+                OracleParameter pntj_ahorro = cmd.Parameters.Add("pntj_ahorro", OracleDbType.Int32);
+                pntj_ahorro.Direction = ParameterDirection.Output;
 
                 //SALIDA
-                OracleParameter p_total = cmd.Parameters.Add("v_puntaje", OracleDbType.Int32);
-                p_total.Direction = ParameterDirection.ReturnValue;
+                OracleParameter pntj_total = cmd.Parameters.Add("pntj_total", OracleDbType.Int32);
+                pntj_total.Direction = ParameterDirection.Output;
 
-                //ENTRADA------------------
-                //FECHA
-                OracleParameter fec = cmd.Parameters.Add("fecha", OracleDbType.Date);
-                fec.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                fec.Value = pos.FECHA_NACIMIENTO;
+               
+                 
+                cmd.ExecuteNonQuery();//se ejecuta la función   
 
-                //MONTO
-                OracleParameter mont = cmd.Parameters.Add("monto", OracleDbType.Int32);
-                mont.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                mont.Value = pos.MONTO_AHORRO;//se le carga un valor desde caja texto
+                //MOSTRAR DATOS
+                txtCargas.Text = cmd.Parameters["pntj_cargas"].Value.ToString();//Se ejecuta y se muestra
+                txtEstadoCivil.Text = cmd.Parameters["pntj_estado"].Value.ToString();//Se ejecuta y se muestra
+                txtAhorro.Text = cmd.Parameters["pntj_ahorro"].Value.ToString();//Se ejecuta y se muestra
+                txtPueblo.Text = cmd.Parameters["pntj_pueblos"].Value.ToString();//Se ejecuta y se muestra
+                txtTitulo.Text = cmd.Parameters["pntj_titulo"].Value.ToString();//Se ejecuta y se muestra
+                txtEdad.Text = cmd.Parameters["pntj_edad"].Value.ToString();//Se ejecuta y se muestra
+                txtRegion.Text = cmd.Parameters["pntj_region"].Value.ToString();//Se ejecuta y se muestra
+                txtCalculo.Text = cmd.Parameters["pntj_TOTAL"].Value.ToString();//Se ejecuta y se muestra
 
-                //TITULO
-                OracleParameter tit = cmd.Parameters.Add("id_tit", OracleDbType.Int32);
-                tit.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                tit.Value = pos.ID_TITULO;//se le carga un valor desde caja texto
-
-                //REGION
-                OracleParameter reg = cmd.Parameters.Add("id_region", OracleDbType.Date);
-                reg.Direction = ParameterDirection.Input;//contiene el parametro de entrada
-                reg.Value = pos.ID_REGION;//se le carga un valor desde caja texto
-
-
-                cmd.Parameters.Add(fec);//agrego el parámetro de entrada al comand
-                cmd.Parameters.Add(mont);
-                cmd.Parameters.Add(tit);
-                cmd.Parameters.Add(reg);
-                cmd.ExecuteNonQuery();//se ejecuta la función
-                txtCalculo.Text = cmd.Parameters["v_puntaje"].Value.ToString();//Se ejecuta y se muestra
-
-
-
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -242,7 +123,7 @@ namespace WpfApplication1
                          string.Format("Error al cargar datos"));
                 Logger.Mensaje(ex.Message);
             }
-            //conn.Close();
+           
 
         }
     }
