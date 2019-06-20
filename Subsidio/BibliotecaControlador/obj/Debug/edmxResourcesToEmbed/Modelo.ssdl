@@ -33,7 +33,7 @@
     <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="VALOR_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ESTADO_BENEFICIO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ESTADO_BENEFICIO" Type="varchar2" MaxLength="100" />
     <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -321,6 +321,8 @@ advertencia 6002: La tabla o vista 'SUBSIDIO.V_TESTING' no tiene definida ningun
   <Function Name="FN_ESTADO_CIVIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
     <Parameter Name="RUT" Type="varchar2" Mode="In" />
   </Function>
+  <Function Name="FN_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" />
+  <Function Name="FN_LISTAR_BENEF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" />
   <Function Name="FN_NOMBRE_PUEBLO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
     <Parameter Name="IDP" Type="number" Mode="In" />
   </Function>

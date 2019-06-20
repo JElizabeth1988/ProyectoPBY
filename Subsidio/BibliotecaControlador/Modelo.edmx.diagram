@@ -21,9 +21,9 @@
         <EntityTypeShape EntityType="Modelo.PUEBLO_ORIGINARIO" Width="1.5" PointX="0.75" PointY="18.375" />
         <EntityTypeShape EntityType="Modelo.PUNTAJE_POSTULANTE" Width="1.5" PointX="5.25" PointY="1.5" />
         <EntityTypeShape EntityType="Modelo.VIVIENDA" Width="1.5" PointX="0.75" PointY="20.625" />
-        <EntityTypeShape EntityType="Modelo.POSTULANTE" Width="1.5" PointX="3" PointY="1.125" />
         <EntityTypeShape EntityType="Modelo.PUNTAJE_TOTAL" Width="1.5" PointX="5.25" PointY="5.375" />
         <EntityTypeShape EntityType="Modelo.V_TESTING" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Modelo.POSTULANTE" Width="1.5" PointX="3" PointY="1.125" />
         <AssociationConnector Association="Modelo.POSTULANTE_ESTADO_CIVIL_FK" />
         <AssociationConnector Association="Modelo.POSTULANTE_GENERO_FK" />
         <AssociationConnector Association="Modelo.POSTULANTE_NACIONALIDAD_FK" />

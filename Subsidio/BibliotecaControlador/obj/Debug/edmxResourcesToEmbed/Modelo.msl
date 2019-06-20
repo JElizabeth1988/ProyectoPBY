@@ -147,29 +147,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="POSTULANTE">
-      <EntityTypeMapping TypeName="Modelo.POSTULANTE">
-        <MappingFragment StoreEntitySet="POSTULANTE">
-          <ScalarProperty Name="ID_PUEBLO" ColumnName="ID_PUEBLO" />
-          <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
-          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
-          <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
-          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
-          <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
-          <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
-          <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
-          <ScalarProperty Name="ESTADO_BENEFICIO" ColumnName="ESTADO_BENEFICIO" />
-          <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
-          <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
-          <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
-          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-          <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
-          <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PUNTAJE_TOTAL">
       <EntityTypeMapping TypeName="Modelo.PUNTAJE_TOTAL">
         <MappingFragment StoreEntitySet="PUNTAJE_TOTAL">
@@ -204,5 +181,30 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SP_PUNTAJES" FunctionName="Modelo.Store.SP_PUNTAJES" />
+    <FunctionImportMapping FunctionImportName="FN_LISTAR" FunctionName="Modelo.Store.FN_LISTAR" />
+    <FunctionImportMapping FunctionImportName="FN_LISTAR_BENEF" FunctionName="Modelo.Store.FN_LISTAR_BENEF" />
+    <EntitySetMapping Name="POSTULANTE">
+      <EntityTypeMapping TypeName="Modelo.POSTULANTE">
+        <MappingFragment StoreEntitySet="POSTULANTE">
+          <ScalarProperty Name="ID_PUEBLO" ColumnName="ID_PUEBLO" />
+          <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
+          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+          <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+          <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+          <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+          <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+          <ScalarProperty Name="ESTADO_BENEFICIO" ColumnName="ESTADO_BENEFICIO" />
+          <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
+          <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
+          <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+          <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+          <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -95,7 +95,7 @@ namespace BibliotecaNegocio
             get { return _fecha_Nacimiento; }
             set
             {
-                if (value != null && value < DateTime.Now.AddYears(-9))
+                if (value < DateTime.Now.AddYears(-9))
                 {
                     _fecha_Nacimiento = value;
                 }
@@ -164,7 +164,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        public String ESTADO_BENEFICIO { get; set; }
+        public string ESTADO_BENEFICIO { get; set; }
 
         //Foraneas
 
@@ -454,7 +454,7 @@ namespace BibliotecaNegocio
                             Monto_Ahorro = pos.MONTO_AHORRO,
                             valor_vivienda = pos.VALOR_VIVIENDA,
                             Cargas_Familiares = pos.CARGAS_FAMILIARES,
-                            beneficio=pos.ESTADO_BENEFICIO,
+                            estado_beneficio=pos.ESTADO_BENEFICIO,
                             Nacionalidad = nac.ID_NACIONALIDAD,
                             Estado_Civil = ecivil.DESCRIPCION,
                             Genero = sexo.DESCRIPCION,
@@ -507,7 +507,7 @@ namespace BibliotecaNegocio
         public int Monto_Ahorro { get; set; }
         public int valor_vivienda { get; set; }
         public int Cargas_Familiares { get; set; }
-        public string beneficio { get; set; }
+        public string estado_beneficio { get; set; }
         public int Nacionalidad { get; set; }
         public string Estado_Civil { get; set; }
         public string Genero { get; set; }

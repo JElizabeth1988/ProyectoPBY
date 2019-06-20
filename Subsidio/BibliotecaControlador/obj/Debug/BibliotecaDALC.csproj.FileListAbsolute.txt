@@ -16,5 +16,4 @@ C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\bin\Debug\EntityFramework.xml
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
-C:\Users\yobit\Desktop\Proyecto PBY\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
 C:\Users\chida\Desktop\Duplicado\ProyectoPBY\Subsidio\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache

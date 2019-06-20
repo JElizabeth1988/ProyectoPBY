@@ -38,7 +38,7 @@
           <Property Name="MONTO_AHORRO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="CARGAS_FAMILIARES" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="VALOR_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ESTADO_BENEFICIO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ESTADO_BENEFICIO" Type="varchar2" MaxLength="100" />
           <Property Name="ID_NACIONALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_ESTADO_CIVIL" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_GENERO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -326,6 +326,8 @@ advertencia 6002: La tabla o vista 'SUBSIDIO.V_TESTING' no tiene definida ningun
         <Function Name="FN_ESTADO_CIVIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
           <Parameter Name="RUT" Type="varchar2" Mode="In" />
         </Function>
+        <Function Name="FN_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" />
+        <Function Name="FN_LISTAR_BENEF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" />
         <Function Name="FN_NOMBRE_PUEBLO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="SUBSIDIO" ReturnType="varchar2">
           <Parameter Name="IDP" Type="number" Mode="In" />
         </Function>
@@ -583,9 +585,22 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
           <EntitySet Name="PUEBLO_ORIGINARIO" EntityType="Modelo.PUEBLO_ORIGINARIO" />
           <EntitySet Name="PUNTAJE_POSTULANTE" EntityType="Modelo.PUNTAJE_POSTULANTE" />
           <EntitySet Name="VIVIENDA" EntityType="Modelo.VIVIENDA" />
-          <EntitySet Name="POSTULANTE" EntityType="Modelo.POSTULANTE" />
           <EntitySet Name="PUNTAJE_TOTAL" EntityType="Modelo.PUNTAJE_TOTAL" />
           <EntitySet Name="V_TESTING" EntityType="Modelo.V_TESTING" />
+          <FunctionImport Name="SP_PUNTAJES">
+            <Parameter Name="RUT" Mode="In" Type="String" />
+            <Parameter Name="PNTJ_CARGAS" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_EDAD" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_ESTADO" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_TITULO" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_REGION" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_PUEBLOS" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_AHORRO" Mode="Out" Type="Decimal" />
+            <Parameter Name="PNTJ_TOTAL" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="FN_LISTAR" />
+          <FunctionImport Name="FN_LISTAR_BENEF" />
+          <EntitySet Name="POSTULANTE" EntityType="Modelo.POSTULANTE" />
           <AssociationSet Name="POSTULANTE_ESTADO_CIVIL_FK" Association="Modelo.POSTULANTE_ESTADO_CIVIL_FK">
             <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
             <End Role="POSTULANTE" EntitySet="POSTULANTE" />
@@ -626,17 +641,6 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
             <End Role="POSTULANTE" EntitySet="POSTULANTE" />
             <End Role="PUNTAJE_TOTAL" EntitySet="PUNTAJE_TOTAL" />
           </AssociationSet>
-          <FunctionImport Name="SP_PUNTAJES">
-            <Parameter Name="RUT" Mode="In" Type="String" />
-            <Parameter Name="PNTJ_CARGAS" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_EDAD" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_ESTADO" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_TITULO" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_REGION" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_PUEBLOS" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_AHORRO" Mode="Out" Type="Decimal" />
-            <Parameter Name="PNTJ_TOTAL" Mode="Out" Type="Decimal" />
-          </FunctionImport>
           </EntityContainer>
         <EntityType Name="PUEBLO_ORIGINARIO">
           <Key>
@@ -669,38 +673,6 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
           <Property Name="ID_VIVIENDA" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="POSTULANTE" Relationship="Modelo.POSTULANTE_VIVIENDA_FK" FromRole="VIVIENDA" ToRole="POSTULANTE" />
-        </EntityType>
-        <EntityType Name="POSTULANTE">
-          <Key>
-            <PropertyRef Name="RUN_POSTULANTE" />
-          </Key>
-          <Property Name="RUN_POSTULANTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="APELLIDO_PATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="APELLIDO_MATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
-          <Property Name="MONTO_AHORRO" Type="Int32" Nullable="false" />
-          <Property Name="CARGAS_FAMILIARES" Type="Int32" Nullable="false" />
-          <Property Name="VALOR_VIVIENDA" Type="Int32" Nullable="false" />
-          <Property Name="ESTADO_BENEFICIO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
-          <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
-          <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
-          <Property Name="ID_REGION" Type="Int32" Nullable="false" />
-          <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
-          <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
-          <Property Name="ID_VIVIENDA" Type="Int32" Nullable="false" />
-          <Property Name="ID_PUEBLO" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ESTADO_CIVIL" Relationship="Modelo.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
-          <NavigationProperty Name="GENERO" Relationship="Modelo.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
-          <NavigationProperty Name="NACIONALIDAD" Relationship="Modelo.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
-          <NavigationProperty Name="PUEBLO_ORIGINARIO" Relationship="Modelo.POSTULANTE_PUEBLO_FK" FromRole="POSTULANTE" ToRole="PUEBLO_ORIGINARIO" />
-          <NavigationProperty Name="RECEPTOR" Relationship="Modelo.POSTULANTE_RECEPTOR_FK" FromRole="POSTULANTE" ToRole="RECEPTOR" />
-          <NavigationProperty Name="REGION" Relationship="Modelo.POSTULANTE_REGION_FK" FromRole="POSTULANTE" ToRole="REGION" />
-          <NavigationProperty Name="TITULO" Relationship="Modelo.POSTULANTE_TITULO_FK" FromRole="POSTULANTE" ToRole="TITULO" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Modelo.POSTULANTE_VIVIENDA_FK" FromRole="POSTULANTE" ToRole="VIVIENDA" />
-          <NavigationProperty Name="PUNTAJE_POSTULANTE" Relationship="Modelo.PUNTAJE_POSTULANTE_FK" FromRole="POSTULANTE" ToRole="PUNTAJE_POSTULANTE" />
-          <NavigationProperty Name="PUNTAJE_TOTAL" Relationship="Modelo.PUNTAJE_TOT_POSTULANTE_FK" FromRole="POSTULANTE" ToRole="PUNTAJE_TOTAL" />
         </EntityType>
         <EntityType Name="PUNTAJE_TOTAL">
           <Key>
@@ -737,6 +709,38 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
           <Property Name="TIPO_VIVIENDA" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="VALOR_VIVIENDA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="PUNTAJE_TOTAL" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="POSTULANTE">
+          <Key>
+            <PropertyRef Name="RUN_POSTULANTE" />
+          </Key>
+          <Property Name="RUN_POSTULANTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_PATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_MATERNO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO_AHORRO" Type="Int32" Nullable="false" />
+          <Property Name="CARGAS_FAMILIARES" Type="Int32" Nullable="false" />
+          <Property Name="VALOR_VIVIENDA" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_BENEFICIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_NACIONALIDAD" Type="Int32" Nullable="false" />
+          <Property Name="ID_ESTADO_CIVIL" Type="Int32" Nullable="false" />
+          <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
+          <Property Name="ID_REGION" Type="Int32" Nullable="false" />
+          <Property Name="ID_RECEPTOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Int32" Nullable="false" />
+          <Property Name="ID_VIVIENDA" Type="Int32" Nullable="false" />
+          <Property Name="ID_PUEBLO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ESTADO_CIVIL" Relationship="Modelo.POSTULANTE_ESTADO_CIVIL_FK" FromRole="POSTULANTE" ToRole="ESTADO_CIVIL" />
+          <NavigationProperty Name="GENERO" Relationship="Modelo.POSTULANTE_GENERO_FK" FromRole="POSTULANTE" ToRole="GENERO" />
+          <NavigationProperty Name="NACIONALIDAD" Relationship="Modelo.POSTULANTE_NACIONALIDAD_FK" FromRole="POSTULANTE" ToRole="NACIONALIDAD" />
+          <NavigationProperty Name="PUEBLO_ORIGINARIO" Relationship="Modelo.POSTULANTE_PUEBLO_FK" FromRole="POSTULANTE" ToRole="PUEBLO_ORIGINARIO" />
+          <NavigationProperty Name="RECEPTOR" Relationship="Modelo.POSTULANTE_RECEPTOR_FK" FromRole="POSTULANTE" ToRole="RECEPTOR" />
+          <NavigationProperty Name="REGION" Relationship="Modelo.POSTULANTE_REGION_FK" FromRole="POSTULANTE" ToRole="REGION" />
+          <NavigationProperty Name="TITULO" Relationship="Modelo.POSTULANTE_TITULO_FK" FromRole="POSTULANTE" ToRole="TITULO" />
+          <NavigationProperty Name="VIVIENDA" Relationship="Modelo.POSTULANTE_VIVIENDA_FK" FromRole="POSTULANTE" ToRole="VIVIENDA" />
+          <NavigationProperty Name="PUNTAJE_POSTULANTE" Relationship="Modelo.PUNTAJE_POSTULANTE_FK" FromRole="POSTULANTE" ToRole="PUNTAJE_POSTULANTE" />
+          <NavigationProperty Name="PUNTAJE_TOTAL" Relationship="Modelo.PUNTAJE_TOT_POSTULANTE_FK" FromRole="POSTULANTE" ToRole="PUNTAJE_TOTAL" />
         </EntityType>
         <Association Name="POSTULANTE_ESTADO_CIVIL_FK">
           <End Type="Modelo.ESTADO_CIVIL" Role="ESTADO_CIVIL" Multiplicity="1" />
@@ -1010,29 +1014,6 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="POSTULANTE">
-            <EntityTypeMapping TypeName="Modelo.POSTULANTE">
-              <MappingFragment StoreEntitySet="POSTULANTE">
-                <ScalarProperty Name="ID_PUEBLO" ColumnName="ID_PUEBLO" />
-                <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
-                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
-                <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
-                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
-                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
-                <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
-                <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
-                <ScalarProperty Name="ESTADO_BENEFICIO" ColumnName="ESTADO_BENEFICIO" />
-                <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
-                <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
-                <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
-                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-                <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
-                <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PUNTAJE_TOTAL">
             <EntityTypeMapping TypeName="Modelo.PUNTAJE_TOTAL">
               <MappingFragment StoreEntitySet="PUNTAJE_TOTAL">
@@ -1067,6 +1048,31 @@ FROM "SUBSIDIO"."V_TESTING" "V_TESTING"</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SP_PUNTAJES" FunctionName="Modelo.Store.SP_PUNTAJES" />
+          <FunctionImportMapping FunctionImportName="FN_LISTAR" FunctionName="Modelo.Store.FN_LISTAR" />
+          <FunctionImportMapping FunctionImportName="FN_LISTAR_BENEF" FunctionName="Modelo.Store.FN_LISTAR_BENEF" />
+          <EntitySetMapping Name="POSTULANTE">
+            <EntityTypeMapping TypeName="Modelo.POSTULANTE">
+              <MappingFragment StoreEntitySet="POSTULANTE">
+                <ScalarProperty Name="ID_PUEBLO" ColumnName="ID_PUEBLO" />
+                <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
+                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+                <ScalarProperty Name="ID_RECEPTOR" ColumnName="ID_RECEPTOR" />
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+                <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+                <ScalarProperty Name="ID_NACIONALIDAD" ColumnName="ID_NACIONALIDAD" />
+                <ScalarProperty Name="ESTADO_BENEFICIO" ColumnName="ESTADO_BENEFICIO" />
+                <ScalarProperty Name="VALOR_VIVIENDA" ColumnName="VALOR_VIVIENDA" />
+                <ScalarProperty Name="CARGAS_FAMILIARES" ColumnName="CARGAS_FAMILIARES" />
+                <ScalarProperty Name="MONTO_AHORRO" ColumnName="MONTO_AHORRO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+                <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="RUN_POSTULANTE" ColumnName="RUN_POSTULANTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

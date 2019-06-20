@@ -24,7 +24,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class RegistroPostulante : MetroWindow
     {
-        Postulante p = new Postulante();
+        
         public RegistroPostulante()
         {
             InitializeComponent();
@@ -114,10 +114,9 @@ namespace WpfApplication1
             cbTitulo.SelectedIndex = 0;
             dpFechaNac.SelectedDate = DateTime.Now;
             txtNumCargas.Text = "0";
-            txtMontoAhorro.Text = "0";
-            txtValorVivienda.Text = "0";
+           
 
-
+            btnPuntaje.Visibility = Visibility.Hidden;
         }
 
         
@@ -130,8 +129,7 @@ namespace WpfApplication1
         }
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {           
                 try
                 {
                     string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
@@ -246,10 +244,10 @@ namespace WpfApplication1
                  catch (ArgumentException ex) //catch excepciones hechas por el usuario
                 {
 
-                await this.ShowMessageAsync("Mensaje:",
+                    await this.ShowMessageAsync("Mensaje:",
 
-                string.Format(ex.Message));
-                }
+                    string.Format(ex.Message));
+                    }
                 catch (Exception ex)
                 {
 
@@ -258,11 +256,7 @@ namespace WpfApplication1
                     Logger.Mensaje(ex.Message);
 
                 }
-
-            
-            
-           
-            
+                        
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

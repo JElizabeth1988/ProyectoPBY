@@ -44,9 +44,9 @@ namespace BibliotecaControlador
         public DbSet<PUEBLO_ORIGINARIO> PUEBLO_ORIGINARIO { get; set; }
         public DbSet<PUNTAJE_POSTULANTE> PUNTAJE_POSTULANTE { get; set; }
         public DbSet<VIVIENDA> VIVIENDA { get; set; }
-        public DbSet<POSTULANTE> POSTULANTE { get; set; }
         public DbSet<PUNTAJE_TOTAL> PUNTAJE_TOTAL { get; set; }
         public DbSet<V_TESTING> V_TESTING { get; set; }
+        public DbSet<POSTULANTE> POSTULANTE { get; set; }
     
         public virtual int SP_PUNTAJES(string rUT, ObjectParameter pNTJ_CARGAS, ObjectParameter pNTJ_EDAD, ObjectParameter pNTJ_ESTADO, ObjectParameter pNTJ_TITULO, ObjectParameter pNTJ_REGION, ObjectParameter pNTJ_PUEBLOS, ObjectParameter pNTJ_AHORRO, ObjectParameter pNTJ_TOTAL)
         {
@@ -55,6 +55,16 @@ namespace BibliotecaControlador
                 new ObjectParameter("RUT", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PUNTAJES", rUTParameter, pNTJ_CARGAS, pNTJ_EDAD, pNTJ_ESTADO, pNTJ_TITULO, pNTJ_REGION, pNTJ_PUEBLOS, pNTJ_AHORRO, pNTJ_TOTAL);
+        }
+    
+        public virtual int FN_LISTAR()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FN_LISTAR");
+        }
+    
+        public virtual int FN_LISTAR_BENEF()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FN_LISTAR_BENEF");
         }
     }
 }

@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="image1" Source="imagenes/1127.jpg" RenderTransformOrigin="0.497,0.572" HorizontalAlignment="Right" Width="1377" Margin="-64,0,0,0" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
 
-        <Controls:Tile Click="Tile_Click" Margin="75,28,726,552" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
+        <Controls:Tile Click="Tile_Click" Margin="294,22,507,558.333" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
             <Grid Height="100" Width="206">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="163*"/>
@@ -48,19 +48,6 @@
             </Grid>
         </Controls:Tile>
         <Image x:Name="image" HorizontalAlignment="Left" Height="132" Margin="906,27,0,0" VerticalAlignment="Top" Width="158" Source="imagenes/Minvu.png" Grid.Column="3" Grid.RowSpan="2"/>
-        <Controls:Tile Click="Tile_Click_2" Margin="479,8,310,533" Height="Auto" Width="Auto" Background="{x:Null}" Grid.Column="3" Grid.Row="1" >
-            <Grid Height="100" Width="206">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="163*"/>
-                    <ColumnDefinition Width="43*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.Background>
-                    <ImageBrush/>
-                </Grid.Background>
-                <Rectangle HorizontalAlignment="Left" Height="90" Margin="10,-10,0,0" Stroke="#FF006CB8" VerticalAlignment="Top" Width="196" Grid.ColumnSpan="2" StrokeThickness="3"/>
-                <Label x:Name="lblPost1" Content="  LISTADO DE&#xD;&#xA;POSTULANTES" HorizontalAlignment="Left" Margin="38,6,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"/>
-            </Grid>
-        </Controls:Tile>
 
 
 
