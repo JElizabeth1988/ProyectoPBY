@@ -24,6 +24,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class RegistroPostulante : MetroWindow
     {
+        Postulante p = new Postulante();
         public RegistroPostulante()
         {
             InitializeComponent();
@@ -113,6 +114,8 @@ namespace WpfApplication1
             cbTitulo.SelectedIndex = 0;
             dpFechaNac.SelectedDate = DateTime.Now;
             txtNumCargas.Text = "0";
+            txtMontoAhorro.Text = "0";
+            txtValorVivienda.Text = "0";
 
 
         }
@@ -127,22 +130,22 @@ namespace WpfApplication1
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (dpFechaNac.SelectedDate.Value < DateTime.Now.AddYears(-9))
+           
+                try
                 {
                     string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
                     if (run_postulante.Length == 11)
                     {
                         run_postulante = "0" + txtRut.Text + "-" + txtDvRut.Text;
+
                     }
+
                     string nombre = txtNombre.Text;
                     string apellido_paterno = txtApPaterno.Text;
                     string apellido_materno = txtApMaterno.Text;
-
                     DateTime fecha_nacimiento = dpFechaNac.SelectedDate.Value;
-
                     //int monto_ahorro = int.Parse(txtMontoAhorro.Text);
+
                     int monto_ahorro = 0;
                     if (int.TryParse(txtMontoAhorro.Text, out monto_ahorro))
                     {
@@ -150,8 +153,8 @@ namespace WpfApplication1
                     }
                     else
                     {
-                        /*await this.ShowMessageAsync("Mensaje:",
-                         string.Format("Ingrese un valor numérico"));
+                        /*await this.ShowMessageAsync("Error:",
+                         string.Format("- Ingreso no válido"));
                         txtNumCargas.Focus();*/
                         return;
                     }
@@ -163,25 +166,21 @@ namespace WpfApplication1
                     }
                     else
                     {
-                        /*await this.ShowMessageAsync("Mensaje:",
-                         string.Format("Ingrese un valor numérico"));
+                        /*await this.ShowMessageAsync("Error:",
+                         string.Format("- Ingreso no válido"));
                         txtNumCargas.Focus();*/
                         return;
                     }
-                    int valor_vivenda = 0;
-                    if (int.TryParse(txtValorVivienda.Text, out valor_vivenda))
+                    int valor_vivienda = 0;
+                    if (int.TryParse(txtValorVivienda.Text, out valor_vivienda))
                     {
 
                     }
                     else
                     {
-                        /*await this.ShowMessageAsync("Mensaje:",
-                         string.Format("Ingrese un valor numérico"));
-                        txtNumCargas.Focus();*/
+
                         return;
                     }
-
-
                     int id_pueblo = ((comboBoxItem)cbPueblo.SelectedItem).id;
                     int id_nacionalidad = ((comboBoxItem)cbNacionalidad.SelectedItem).id;
                     int id_estado_civil = ((comboBoxItem)cbEstadoCivil.SelectedItem).id;
@@ -191,8 +190,6 @@ namespace WpfApplication1
                     int id_titulo = ((comboBoxItem)cbReceptor.SelectedItem).id;
                     int id_vivienda = ((comboBoxItem)cbTipoVivienda.SelectedItem).id;
 
-
-
                     Postulante pos = new Postulante()
                     {
                         RUN_POSTULANTE = run_postulante,
@@ -201,7 +198,7 @@ namespace WpfApplication1
                         APELLIDO_MATERNO = apellido_materno,
                         FECHA_NACIMIENTO = fecha_nacimiento,
                         MONTO_AHORRO = monto_ahorro,
-                        VALOR_VIVIENDA = valor_vivenda,
+                        VALOR_VIVIENDA = valor_vivienda,
                         CARGAS_FAMILIARES = cargas_familiares,
                         ID_NACIONALIDAD = id_nacionalidad,
                         ID_ESTADO_CIVIL = id_estado_civil,
@@ -213,12 +210,11 @@ namespace WpfApplication1
                         ID_PUEBLO = id_pueblo
                     };
 
+                
+
                     bool resp = pos.Grabar();
                     await this.ShowMessageAsync("Mensaje:",
                                string.Format(resp ? "Guardado" : "No guardado"));
-
-
-
                     //-----------------------------------------------------------------------------------------------
                     //MOSTRAR LISTA DE ERRORES
                     if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
@@ -229,38 +225,43 @@ namespace WpfApplication1
                         {
                             li += item + " \n";
                         }
-                        await this.ShowMessageAsync("Mensaje1:",
+                        await this.ShowMessageAsync("Mensaje : ",
                             string.Format(li));
+                        
+
+                    btnPuntaje.Visibility = Visibility.Hidden;//Botón puntaje no se ve para q se pueda calcular
+                        btnGuardar.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        btnPuntaje.Visibility = Visibility.Visible;//Botón puntaje se ve para q se pueda calcular
+                        btnGuardar.Visibility = Visibility.Hidden;
                     }
 
 
                     //-----------------------------------------------------------------------------------------------
+               }
 
-                }
-
-
-                else
+                 catch (ArgumentException ex) //catch excepciones hechas por el usuario
                 {
-                    await this.ShowMessageAsync("Error:",
-                          string.Format("Postulante Menor de Edad"));
-                
+
+                await this.ShowMessageAsync("Mensaje:",
+
+                string.Format(ex.Message));
                 }
-        }
+                catch (Exception ex)
+                {
 
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Error de ingreso de datos"));
+                    Logger.Mensaje(ex.Message);
 
-            catch (ArgumentException ex) //catch excepciones hechas por el usuario
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format(ex.Message));
-            }
-            catch (Exception ex)
-            {
+                }
 
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error de ingreso de datos"));
-                Logger.Mensaje(ex.Message);
-
-            }
+            
+            
+           
+            
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

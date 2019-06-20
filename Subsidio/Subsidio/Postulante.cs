@@ -11,8 +11,7 @@ namespace BibliotecaNegocio
 {
     public class Postulante
     {
-        Errores err = new Errores();
-        public Errores retornar() { return err; }
+        
         private string _run_postulante;
 
         public string RUN_POSTULANTE
@@ -94,15 +93,16 @@ namespace BibliotecaNegocio
         public DateTime FECHA_NACIMIENTO
         {
             get { return _fecha_Nacimiento; }
-            set {
-                if (value != null)
+            set
+            {
+                if (value != null && value < DateTime.Now.AddYears(-9))
                 {
                     _fecha_Nacimiento = value;
                 }
                 else
                 {
                     //throw new ArgumentException("Campo fecha no puede estar Vacío");
-                    err.AgregarError("- Campo fecha no puede estar Vacío");
+                    err.AgregarError("- Postulante Menor de Edad");
                 }
             }
         }
@@ -112,8 +112,9 @@ namespace BibliotecaNegocio
         public int MONTO_AHORRO
         {
             get { return _monto_ahorro; }
-            set {
-                if (value >=8000000)
+            set
+            {
+                if (value >= 8000000)
                 {
                     _monto_ahorro = value;
                 }
@@ -122,7 +123,7 @@ namespace BibliotecaNegocio
                     //throw new ArgumentException("Monto Ahorro insuficiente");
                     err.AgregarError("- Monto de Ahorro Insuficiente");
                 }
-                 }
+            }
         }
 
 
@@ -149,17 +150,18 @@ namespace BibliotecaNegocio
         public int VALOR_VIVIENDA
         {
             get { return valor_vivienda; }
-            set {
-                    if(value != 0)
-                    {
-                        valor_vivienda = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Pueblo Originario no puede estar Vacío");
-                        err.AgregarError("-Campo valor de vivenda no puede estar vacío");
-                    }
+            set
+            {
+                if (value >= 25000000)
+                {
+                    valor_vivienda = value;
                 }
+                else
+                {
+                    //throw new ArgumentException("Campo no puede estar Vacío");
+                    err.AgregarError("-El valor de la vivienda debe ser sobre $25.000.000");
+                }
+            }
         }
 
 
@@ -293,7 +295,8 @@ namespace BibliotecaNegocio
             set { id_Pueblo = value; }
         }
 
-
+        Errores err = new Errores();
+        public Errores retornar() { return err; }
 
         public Postulante()
         {
