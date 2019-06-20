@@ -114,7 +114,8 @@ namespace WpfApplication1
             cbTitulo.SelectedIndex = 0;
             dpFechaNac.SelectedDate = DateTime.Now;
             txtNumCargas.Text = "0";
-           
+            //txtMontoAhorro.Text = "0";
+           // txtValorVivienda.Text = "0";
 
             btnPuntaje.Visibility = Visibility.Hidden;
         }
@@ -129,7 +130,11 @@ namespace WpfApplication1
         }
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {           
+        {
+            if (dpFechaNac.SelectedDate < DateTime.Now.AddYears(-9) &&
+                    int.Parse(txtMontoAhorro.Text) >= 8000000 &&
+                    int.Parse(txtValorVivienda.Text) >= 25000000)
+            {      
                 try
                 {
                     string run_postulante = txtRut.Text + "-" + txtDvRut.Text;
@@ -214,7 +219,7 @@ namespace WpfApplication1
                     bool resp = pos.Grabar();
                     await this.ShowMessageAsync("Mensaje:",
                                string.Format(resp ? "Guardado" : "No guardado"));
-                    //-----------------------------------------------------------------------------------------------
+                    
                     //MOSTRAR LISTA DE ERRORES
                     if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                     {
@@ -224,12 +229,13 @@ namespace WpfApplication1
                         {
                             li += item + " \n";
                         }
-                        await this.ShowMessageAsync("Mensaje : ",
-                            string.Format(li));
-                        
+                            await this.ShowMessageAsync("Mensaje : ",
+                                string.Format(li));
+                     
 
-                    btnPuntaje.Visibility = Visibility.Hidden;//Botón puntaje no se ve para q se pueda calcular
-                        btnGuardar.Visibility = Visibility.Visible;
+                            btnPuntaje.Visibility = Visibility.Hidden;//Botón puntaje no se ve para q se pueda calcular
+                            btnGuardar.Visibility = Visibility.Visible;
+                            return;
                     }
                     else
                     {
@@ -237,9 +243,7 @@ namespace WpfApplication1
                         btnGuardar.Visibility = Visibility.Hidden;
                     }
 
-
-                    //-----------------------------------------------------------------------------------------------
-               }
+                 }
 
                  catch (ArgumentException ex) //catch excepciones hechas por el usuario
                 {
@@ -256,7 +260,13 @@ namespace WpfApplication1
                     Logger.Mensaje(ex.Message);
 
                 }
-                        
+            }
+            else
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Error de ingreso de datos"));
+                
+            }
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -442,7 +452,7 @@ namespace WpfApplication1
             txtNumCargas.Text = "0";
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
-
+            btnPuntaje.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
             txtRut.IsEnabled = true;
         }
